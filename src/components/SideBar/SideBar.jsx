@@ -68,7 +68,7 @@ export default function Sidebar({
           <div className="text-[11px] font-semibold text-dim uppercase tracking-wider mb-2 mt-4">
             Recent Incidents
           </div>
-          {INCIDENTS.slice(0, 4).map((inc) => {
+          {INCIDENTS.slice(-4).map((inc) => {
             const borderColor =
               inc.severity === "CRITICAL" ? "#ef4444" :
               inc.severity === "HIGH"     ? "#f97316" : "#eab308";
