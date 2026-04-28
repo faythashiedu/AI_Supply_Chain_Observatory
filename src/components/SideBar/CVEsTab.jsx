@@ -20,7 +20,18 @@ export default function CVEsTab({ cves }) {
           style={{ borderLeftColor: SEVERITY_COLOR[cve.severity] || "#6b7280" }}
         >
           <div className="flex justify-between items-start gap-1.5 mb-1">
-            <span className="text-[11px] font-semibold text-blue-300 font-mono">{cve.id}</span>
+            {cve.refs?.[0] ? (
+              <a
+                href={cve.refs[0]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-semibold text-blue-300 font-mono hover:text-blue-200 hover:underline"
+              >
+                {cve.id} ↗
+              </a>
+            ) : (
+              <span className="text-[11px] font-semibold text-blue-300 font-mono">{cve.id}</span>
+            )}
             <div className="flex gap-1 flex-shrink-0">
               <span
                 className="text-[10px] px-1.5 py-0.5 rounded"
