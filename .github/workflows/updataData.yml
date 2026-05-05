@@ -1,0 +1,48 @@
+name: Update Supply Chain Data
+
+on:
+  schedule:
+    # Runs every Monday at 2am UTC
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+    # Also allows manual trigger from GitHub Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # needed to commit updated JSON back to repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run updater
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/updateData.py
+
+      - name: Check if data changed
+        id: diff
+        run: |
+          git diff --quiet src/data/rawData.json \
+            && echo "changed=false" >> $GITHUB_OUTPUT \
+            || echo "changed=true"  >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated data
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/rawData.json
+          git commit -m "chore: update supply chain data $(date -u +'%Y-%m-%d')"
+          git push
