@@ -38,11 +38,22 @@ jobs:
             && echo "changed=false" >> $GITHUB_OUTPUT \
             || echo "changed=true"  >> $GITHUB_OUTPUT
 
-      - name: Commit and push updated data
+      - name: Commit and push to update branch
         if: steps.diff.outputs.changed == 'true'
         run: |
+          BRANCH="data-update"
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B $BRANCH
           git add src/data/rawData.json
           git commit -m "chore: update supply chain data $(date -u +'%Y-%m-%d')"
-          git push
+          git push -f origin $BRANCH
+          
+      - name: Create Pull Request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data-update
+          title: "chore: update supply chain data"
+          body: "Automated update"

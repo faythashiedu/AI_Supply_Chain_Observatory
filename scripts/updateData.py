@@ -1,219 +1,242 @@
+#!/usr/bin/env python3
 """
-AI Supply Chain Observatory - Live Data Updater
-Fetches real-time CVEs, package data, and incidents.
-Maintains existing merged format. Run via GitHub Actions daily.
+AI Supply Chain Observatory — Data Updater
+==========================================
+Additive-only. Never removes or overwrites curated data.
+
+What it does:
+  1. Updates: version, downloads, maintainer, last_updated on existing packages
+  2. Appends: new CVEs not already present (matched by ID)
+  3. Adds:    brand-new packages from PyPI+OSV if AI/ML relevant, in exact format
+  4. Recomputes blast_radius after any structural changes
+
+What it NEVER touches on existing packages:
+  label, group, deps, risk_score, description, incidents
+
+Usage:
+  python scripts/update_supply_chain.py
+  python scripts/update_supply_chain.py --add llmguard presidio-analyzer
+  python scripts/update_supply_chain.py --dry-run
 """
 
-import requests
-import json
-import os
 import re
-from datetime import datetime
-from typing import List, Dict, Optional
+import os
+import sys
+import json
 import time
+import logging
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Optional
 
-# ── Package list ──────────────────────────────────────────────────────────────
+try:
+    import requests
+    from requests.adapters import HTTPAdapter
+    from urllib3.util.retry import Retry
+except ImportError:
+    sys.exit("Missing dependency: pip install requests")
 
-AI_PACKAGES = [
-    # Provider SDKs
-    "openai", "anthropic", "google-generativeai", "cohere", "mistralai",
-    # Agent frameworks
-    "langchain", "langchain-core", "langchain-community",
-    "llama-index", "llama-index-core",
-    "crewai", "autogen-agentchat", "smolagents", "dspy-ai",
-    "haystack-ai", "semantic-kernel",
-    # ML frameworks
-    "torch", "tensorflow", "jax", "keras",
-    # AI libraries
-    "transformers", "sentence-transformers", "diffusers",
-    "peft", "trl", "accelerate", "datasets", "huggingface-hub",
-    "timm", "torchvision", "evaluate",
-    # Vector DBs
-    "chromadb", "pinecone-client", "weaviate-client",
-    "qdrant-client", "lancedb",
-    # AI tooling
-    "safetensors", "tiktoken", "tokenizers", "sentencepiece",
-    "onnx", "onnxruntime", "bitsandbytes", "einops", "litellm",
-    # Serving / infra
-    "vllm", "ollama", "ray", "gradio", "streamlit",
-    "fastapi", "uvicorn", "celery", "grpcio",
-    "mlflow", "wandb", "bentoml",
-    # MCP
-    "mcp",
-    # Core scientific
-    "numpy", "pandas", "scipy", "scikit-learn",
-    "matplotlib", "pillow", "joblib", "pyarrow", "sympy",
-    # Utilities
-    "requests", "httpx", "urllib3", "certifi", "pydantic",
-    "pyyaml", "protobuf", "packaging", "tqdm", "filelock",
-    "aiohttp", "tenacity", "cryptography", "jinja2",
-    "sqlalchemy", "fsspec", "paramiko",
-    # Provider infra
-    "boto3",
+# ── Logging ───────────────────────────────────────────────────────────────────
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-8s  %(message)s",
+    datefmt="%H:%M:%S",
+)
+log = logging.getLogger("observatory")
+
+# ── Constants ─────────────────────────────────────────────────────────────────
+
+PYPI_BASE  = "https://pypi.org/pypi"
+PYPISTATS  = "https://pypistats.org/api/packages"
+OSV_URL    = "https://api.osv.dev/v1/query"
+GH_GRAPHQL = "https://api.github.com/graphql"
+TIMEOUT    = 15
+RATE_LIMIT = 0.35   # seconds between requests — polite to public APIs
+
+# ── Layer inference rules ─────────────────────────────────────────────────────
+# Ordered — first match wins
+
+LAYER_RULES = [
+    (["cuda", "gpu", "nvidia", "rocm", "opencl", "tpu"],                     "hardware"),
+    (["model context protocol", " mcp "],                                     "mcp"),
+    (["agent framework", "multi-agent", "autonomous agent", "orchestrat"],    "agent"),
+    (["openai", "anthropic", "cohere", "mistral", "gemini", "groq",
+      "llm api", "language model api", "provider sdk"],                       "provider"),
+    (["vector database", "vector store", "similarity search",
+      "approximate nearest", " ann ", "embedding store"],                     "vector-db"),
+    (["model serving", "inference server", "llm serving", "deploy model"],   "infra"),
+    (["chatbot ui", "llm application", "workflow builder", "ai platform"],    "app"),
+    (["hugging face", "huggingface", "diffusion model",
+      "fine-tun", "rlhf", "lora adapter"],                                   "ai-lib"),
+    (["tokenizer", "tokenization", "safetensor", "onnx", "quantiz",
+      "model format"],                                                         "ai-tool"),
+    (["deep learning", "neural network", "gradient boost",
+      "machine learning framework"],                                           "framework"),
+    (["scientific computing", "numerical", "linear algebra",
+      "image processing", "signal processing"],                               "core"),
 ]
 
-# ── Layer mapping ─────────────────────────────────────────────────────────────
+AI_ML_SIGNALS = [
+    "machine learning", "deep learning", "neural network", "large language",
+    "llm", "language model", "artificial intelligence", " ai ", "transformer",
+    "embedding", "vector", "inference", "training", "model weights", "gpu",
+    "cuda", "hugging face", "openai", "anthropic", "diffusion", "generative",
+    "rag", "retrieval augmented", "agent", "tokenizer", "fine-tun", "pytorch",
+    "tensorflow", "jax", "onnx", "chatgpt", "llama",
+]
 
-LAYER_MAP = {
-    "openai": "provider", "anthropic": "provider", "google-generativeai": "provider",
-    "cohere": "provider", "mistralai": "provider", "boto3": "provider",
-    "litellm": "provider",
-    "langchain": "agent", "langchain-core": "agent", "langchain-community": "agent",
-    "llama-index": "agent", "llama-index-core": "agent",
-    "crewai": "agent", "autogen-agentchat": "agent", "smolagents": "agent",
-    "dspy-ai": "agent", "haystack-ai": "agent", "semantic-kernel": "agent",
-    "torch": "framework", "tensorflow": "framework", "jax": "framework",
-    "keras": "framework",
-    "transformers": "ai-lib", "sentence-transformers": "ai-lib",
-    "diffusers": "ai-lib", "peft": "ai-lib", "trl": "ai-lib",
-    "accelerate": "ai-lib", "datasets": "ai-lib", "huggingface-hub": "ai-lib",
-    "timm": "ai-lib", "torchvision": "ai-lib", "evaluate": "ai-lib",
-    "chromadb": "vector-db", "pinecone-client": "vector-db",
-    "weaviate-client": "vector-db", "qdrant-client": "vector-db",
-    "lancedb": "vector-db",
-    "safetensors": "ai-tool", "tiktoken": "ai-tool", "tokenizers": "ai-tool",
-    "sentencepiece": "ai-tool", "onnx": "ai-tool", "onnxruntime": "ai-tool",
-    "bitsandbytes": "ai-tool", "einops": "ai-tool",
-    "vllm": "infra", "ollama": "infra", "ray": "infra",
-    "gradio": "infra", "streamlit": "infra", "fastapi": "infra",
-    "uvicorn": "infra", "celery": "infra", "grpcio": "infra",
-    "mlflow": "app", "wandb": "app", "bentoml": "app",
-    "mcp": "mcp",
-    "numpy": "core", "pandas": "core", "scipy": "core",
-    "scikit-learn": "core", "matplotlib": "core", "pillow": "core",
-    "joblib": "core", "pyarrow": "core", "sympy": "core",
-}
+# HTTP session with retries
 
-# Anything not in LAYER_MAP falls back to "util"
+def make_session() -> requests.Session:
+    session = requests.Session()
+    retry = Retry(
+        total=3,
+        backoff_factor=1.5,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET", "POST"],
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://",  adapter)
+    session.headers["User-Agent"] = "ai-supply-chain-observatory/1.0 (github-actions)"
+    return session
 
-# ── Label overrides ───────────────────────────────────────────────────────────
+SESSION = make_session()
 
-LABEL_MAP = {
-    "openai": "OpenAI SDK", "anthropic": "Anthropic SDK",
-    "google-generativeai": "Google GenAI", "cohere": "Cohere SDK",
-    "mistralai": "Mistral SDK", "boto3": "boto3 (Bedrock)",
-    "litellm": "LiteLLM", "langchain": "LangChain",
-    "langchain-core": "LangChain Core", "langchain-community": "LC Community",
-    "llama-index": "LlamaIndex", "llama-index-core": "LlamaIndex Core",
-    "crewai": "CrewAI", "autogen-agentchat": "AutoGen",
-    "smolagents": "smolagents", "dspy-ai": "DSPy",
-    "haystack-ai": "Haystack", "semantic-kernel": "Semantic Kernel",
-    "torch": "PyTorch", "tensorflow": "TensorFlow", "jax": "JAX",
-    "keras": "Keras", "transformers": "Transformers",
-    "sentence-transformers": "Sentence-Transformers",
-    "diffusers": "Diffusers", "peft": "PEFT", "trl": "TRL",
-    "accelerate": "Accelerate", "datasets": "Datasets",
-    "huggingface-hub": "HF Hub", "timm": "timm",
-    "torchvision": "torchvision", "evaluate": "Evaluate",
-    "chromadb": "ChromaDB", "pinecone-client": "Pinecone",
-    "weaviate-client": "Weaviate", "qdrant-client": "Qdrant",
-    "lancedb": "LanceDB", "safetensors": "safetensors",
-    "tiktoken": "tiktoken", "tokenizers": "Tokenizers",
-    "sentencepiece": "SentencePiece", "onnx": "ONNX",
-    "onnxruntime": "ONNX Runtime", "bitsandbytes": "bitsandbytes",
-    "einops": "einops", "vllm": "vLLM", "ollama": "Ollama",
-    "ray": "Ray", "gradio": "Gradio", "streamlit": "Streamlit",
-    "fastapi": "FastAPI", "uvicorn": "uvicorn", "celery": "Celery",
-    "grpcio": "gRPC", "mlflow": "MLflow", "wandb": "Weights & Biases",
-    "bentoml": "BentoML", "mcp": "MCP SDK", "numpy": "NumPy",
-    "pandas": "Pandas", "scipy": "SciPy", "scikit-learn": "scikit-learn",
-    "matplotlib": "Matplotlib", "pillow": "Pillow", "joblib": "joblib",
-    "pyarrow": "PyArrow", "sympy": "SymPy", "requests": "Requests",
-    "httpx": "HTTPX", "urllib3": "urllib3", "certifi": "certifi",
-    "pydantic": "Pydantic", "pyyaml": "PyYAML", "protobuf": "Protobuf",
-    "packaging": "packaging", "tqdm": "tqdm", "filelock": "filelock",
-    "aiohttp": "aiohttp", "tenacity": "tenacity",
-    "cryptography": "cryptography", "jinja2": "Jinja2",
-    "sqlalchemy": "SQLAlchemy", "fsspec": "fsspec", "paramiko": "paramiko",
-}
+# ── Helpers ───────────────────────────────────────────────────────────────────
 
-# ── Colors (kept stable — do not auto-generate) ───────────────────────────────
+def now_iso() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-GROUP_COLORS = {
-    "hardware":  { "fill": "#1a6bbd", "stroke": "#5ab0ff", "text": "#e8f4ff", "glow": "#3a8fff" },
-    "core":      { "fill": "#6b2fcc", "stroke": "#b47aff", "text": "#f0e8ff", "glow": "#9955ff" },
-    "util":      { "fill": "#2a4fcc", "stroke": "#7a9fff", "text": "#e8eeff", "glow": "#5577ff" },
-    "framework": { "fill": "#0d8a6a", "stroke": "#2effc0", "text": "#e0fff6", "glow": "#00ddaa" },
-    "ai-lib":    { "fill": "#991aaa", "stroke": "#ee66ff", "text": "#ffe8ff", "glow": "#dd44ff" },
-    "vector-db": { "fill": "#6620aa", "stroke": "#bb77ff", "text": "#f0e4ff", "glow": "#9944ee" },
-    "ai-tool":   { "fill": "#1a7a40", "stroke": "#44ff88", "text": "#e0ffe8", "glow": "#22ee66" },
-    "provider":  { "fill": "#aa6a00", "stroke": "#ffcc33", "text": "#fff8e0", "glow": "#ffaa00" },
-    "infra":     { "fill": "#007a7a", "stroke": "#00ffee", "text": "#e0fffd", "glow": "#00ddcc" },
-    "agent":     { "fill": "#aa1a40", "stroke": "#ff4488", "text": "#ffe0ea", "glow": "#ff2266" },
-    "mcp":       { "fill": "#5a8800", "stroke": "#aaee22", "text": "#f4ffe0", "glow": "#88dd00" },
-    "app":       { "fill": "#cc4400", "stroke": "#ff8833", "text": "#fff0e0", "glow": "#ff6600" }
-}
-
-LAYERS = {
-    "hardware":  { "name": "Hardware & Compute",       "color": "#5ab0ff", "order": 0   },
-    "core":      { "name": "Core Scientific",           "color": "#b47aff", "order": 1   },
-    "util":      { "name": "Utilities & Networking",    "color": "#7a9fff", "order": 1.5 },
-    "framework": { "name": "ML Frameworks",             "color": "#2effc0", "order": 2   },
-    "ai-lib":    { "name": "AI Libraries",              "color": "#ee66ff", "order": 3   },
-    "vector-db": { "name": "Vector Databases",          "color": "#bb77ff", "order": 3.5 },
-    "ai-tool":   { "name": "AI Tooling",                "color": "#44ff88", "order": 4   },
-    "provider":  { "name": "Provider SDKs",             "color": "#ffcc33", "order": 4.5 },
-    "infra":     { "name": "Serving & Infra",           "color": "#00ffee", "order": 5   },
-    "agent":     { "name": "Agent Frameworks",          "color": "#ff4488", "order": 6   },
-    "mcp":       { "name": "MCP & Tool Layer",          "color": "#aaee22", "order": 6.5 },
-    "app":       { "name": "Applications & Platforms",  "color": "#ff8833", "order": 7   }
-}
-
-
-# Helpers 
 
 def parse_dep_name(raw: str) -> str:
-    """Extract clean package name from a raw requirement string."""
-    name = re.split(r"[<>=!,;\s\[\(]", raw)[0].strip().lower()
-    return name
+    """Strip version constraints and extras from a requirement string."""
+    return re.split(r"[<>=!,;\s\[\(]", raw)[0].strip().lower()
 
 
 def normalise_severity(raw: str) -> str:
-    mapping = {
-        "CRITICAL": "CRITICAL", "HIGH": "HIGH",
-        "MODERATE": "MEDIUM",   "MEDIUM": "MEDIUM",
-        "LOW": "LOW",           "UNKNOWN": "MEDIUM",
+    return {
+        "CRITICAL": "CRITICAL", "HIGH":     "HIGH",
+        "MODERATE": "HIGH",     "MEDIUM":   "MEDIUM",
+        "LOW":      "LOW",
+    }.get((raw or "").upper(), "MEDIUM")
+
+
+def severity_to_score(sev: str) -> float:
+    return {"CRITICAL": 9.5, "HIGH": 7.5, "MEDIUM": 5.5, "LOW": 3.0}.get(sev, 5.0)
+
+
+def infer_group(info: dict) -> tuple[str, bool]:
+    """
+    Returns (group, needs_review).
+    needs_review=True when no rule matched and we fell back to util.
+    """
+    blob = " ".join([
+        info.get("name", ""),
+        info.get("summary", "") or "",
+        info.get("keywords", "") or "",
+        " ".join(info.get("classifiers", [])),
+    ]).lower()
+
+    for signals, group in LAYER_RULES:
+        if any(s in blob for s in signals):
+            return group, False
+
+    return "util", True
+
+
+def is_ai_ml_relevant(info: dict) -> bool:
+    blob = " ".join([
+        info.get("name", ""),
+        info.get("summary", "") or "",
+        info.get("keywords", "") or "",
+        " ".join(info.get("classifiers", [])),
+    ]).lower()
+    return any(sig in blob for sig in AI_ML_SIGNALS)
+
+
+def humanize_label(pkg_id: str) -> str:
+    OVERRIDES = {
+        "scikit-learn": "scikit-learn",       "huggingface-hub": "HuggingFace Hub",
+        "sentence-transformers": "Sentence Transformers",
+        "langchain-core": "LangChain Core",   "langchain-community": "LangChain Community",
+        "llama-index": "LlamaIndex",           "llama-index-core": "LlamaIndex Core",
+        "openai-agents-sdk": "OpenAI Agents SDK",
+        "google-generativeai": "Google GenAI","onnxruntime": "ONNX Runtime",
+        "mcp-sdk": "MCP Python SDK",           "llama-cpp-python": "llama.cpp Python",
+        "tensorrt-llm": "TensorRT-LLM",        "pyyaml": "PyYAML",
+        "opencv-python": "OpenCV",             "open-webui": "Open WebUI",
     }
-    return mapping.get((raw or "").upper(), "MEDIUM")
+    return OVERRIDES.get(pkg_id, pkg_id.replace("-", " ").replace("_", " ").title())
 
 
-def calculate_risk_score(cves: list, dep_count: int) -> int:
-    score = 0
-    for cve in cves:
-        s = (cve.get("severity") or "LOW").upper()
-        score += {"CRITICAL": 40, "HIGH": 25, "MEDIUM": 10, "LOW": 5}.get(s, 5)
-    score += min(dep_count * 2, 30)
-    return min(score, 100)
+# ── CVE helpers ───────────────────────────────────────────────────────────────
+
+def osv_to_cve(v: dict) -> dict:
+    """Convert a raw OSV vulnerability object to merged_supply_chain CVE format."""
+    aliases = v.get("aliases", [])
+    cve_id  = next((a for a in aliases if a.startswith("CVE-")), v.get("id", "UNKNOWN"))
+
+    sev_raw = (
+        v.get("database_specific", {}).get("severity")
+        or next(
+            (s.get("score", "") for s in v.get("severity", [])
+             if s.get("type") in ("CVSS_V3", "CVSS_V4")),
+            "MEDIUM",
+        )
+    )
+    sev = normalise_severity(sev_raw)
+
+    published = v.get("published", "")
+    year = int(published[:4]) if published and len(published) >= 4 else datetime.now().year
+
+    return {
+        "id":       cve_id,
+        "severity": sev,
+        "score":    severity_to_score(sev),
+        "desc":     (v.get("summary") or v.get("details") or "")[:300],
+        "year":     year,
+        "refs":     [r["url"] for r in v.get("references", []) if r.get("url")][:3],
+    }
+
+
+def merge_cves(existing: list, incoming: list) -> tuple[list, int]:
+    """
+    Append incoming CVEs not already in existing (matched by id).
+    Existing entries are NEVER modified.
+    Returns (merged_list, count_added).
+    """
+    seen   = {c["id"] for c in existing}
+    merged = list(existing)
+    added  = 0
+    for cve in incoming:
+        if cve["id"] not in seen:
+            merged.append(cve)
+            seen.add(cve["id"])
+            added += 1
+    return merged, added
 
 
 # ── API fetchers ──────────────────────────────────────────────────────────────
 
-def fetch_pypi(package_name: str) -> Optional[Dict]:
+def fetch_pypi(name: str) -> Optional[dict]:
     try:
-        r = requests.get(f"https://pypi.org/pypi/{package_name}/json", timeout=10)
-        if r.status_code != 200:
+        r = SESSION.get(f"{PYPI_BASE}/{name}/json", timeout=TIMEOUT)
+        if r.status_code == 404:
+            log.warning(f"PyPI 404: {name}")
             return None
-        info = r.json()["info"]
-        return {
-            "version":     info["version"],
-            "description": (info.get("summary") or "").strip(),
-            "author":      info.get("author") or info.get("maintainer") or "Unknown",
-            "license":     info.get("license") or "Unknown",
-            "deps":        list({parse_dep_name(d)
-                                 for d in (info.get("requires_dist") or [])
-                                 if d and "extra ==" not in d}),
-        }
+        r.raise_for_status()
+        return r.json().get("info", {})
     except Exception as e:
-        print(f"  PyPI error ({package_name}): {e}")
+        log.error(f"PyPI error ({name}): {e}")
         return None
 
 
-def fetch_downloads(package_name: str) -> int:
+def fetch_downloads(name: str) -> int:
     try:
-        r = requests.get(
-            f"https://pypistats.org/api/packages/{package_name}/recent",
-            timeout=10,
-        )
+        r = SESSION.get(f"{PYPISTATS}/{name}/recent", timeout=TIMEOUT)
         if r.status_code == 200:
             return r.json().get("data", {}).get("last_month", 0)
     except Exception:
@@ -221,54 +244,28 @@ def fetch_downloads(package_name: str) -> int:
     return 0
 
 
-def fetch_osv(package_name: str) -> List[Dict]:
+def fetch_osv(name: str) -> list:
     try:
-        r = requests.post(
-            "https://api.osv.dev/v1/query",
-            json={"package": {"name": package_name, "ecosystem": "PyPI"}},
-            timeout=15,
+        r = SESSION.post(
+            OSV_URL,
+            json={"package": {"name": name, "ecosystem": "PyPI"}},
+            timeout=TIMEOUT,
         )
-        if r.status_code != 200:
-            return []
-        vulns = []
-        for v in r.json().get("vulns", []):
-            # Pull CVSS score if present
-            score = None
-            for s in v.get("severity", []):
-                if s.get("type") in ("CVSS_V3", "CVSS_V2"):
-                    try:
-                        score = float(s.get("score", "").split("/")[0])
-                    except Exception:
-                        pass
-                    break
-
-            severity_raw = (
-                v.get("database_specific", {}).get("severity")
-                or v.get("affected", [{}])[0]
-                   .get("database_specific", {})
-                   .get("severity", "MEDIUM")
-            )
-
-            vulns.append({
-                "id":       v.get("id", "UNKNOWN"),
-                "severity": normalise_severity(severity_raw),
-                "score":    score,
-                "desc":     v.get("summary", "No description available"),
-                "year":     int(v["published"][:4]) if v.get("published") else None,
-                "refs":     [ref.get("url") for ref in v.get("references", []) if ref.get("url")],
-            })
-        return vulns
+        r.raise_for_status()
+        return [osv_to_cve(v) for v in r.json().get("vulns", [])]
     except Exception as e:
-        print(f"  OSV error ({package_name}): {e}")
+        log.error(f"OSV error ({name}): {e}")
         return []
 
 
-def fetch_github_advisories(package_name: str, token: Optional[str]) -> List[Dict]:
+def fetch_github_advisories(name: str, token: Optional[str]) -> list:
+    """Optional enrichment — only runs when GITHUB_TOKEN is present."""
     if not token:
         return []
     query = """
     query($pkg: String!) {
-      securityVulnerabilities(first: 10, ecosystem: PIP, package: $pkg) {
+      securityVulnerabilities(first: 20, ecosystem: PIP, package: $pkg,
+                              orderBy: {field: UPDATED_AT, direction: DESC}) {
         nodes {
           advisory {
             ghsaId summary severity publishedAt
@@ -280,193 +277,284 @@ def fetch_github_advisories(package_name: str, token: Optional[str]) -> List[Dic
     }
     """
     try:
-        r = requests.post(
-            "https://api.github.com/graphql",
-            json={"query": query, "variables": {"pkg": package_name}},
+        r = SESSION.post(
+            GH_GRAPHQL,
+            json={"query": query, "variables": {"pkg": name}},
             headers={"Authorization": f"Bearer {token}"},
-            timeout=15,
+            timeout=TIMEOUT,
         )
-        if r.status_code != 200:
-            return []
-        advisories = []
+        r.raise_for_status()
         nodes = (
             r.json()
              .get("data", {})
              .get("securityVulnerabilities", {})
              .get("nodes", [])
         )
+        results = []
         for node in nodes:
             adv = node.get("advisory", {})
-            advisories.append({
-                "id":       adv.get("ghsaId", "UNKNOWN"),
-                "severity": normalise_severity(adv.get("severity", "MEDIUM")),
-                "score":    adv.get("cvss", {}).get("score"),
-                "desc":     adv.get("summary", ""),
-                "year":     int(adv["publishedAt"][:4]) if adv.get("publishedAt") else None,
-                "refs":     [ref.get("url") for ref in adv.get("references", []) if ref.get("url")],
+            if not adv.get("ghsaId"):
+                continue
+            sev = normalise_severity(adv.get("severity", "MEDIUM"))
+            published = adv.get("publishedAt", "")
+            results.append({
+                "id":       adv["ghsaId"],
+                "severity": sev,
+                "score":    adv.get("cvss", {}).get("score") or severity_to_score(sev),
+                "desc":     (adv.get("summary") or "")[:300],
+                "year":     int(published[:4]) if published else datetime.now().year,
+                "refs":     [r["url"] for r in adv.get("references", []) if r.get("url")][:3],
             })
-        return advisories
+        return results
     except Exception as e:
-        print(f"  GitHub Advisory error ({package_name}): {e}")
+        log.error(f"GitHub Advisory error ({name}): {e}")
         return []
 
 
-def merge_cves(existing: List[Dict], fresh: List[Dict]) -> List[Dict]:
-    """
-    Merge fresh CVEs into existing list.
-    - Existing entries are kept as-is (preserves manual curation).
-    - New IDs are appended.
-    - No duplicates by id.
-    """
-    seen = {c["id"] for c in existing}
-    merged = list(existing)
-    for cve in fresh:
-        if cve["id"] not in seen:
-            merged.append(cve)
-            seen.add(cve["id"])
-    return merged
+# ── Blast radius BFS ──────────────────────────────────────────────────────────
 
-
-def compute_blast_radii(packages: List[Dict]) -> None:
-    """BFS on reversed dependency graph. Mutates packages in-place."""
-    # Build reverse adjacency: target → list of sources that depend on it
-    dependents: Dict[str, List[str]] = {p["id"]: [] for p in packages}
+def recompute_blast_radii(packages: list) -> None:
+    """
+    BFS on reversed dependency graph.
+    blast_radius.total_affected = packages that transitively depend on this one.
+    Mutates packages in-place.
+    """
     pkg_ids = {p["id"] for p in packages}
 
+    dependents: dict[str, set] = {p["id"]: set() for p in packages}
     for pkg in packages:
         for dep in pkg.get("deps", []):
             if dep in pkg_ids:
-                dependents[dep].append(pkg["id"])
+                dependents[dep].add(pkg["id"])
 
     for pkg in packages:
-        visited = set()
-        queue = [pkg["id"]]
-        depth = 0
-        frontier = [pkg["id"]]
+        visited  = set()
+        frontier = {pkg["id"]}
+        depth    = 0
 
         while frontier:
-            next_frontier = []
+            next_frontier = set()
             for node in frontier:
                 if node in visited:
                     continue
                 visited.add(node)
-                for dependent in dependents.get(node, []):
-                    if dependent not in visited:
-                        next_frontier.append(dependent)
+                next_frontier.update(dependents.get(node, set()) - visited)
             if next_frontier:
                 depth += 1
             frontier = next_frontier
 
         pkg["blast_radius"] = {
-            "total_affected": len(visited) - 1,  # exclude self
+            "total_affected": len(visited) - 1,
             "cascade_depth":  depth,
         }
 
 
-# ── Main updater ──────────────────────────────────────────────────────────────
+#  New package builder
 
-def update(existing_path: str, output_path: str) -> None:
-    github_token = os.getenv("GITHUB_TOKEN")
+def build_new_package(pkg_id: str, info: dict, cves: list, known_ids: set) -> dict:
+    group, needs_review = infer_group(info)
 
-    # Load existing data so we can preserve manually curated fields
-    existing_pkg_map: Dict[str, Dict] = {}
-    if os.path.exists(existing_path):
-        with open(existing_path) as f:
-            existing_data = json.load(f)
-        for p in existing_data.get("packages", []):
-            existing_pkg_map[p["id"]] = p
-        print(f"Loaded {len(existing_pkg_map)} existing packages from {existing_path}")
-    else:
-        existing_data = {}
-        print("No existing data file found — building from scratch")
+    raw_deps = info.get("requires_dist") or []
+    deps = list(dict.fromkeys(
+        parsed
+        for raw in raw_deps
+        if "extra ==" not in raw
+        for parsed in [parse_dep_name(raw)]
+        if parsed and parsed != pkg_id and parsed in known_ids
+    ))[:15]
 
-    packages = []
-    total_new_cves = 0
-
-    for i, pkg_id in enumerate(AI_PACKAGES, 1):
-        print(f"[{i}/{len(AI_PACKAGES)}] {pkg_id}")
-
-        pypi = fetch_pypi(pkg_id)
-        if not pypi:
-            print(f"  Skipping — PyPI fetch failed")
-            # Keep existing entry if we have it
-            if pkg_id in existing_pkg_map:
-                packages.append(existing_pkg_map[pkg_id])
-            continue
-
-        downloads = fetch_downloads(pkg_id)
-        time.sleep(0.3)  # be polite to pypistats
-
-        # Fetch fresh CVEs
-        osv_cves = fetch_osv(pkg_id)
-        gh_cves  = fetch_github_advisories(pkg_id, github_token)
-        time.sleep(0.5)
-
-        # Merge with existing CVEs (preserves manual curation, deduplicates)
-        existing_cves = existing_pkg_map.get(pkg_id, {}).get("cves", [])
-        fresh_cves    = osv_cves + gh_cves
-        merged_cves   = merge_cves(existing_cves, fresh_cves)
-
-        new_count = len(merged_cves) - len(existing_cves)
-        if new_count > 0:
-            print(f"  +{new_count} new CVE(s)")
-            total_new_cves += new_count
-
-        # Resolve deps to only known package IDs
-        known_ids    = set(AI_PACKAGES)
-        resolved_deps = [d for d in pypi["deps"] if d in known_ids]
-
-        pkg_entry = {
-            # Identity
-            "id":          pkg_id,
-            "label":       LABEL_MAP.get(pkg_id, pkg_id),
-            "group":       LAYER_MAP.get(pkg_id, "util"),
-            # Live data
-            "version":     pypi["version"],
-            "description": pypi["description"],
-            "maintainer":  pypi["author"],
-            "license":     pypi["license"],
-            "downloads":   downloads,
-            "deps":        resolved_deps,
-            # Security
-            "cves":        merged_cves,
-            "risk_score":  calculate_risk_score(merged_cves, len(resolved_deps)),
-            # Blast radius filled in below
-            "blast_radius": {"total_affected": 0, "cascade_depth": 0},
-            # Preserve any manually curated incidents field
-            "incidents":   existing_pkg_map.get(pkg_id, {}).get("incidents", []),
-            "last_updated": datetime.utcnow().isoformat() + "Z",
-        }
-
-        packages.append(pkg_entry)
-
-    # Compute blast radii after all packages are assembled
-    print("\nComputing blast radii...")
-    compute_blast_radii(packages)
-
-    output = {
-        "metadata": {
-            "generated_at":    datetime.utcnow().isoformat() + "Z",
-            "total_packages":  len(packages),
-            "total_cves":      sum(len(p["cves"]) for p in packages),
-            "new_cves_this_run": total_new_cves,
-            "description":     "AI/ML supply chain data — auto-updated daily",
-            "data_sources":    ["PyPI", "OSV.dev", "GitHub Security Advisories", "Manual Curation"],
-        },
-        "layers":       LAYERS,
-        "group_colors": GROUP_COLORS,
-        "packages":     packages,
+    pkg = {
+        "id":           pkg_id,
+        "label":        humanize_label(pkg_id),
+        "group":        group,
+        "downloads":    0,
+        "version":      info.get("version", ""),
+        "maintainer":   info.get("maintainer") or info.get("author") or "Unknown",
+        "license":      info.get("license") or "",
+        "description":  (info.get("summary") or "")[:200],
+        "deps":         deps,
+        "cves":         cves,
+        "risk_score":   0,           # manual curation required
+        "blast_radius": {"total_affected": 0, "cascade_depth": 0},
+        "last_updated": now_iso(),
     }
 
-    with open(output_path, "w") as f:
-        json.dump(output, f, indent=2)
+    if needs_review:
+        pkg["needs_review"] = True
 
-    print(f"\nDone — {len(packages)} packages, {output['metadata']['total_cves']} CVEs total, {total_new_cves} new this run")
-    print(f"Saved to {output_path}")
+    return pkg
 
+
+#  Update existing package (non-destructive)
+
+def update_existing(pkg: dict, info: dict, fresh_cves: list) -> list[str]:
+    """Update only non-curated fields. Returns list of human-readable changes."""
+    changes = []
+
+    new_ver = info.get("version", "")
+    if new_ver and new_ver != pkg.get("version"):
+        pkg["version"] = new_ver
+        changes.append(f"version→{new_ver}")
+
+    if pkg.get("maintainer") in ("", "Unknown", None):
+        new_maint = info.get("maintainer") or info.get("author") or ""
+        if new_maint and new_maint != "Unknown":
+            pkg["maintainer"] = new_maint
+            changes.append(f"maintainer→{new_maint}")
+
+    merged, added = merge_cves(pkg.get("cves", []), fresh_cves)
+    if added:
+        pkg["cves"] = merged
+        changes.append(f"+{added} CVE(s)")
+
+    pkg["last_updated"] = now_iso()
+    return changes
+
+
+#  Main 
+
+def run(data_path: Path, new_packages: list, dry_run: bool) -> None:
+    log.info(f"Loading {data_path}")
+    with open(data_path) as f:
+        data = json.load(f)
+
+    packages  = data["packages"]
+    pkg_map   = {p["id"]: p for p in packages}
+    known_ids = set(pkg_map.keys())
+
+    github_token = os.getenv("GITHUB_TOKEN")
+    if github_token:
+        log.info("GITHUB_TOKEN present — GitHub Advisory enrichment enabled")
+    else:
+        log.info("No GITHUB_TOKEN — using PyPI + OSV only")
+
+    stats = {"updated": 0, "cves_added": 0, "pkgs_added": 0, "skipped": 0, "needs_review": 0}
+
+    # 1. Refresh existing packages 
+    log.info(f"\nRefreshing {len(packages)} existing packages...")
+
+    for pkg in packages:
+        pid = pkg["id"]
+
+        info = fetch_pypi(pid)
+        time.sleep(RATE_LIMIT)
+        if not info:
+            stats["skipped"] += 1
+            continue
+
+        downloads = fetch_downloads(pid)
+        if downloads:
+            pkg["downloads"] = downloads
+        time.sleep(RATE_LIMIT)
+
+        fresh_cves  = fetch_osv(pid)
+        fresh_cves += fetch_github_advisories(pid, github_token)
+        time.sleep(RATE_LIMIT)
+
+        changes = update_existing(pkg, info, fresh_cves)
+        if changes:
+            log.info(f"  {pid:35} {', '.join(changes)}")
+            stats["updated"] += 1
+            for c in changes:
+                if c.startswith("+") and "CVE" in c:
+                    stats["cves_added"] += int(c.split("+")[1].split()[0])
+
+    # 2. Add new packages ───────────────────────────────────────────────────
+    if new_packages:
+        log.info(f"\nProcessing {len(new_packages)} new package(s)...")
+
+        for pid in new_packages:
+            pid = pid.strip().lower()
+
+            if pid in pkg_map:
+                log.info(f"  {pid}: already exists — skipping")
+                continue
+
+            info = fetch_pypi(pid)
+            time.sleep(RATE_LIMIT)
+            if not info:
+                log.warning(f"  {pid}: not found on PyPI — skipping")
+                continue
+
+            if not is_ai_ml_relevant(info):
+                log.warning(f"  {pid}: doesn't appear AI/ML relevant — skipping")
+                continue
+
+            downloads   = fetch_downloads(pid)
+            time.sleep(RATE_LIMIT)
+            fresh_cves  = fetch_osv(pid)
+            fresh_cves += fetch_github_advisories(pid, github_token)
+            time.sleep(RATE_LIMIT)
+
+            new_pkg = build_new_package(pid, info, fresh_cves, known_ids | {pid})
+            new_pkg["downloads"] = downloads
+
+            packages.append(new_pkg)
+            pkg_map[pid]  = new_pkg
+            known_ids.add(pid)
+
+            flag = " ⚑ needs_review" if new_pkg.get("needs_review") else ""
+            log.info(f"  Added {pid:35} group={new_pkg['group']}{flag}  cves={len(fresh_cves)}")
+            stats["pkgs_added"]  += 1
+            stats["cves_added"]  += len(fresh_cves)
+            if new_pkg.get("needs_review"):
+                stats["needs_review"] += 1
+
+    # 3. Recompute blast radii ──────────────────────────────────────────────
+    log.info("\nRecomputing blast radii...")
+    recompute_blast_radii(packages)
+
+    # 4. Update metadata
+    data["metadata"].update({
+        "total_packages":    len(packages),
+        "total_cves":        sum(len(p.get("cves", [])) for p in packages),
+        "last_refreshed":    now_iso(),
+        "new_cves_this_run": stats["cves_added"],
+    })
+
+    # 5. Write 
+    if dry_run:
+        log.info("\nDRY RUN — no file written")
+    else:
+        with open(data_path, "w") as f:
+            json.dump(data, f, indent=2)
+        log.info(f"\nWritten → {data_path}")
+
+    log.info(
+        f"\nSummary: {stats['updated']} refreshed | "
+        f"+{stats['cves_added']} CVEs | "
+        f"+{stats['pkgs_added']} new packages"
+        + (f" ({stats['needs_review']} need group review)" if stats["needs_review"] else "")
+        + (f" | {stats['skipped']} skipped" if stats["skipped"] else "")
+    )
+
+
+# ── CLI ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    update(
-        existing_path="src/data/rawData.json",
-        output_path="src/data/rawData.json",
+    parser = argparse.ArgumentParser(
+        description="Additive-only updater for rawData.json"
+    )
+    parser.add_argument(
+        "--data",
+        default="src/data/rawData.json",
+        help="Path to data file (default: src/data/rawData.json)",
+    )
+    parser.add_argument(
+        "--add",
+        nargs="*",
+        metavar="PKG",
+        help="New PyPI package names to add e.g. --add llmguard presidio-analyzer",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Fetch and log all changes without writing to disk",
+    )
+    args = parser.parse_args()
+
+    run(
+        data_path    = Path(args.data),
+        new_packages = args.add or [],
+        dry_run      = args.dry_run,
     )
