@@ -50,10 +50,3 @@ jobs:
           git commit -m "chore: update supply chain data $(date -u +'%Y-%m-%d')"
           git push -f origin $BRANCH
           
-      - name: Create Pull Request
-        if: steps.diff.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: data-update
-          title: "chore: update supply chain data"
-          body: "Automated update"
