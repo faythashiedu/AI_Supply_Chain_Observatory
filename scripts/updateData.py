@@ -37,7 +37,7 @@ try:
 except ImportError:
     sys.exit("Missing dependency: pip install requests")
 
-# ── Logging ───────────────────────────────────────────────────────────────────
+# ── Logging 
 
 logging.basicConfig(
     level=logging.INFO,
@@ -46,7 +46,7 @@ logging.basicConfig(
 )
 log = logging.getLogger("observatory")
 
-# ── Constants ─────────────────────────────────────────────────────────────────
+# ── Constants 
 
 PYPI_BASE  = "https://pypi.org/pypi"
 PYPISTATS  = "https://pypistats.org/api/packages"
@@ -55,7 +55,7 @@ GH_GRAPHQL = "https://api.github.com/graphql"
 TIMEOUT    = 15
 RATE_LIMIT = 0.35   # seconds between requests — polite to public APIs
 
-# ── Layer inference rules ─────────────────────────────────────────────────────
+# ── Layer inference rules 
 # Ordered — first match wins
 
 LAYER_RULES = [
@@ -105,7 +105,7 @@ def make_session() -> requests.Session:
 
 SESSION = make_session()
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# ── Helpers 
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -172,13 +172,18 @@ def humanize_label(pkg_id: str) -> str:
     return OVERRIDES.get(pkg_id, pkg_id.replace("-", " ").replace("_", " ").title())
 
 
-# ── CVE helpers ───────────────────────────────────────────────────────────────
+# ── CVE helpers 
 
 def osv_to_cve(v: dict) -> dict:
     """Convert a raw OSV vulnerability object to merged_supply_chain CVE format."""
     aliases = v.get("aliases", [])
-    cve_id  = next((a for a in aliases if a.startswith("CVE-")), v.get("id", "UNKNOWN"))
-
+    osv_id  = v.get("id", "UNKNOWN")
+    cve_id  = next((a for a in aliases if a.startswith("CVE-")), osv_id)
+ 
+    # Store all known IDs for this vuln (CVE, GHSA, OSV, etc.) so merge_cves
+    # can detect when two entries from different sources describe the same issue.
+    all_ids = {osv_id, cve_id} | set(aliases)
+ 
     sev_raw = (
         v.get("database_specific", {}).get("severity")
         or next(
@@ -188,38 +193,56 @@ def osv_to_cve(v: dict) -> dict:
         )
     )
     sev = normalise_severity(sev_raw)
-
+ 
     published = v.get("published", "")
     year = int(published[:4]) if published and len(published) >= 4 else datetime.now().year
-
+ 
     return {
         "id":       cve_id,
+        "aliases":  sorted(all_ids - {cve_id}),   # extras kept for cross-source dedup
         "severity": sev,
         "score":    severity_to_score(sev),
         "desc":     (v.get("summary") or v.get("details") or "")[:300],
         "year":     year,
         "refs":     [r["url"] for r in v.get("references", []) if r.get("url")][:3],
     }
-
-
+ 
+ 
+def _all_ids_for_cve(cve: dict) -> set[str]:
+    """Return the primary id plus every alias for a CVE entry."""
+    return {cve["id"]} | set(cve.get("aliases", []))
+ 
+ 
 def merge_cves(existing: list, incoming: list) -> tuple[list, int]:
     """
-    Append incoming CVEs not already in existing (matched by id).
+    Append incoming CVEs not already in existing.
+ 
+    Deduplication is cross-source: an entry is considered a duplicate if its
+    primary id OR any of its aliases matches any id already seen.  This prevents
+    the same vulnerability appearing twice when OSV reports it as CVE-XXXX and
+    GitHub Advisories reports it as GHSA-XXXX (or vice-versa).
+ 
     Existing entries are NEVER modified.
     Returns (merged_list, count_added).
     """
-    seen   = {c["id"] for c in existing}
+    # Build a flat set of every identifier already present
+    seen: set[str] = set()
+    for cve in existing:
+        seen.update(_all_ids_for_cve(cve))
+ 
     merged = list(existing)
     added  = 0
     for cve in incoming:
-        if cve["id"] not in seen:
+        cve_ids = _all_ids_for_cve(cve)
+        if cve_ids.isdisjoint(seen):          # no overlap → genuinely new
             merged.append(cve)
-            seen.add(cve["id"])
+            seen.update(cve_ids)
             added += 1
+ 
     return merged, added
 
 
-# ── API fetchers ──────────────────────────────────────────────────────────────
+# ── API fetchers 
 
 def fetch_pypi(name: str) -> Optional[dict]:
     try:
@@ -311,7 +334,7 @@ def fetch_github_advisories(name: str, token: Optional[str]) -> list:
         return []
 
 
-# ── Blast radius BFS ──────────────────────────────────────────────────────────
+# ── Blast radius BFS 
 
 def recompute_blast_radii(packages: list) -> None:
     """
@@ -459,7 +482,7 @@ def run(data_path: Path, new_packages: list, dry_run: bool) -> None:
                 if c.startswith("+") and "CVE" in c:
                     stats["cves_added"] += int(c.split("+")[1].split()[0])
 
-    # 2. Add new packages ───────────────────────────────────────────────────
+    # 2. Add new packages 
     if new_packages:
         log.info(f"\nProcessing {len(new_packages)} new package(s)...")
 
@@ -500,7 +523,7 @@ def run(data_path: Path, new_packages: list, dry_run: bool) -> None:
             if new_pkg.get("needs_review"):
                 stats["needs_review"] += 1
 
-    # 3. Recompute blast radii ──────────────────────────────────────────────
+    # 3. Recompute blast radii
     log.info("\nRecomputing blast radii...")
     recompute_blast_radii(packages)
 
