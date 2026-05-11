@@ -2,7 +2,7 @@
   "metadata": {
     "generated_at": "2026-04-25",
     "total_packages": 130,
-    "total_cves": 1319,
+    "total_cves": 1342,
     "description": "Merged AI/ML supply chain data: PyPI/OSV data + curated historical CVEs",
     "data_sources": [
       "PyPI",
@@ -11,8 +11,8 @@
       "Manual Curation",
       "NVD"
     ],
-    "last_refreshed": "2026-05-07",
-    "new_cves_this_run": 772
+    "last_refreshed": "2026-05-11",
+    "new_cves_this_run": 23
   },
   "layers": {
     "hardware": {
@@ -155,8 +155,8 @@
       "id": "openai",
       "label": "OpenAI SDK",
       "group": "provider",
-      "downloads": 256066779,
-      "version": "2.35.1",
+      "downloads": 283709819,
+      "version": "2.36.0",
       "maintainer": "Unknown",
       "license": "Apache-2.0",
       "description": "The official Python library for the openai API",
@@ -183,7 +183,7 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "anthropic",
@@ -245,7 +245,7 @@
         "total_affected": 16,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "google-generativeai",
@@ -280,13 +280,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "cohere",
       "label": "Cohere SDK",
       "group": "provider",
-      "downloads": 38592227,
+      "downloads": 39639810,
       "version": "6.1.0",
       "maintainer": "Unknown",
       "license": "MIT",
@@ -310,14 +310,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "langchain",
       "label": "LangChain",
       "group": "agent",
-      "downloads": 237401999,
-      "version": "1.2.17",
+      "downloads": 236288352,
+      "version": "1.2.18",
       "maintainer": "Unknown",
       "license": "MIT",
       "description": "Building applications with LLMs through composability",
@@ -881,13 +881,13 @@
         "total_affected": 6,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "langchain-core",
       "label": "LangChain Core",
       "group": "agent",
-      "downloads": 106236819,
+      "downloads": 103055492,
       "version": "1.3.3",
       "maintainer": "Unknown",
       "license": "MIT",
@@ -1041,6 +1041,20 @@
             "https://github.com/langchain-ai/langchain/blob/f96dd57501131840b713ed7c2e86cbf1ddc2761f/libs/core/langchain_core/utils/loading.py",
             "https://github.com/langchain-ai/langchain/pull/18600"
           ]
+        },
+        {
+          "id": "CVE-2026-44843",
+          "aliases": [
+            "GHSA-pjwx-r37v-7724"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LangChain vulnerable to unsafe deserialization of attacker-controlled objects through overly broad `load()` allowlists",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langchain-ai/langchain/security/advisories/GHSA-pjwx-r37v-7724",
+            "https://github.com/langchain-ai/langchain"
+          ]
         }
       ],
       "risk_score": 100,
@@ -1048,13 +1062,13 @@
         "total_affected": 9,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "langchain-community",
       "label": "LangChain Community",
       "group": "agent",
-      "downloads": 44974683,
+      "downloads": 43366279,
       "version": "0.4.1",
       "maintainer": "LangChain Inc",
       "license": "MIT",
@@ -1198,13 +1212,13 @@
         "total_affected": 7,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "llama-index",
       "label": "LlamaIndex",
       "group": "agent",
-      "downloads": 10410083,
+      "downloads": 10359446,
       "version": "0.14.21",
       "maintainer": "Unknown",
       "license": null,
@@ -1395,13 +1409,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "llama-index-core",
       "label": "LlamaIndex Core",
       "group": "agent",
-      "downloads": 7204743,
+      "downloads": 7324421,
       "version": "0.14.21",
       "maintainer": "Unknown",
       "license": null,
@@ -1580,13 +1594,13 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "transformers",
       "label": "Transformers",
       "group": "ai-lib",
-      "downloads": 142810603,
+      "downloads": 141442769,
       "version": "5.8.0",
       "maintainer": "The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)",
       "license": "Apache 2.0 License",
@@ -2056,13 +2070,13 @@
         "total_affected": 9,
         "cascade_depth": 2
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "sentence-transformers",
       "label": "Sentence Transformers",
       "group": "ai-lib",
-      "downloads": 25903404,
+      "downloads": 25561774,
       "version": "5.4.1",
       "maintainer": "Unknown",
       "license": "Apache 2.0",
@@ -2094,7 +2108,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "crewai",
@@ -2164,13 +2178,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "autogen-agentchat",
       "label": "AutoGen",
       "group": "agent",
-      "downloads": 1405695,
+      "downloads": 1366034,
       "version": "0.7.5",
       "maintainer": "Unknown",
       "license": "MIT License\n        \n            Copyright (c) Microsoft Corporation.\n        \n            Permission is hereby granted, free of charge, to any person obtaining a copy\n            of this software and associated documentation files (the \"Software\"), to deal\n            in the Software without restriction, including without limitation the rights\n            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n            copies of the Software, and to permit persons to whom the Software is\n            furnished to do so, subject to the following conditions:\n        \n            The above copyright notice and this permission notice shall be included in all\n            copies or substantial portions of the Software.\n        \n            THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n            SOFTWARE",
@@ -2184,13 +2198,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "smolagents",
       "label": "smolagents",
       "group": "agent",
-      "downloads": 589837,
+      "downloads": 558888,
       "version": "1.24.0",
       "maintainer": "Unknown",
       "license": null,
@@ -2334,13 +2348,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "torch",
       "label": "PyTorch",
       "group": "framework",
-      "downloads": 84141619,
+      "downloads": 83284525,
       "version": "2.11.0",
       "maintainer": "Unknown",
       "license": "BSD-3-Clause",
@@ -2556,13 +2570,13 @@
         "total_affected": 20,
         "cascade_depth": 2
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tensorflow",
       "label": "TensorFlow",
       "group": "framework",
-      "downloads": 22326112,
+      "downloads": 22103938,
       "version": "2.21.0",
       "maintainer": "Google Inc.",
       "license": "Apache 2.0",
@@ -10361,13 +10375,13 @@
         "total_affected": 12,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "jax",
       "label": "JAX",
       "group": "framework",
-      "downloads": 20074281,
+      "downloads": 20128362,
       "version": "0.10.0",
       "maintainer": "JAX team",
       "license": "Apache-2.0",
@@ -10392,14 +10406,14 @@
         "total_affected": 12,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "keras",
       "label": "Keras",
       "group": "framework",
-      "downloads": 20958835,
-      "version": "3.14.0",
+      "downloads": 20784748,
+      "version": "3.14.1",
       "maintainer": "Unknown",
       "license": "Apache License 2.0",
       "description": "Multi-backend Keras",
@@ -10690,13 +10704,13 @@
         "total_affected": 13,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "chromadb",
       "label": "ChromaDB",
       "group": "vector-db",
-      "downloads": 13850826,
+      "downloads": 13507628,
       "version": "1.5.9",
       "maintainer": "Unknown",
       "license": null,
@@ -10740,13 +10754,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pinecone-client",
       "label": "Pinecone",
       "group": "vector-db",
-      "downloads": 1559929,
+      "downloads": 1506398,
       "version": "6.0.0",
       "maintainer": "Pinecone Systems, Inc.",
       "license": "Apache-2.0",
@@ -10770,13 +10784,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "weaviate-client",
       "label": "Weaviate",
       "group": "vector-db",
-      "downloads": 109355549,
+      "downloads": 112816582,
       "version": "4.21.0",
       "maintainer": "Weaviate",
       "license": "BSD 3-clause",
@@ -10796,13 +10810,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "qdrant-client",
       "label": "Qdrant",
       "group": "vector-db",
-      "downloads": 23225070,
+      "downloads": 23482774,
       "version": "1.17.1",
       "maintainer": "Andrey Vasnetsov",
       "license": "Apache-2.0",
@@ -10838,14 +10852,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "vllm",
       "label": "vLLM",
       "group": "infra",
-      "downloads": 9123395,
-      "version": "0.20.1",
+      "downloads": 7928560,
+      "version": "0.20.2",
       "maintainer": "vLLM Team",
       "license": null,
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
@@ -11746,7 +11760,7 @@
         "total_affected": 9,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "litellm",
@@ -12149,13 +12163,13 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "ollama",
       "label": "Ollama",
       "group": "infra",
-      "downloads": 11770569,
+      "downloads": 11707888,
       "version": "0.6.2",
       "maintainer": "Unknown",
       "license": null,
@@ -12195,13 +12209,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "ray",
       "label": "Ray",
       "group": "infra",
-      "downloads": 52617483,
+      "downloads": 53202419,
       "version": "2.55.1",
       "maintainer": "Ray Team",
       "license": "Apache 2.0",
@@ -12439,13 +12453,13 @@
         "total_affected": 9,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "mlflow",
       "label": "MLflow",
       "group": "app",
-      "downloads": 36177604,
+      "downloads": 35230966,
       "version": "3.12.0",
       "maintainer": "Unknown",
       "license": "Copyright 2018 Databricks, Inc.  All rights reserved.",
@@ -13694,7 +13708,7 @@
         "total_affected": 3,
         "cascade_depth": 2
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "wandb",
@@ -13776,13 +13790,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "gradio",
       "label": "Gradio",
       "group": "infra",
-      "downloads": 16176507,
+      "downloads": 14832521,
       "version": "6.14.0",
       "maintainer": "Unknown",
       "license": null,
@@ -14684,14 +14698,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "mcp",
       "label": "MCP SDK",
       "group": "mcp",
-      "downloads": 246773414,
-      "version": "1.27.0",
+      "downloads": 252234277,
+      "version": "1.27.1",
       "maintainer": "Anthropic, PBC.",
       "license": "MIT",
       "description": "Model Context Protocol SDK",
@@ -14765,13 +14779,13 @@
         "total_affected": 18,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "numpy",
       "label": "NumPy",
       "group": "core",
-      "downloads": 923125709,
+      "downloads": 909467580,
       "version": "2.4.4",
       "maintainer": "Travis E. Oliphant et al.",
       "license": null,
@@ -15041,13 +15055,13 @@
         "total_affected": 68,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pandas",
       "label": "Pandas",
       "group": "core",
-      "downloads": 680676309,
+      "downloads": 669879273,
       "version": "3.0.2",
       "maintainer": "Unknown",
       "license": "BSD 3-Clause License Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team All rights reserved.Copyright (c) 2011-2026, Open source contributors.",
@@ -15112,13 +15126,13 @@
         "total_affected": 30,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pydantic",
       "label": "Pydantic",
       "group": "util",
-      "downloads": 977823193,
+      "downloads": 986019267,
       "version": "2.13.4",
       "maintainer": "Unknown",
       "license": null,
@@ -15181,15 +15195,15 @@
       "risk_score": 32,
       "blast_radius": {
         "total_affected": 60,
-        "cascade_depth": 3
+        "cascade_depth": 2
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "requests",
       "label": "Requests",
       "group": "util",
-      "downloads": 1493186431,
+      "downloads": 1471119710,
       "version": "2.33.1",
       "maintainer": "Unknown",
       "license": "Apache-2.0",
@@ -15444,13 +15458,13 @@
         "total_affected": 51,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pyyaml",
       "label": "PyYAML",
       "group": "util",
-      "downloads": 1007089266,
+      "downloads": 995746647,
       "version": "6.0.3",
       "maintainer": "Kirill Simonov",
       "license": "MIT",
@@ -15612,7 +15626,7 @@
         "total_affected": 39,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "joblib",
@@ -15670,13 +15684,13 @@
         "total_affected": 14,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "celery",
       "label": "Celery",
       "group": "infra",
-      "downloads": 51706619,
+      "downloads": 49602749,
       "version": "5.6.3",
       "maintainer": "Ask Solem",
       "license": "BSD-3-Clause",
@@ -15794,13 +15808,13 @@
         "total_affected": 11,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "safetensors",
       "label": "safetensors",
       "group": "ai-tool",
-      "downloads": 78055230,
+      "downloads": 76491063,
       "version": "0.7.0",
       "maintainer": "Unknown",
       "license": null,
@@ -15838,13 +15852,13 @@
         "total_affected": 11,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "onnx",
       "label": "ONNX",
       "group": "ai-tool",
-      "downloads": 19323824,
+      "downloads": 19185226,
       "version": "1.21.0",
       "maintainer": "Unknown",
       "license": null,
@@ -16071,7 +16085,7 @@
         "total_affected": 2,
         "cascade_depth": 2
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "nvidia-cuda",
@@ -16120,7 +16134,7 @@
       "id": "pycuda",
       "label": "PyCUDA",
       "group": "hardware",
-      "downloads": 0,
+      "downloads": 108904,
       "version": "2026.1",
       "maintainer": "Andreas Kl\u00f6ckner",
       "license": "MIT",
@@ -16135,13 +16149,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "nvidia-ml-py",
       "label": "nvidia-ml-py",
       "group": "hardware",
-      "downloads": 0,
+      "downloads": 26188568,
       "version": "13.595.45",
       "maintainer": "NVIDIA",
       "license": "BSD-3",
@@ -16153,14 +16167,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "triton",
       "label": "Triton (OpenAI)",
       "group": "hardware",
-      "downloads": 59640555,
-      "version": "3.6.0",
+      "downloads": 59851094,
+      "version": "3.7.0",
       "maintainer": "OpenAI",
       "license": "MIT",
       "description": "",
@@ -16173,13 +16187,13 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "scipy",
       "label": "SciPy",
       "group": "core",
-      "downloads": 374013648,
+      "downloads": 367975707,
       "version": "1.17.1",
       "maintainer": "SciPy Community",
       "license": "BSD-3",
@@ -16255,15 +16269,15 @@
       "risk_score": 57,
       "blast_radius": {
         "total_affected": 38,
-        "cascade_depth": 4
+        "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "scikit-learn",
       "label": "scikit-learn",
       "group": "core",
-      "downloads": 206114776,
+      "downloads": 201424738,
       "version": "1.8.0",
       "maintainer": "scikit-learn",
       "license": "BSD-3",
@@ -16329,13 +16343,13 @@
         "total_affected": 13,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "matplotlib",
       "label": "Matplotlib",
       "group": "core",
-      "downloads": 219071552,
+      "downloads": 213686894,
       "version": "3.10.9",
       "maintainer": "Matplotlib",
       "license": "PSF",
@@ -16351,13 +16365,13 @@
         "total_affected": 32,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pillow",
       "label": "Pillow",
       "group": "core",
-      "downloads": 448788322,
+      "downloads": 441235003,
       "version": "12.2.0",
       "maintainer": "Alex Clark",
       "license": "HPND",
@@ -17432,7 +17446,7 @@
         "total_affected": 41,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "sympy",
@@ -17450,13 +17464,13 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pyarrow",
       "label": "PyArrow",
       "group": "core",
-      "downloads": 393602839,
+      "downloads": 392344060,
       "version": "24.0.0",
       "maintainer": "Apache",
       "license": "Apache-2.0",
@@ -17538,7 +17552,7 @@
         "total_affected": 31,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "diffusers",
@@ -17592,13 +17606,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "peft",
       "label": "PEFT",
       "group": "ai-lib",
-      "downloads": 10773363,
+      "downloads": 10638646,
       "version": "0.19.1",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -17615,14 +17629,14 @@
         "total_affected": 2,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "trl",
       "label": "TRL",
       "group": "ai-lib",
-      "downloads": 3797164,
-      "version": "1.3.0",
+      "downloads": 3829803,
+      "version": "1.4.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
       "description": "",
@@ -17639,13 +17653,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "datasets",
       "label": "Datasets",
       "group": "ai-lib",
-      "downloads": 118334937,
+      "downloads": 119459708,
       "version": "4.8.5",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -17666,13 +17680,13 @@
         "total_affected": 11,
         "cascade_depth": 2
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "accelerate",
       "label": "Accelerate",
       "group": "ai-lib",
-      "downloads": 24971597,
+      "downloads": 24598945,
       "version": "1.13.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -17690,13 +17704,13 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "huggingface-hub",
       "label": "HuggingFace Hub",
       "group": "ai-lib",
-      "downloads": 243658853,
+      "downloads": 241700271,
       "version": "1.14.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -17740,14 +17754,14 @@
         "total_affected": 16,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "timm",
       "label": "timm",
       "group": "ai-lib",
       "downloads": 13168088,
-      "version": "1.0.26",
+      "version": "1.0.27",
       "maintainer": "Ross Wightman",
       "license": "Apache-2.0",
       "description": "",
@@ -17764,7 +17778,7 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "torchvision",
@@ -17796,13 +17810,13 @@
         "total_affected": 11,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "evaluate",
       "label": "Evaluate",
       "group": "ai-lib",
-      "downloads": 7086417,
+      "downloads": 6829235,
       "version": "0.4.6",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -17820,13 +17834,13 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tokenizers",
       "label": "Tokenizers",
       "group": "ai-tool",
-      "downloads": 162495671,
+      "downloads": 162887283,
       "version": "0.23.1",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -17838,7 +17852,7 @@
         "total_affected": 14,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tiktoken",
@@ -17859,13 +17873,13 @@
         "total_affected": 15,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "sentencepiece",
       "label": "SentencePiece",
       "group": "ai-tool",
-      "downloads": 32647522,
+      "downloads": 31909318,
       "version": "0.2.1",
       "maintainer": "Google",
       "license": "Apache-2.0",
@@ -17901,14 +17915,14 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "onnxruntime",
       "label": "ONNX Runtime",
       "group": "ai-tool",
       "downloads": 68833051,
-      "version": "1.25.1",
+      "version": "1.26.0",
       "maintainer": "Microsoft",
       "license": "MIT",
       "description": "",
@@ -17931,13 +17945,13 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "bitsandbytes",
       "label": "bitsandbytes",
       "group": "ai-tool",
-      "downloads": 6461298,
+      "downloads": 6340327,
       "version": "0.49.2",
       "maintainer": "Tim Dettmers",
       "license": "MIT",
@@ -17953,13 +17967,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "einops",
       "label": "einops",
       "group": "ai-tool",
-      "downloads": 23090292,
+      "downloads": 22604419,
       "version": "0.8.2",
       "maintainer": "Alex Rogozhnikov",
       "license": "MIT",
@@ -17971,13 +17985,13 @@
         "total_affected": 10,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "ml-dtypes",
       "label": "ml-dtypes",
       "group": "ai-tool",
-      "downloads": 32184862,
+      "downloads": 32088981,
       "version": "0.5.4",
       "maintainer": "Google",
       "license": "Apache-2.0",
@@ -17991,13 +18005,13 @@
         "total_affected": 14,
         "cascade_depth": 6
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "mistralai",
       "label": "Mistral SDK",
       "group": "provider",
-      "downloads": 31309996,
+      "downloads": 33012384,
       "version": "2.4.5",
       "maintainer": "Mistral AI",
       "license": "Apache-2.0",
@@ -18013,14 +18027,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "boto3",
       "label": "boto3 (Bedrock)",
       "group": "provider",
-      "downloads": 2886060667,
-      "version": "1.43.5",
+      "downloads": 2980326041,
+      "version": "1.43.6",
       "maintainer": "Amazon",
       "license": "Apache-2.0",
       "description": "",
@@ -18035,13 +18049,13 @@
         "total_affected": 21,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "fastapi",
       "label": "FastAPI",
       "group": "infra",
-      "downloads": 444744412,
+      "downloads": 444471273,
       "version": "0.136.1",
       "maintainer": "Sebasti\u00e1n Ram\u00edrez",
       "license": "MIT",
@@ -18110,13 +18124,13 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "uvicorn",
       "label": "uvicorn",
       "group": "infra",
-      "downloads": 474232817,
+      "downloads": 473225336,
       "version": "0.46.0",
       "maintainer": "Encode",
       "license": "BSD-3",
@@ -18166,7 +18180,7 @@
         "total_affected": 25,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "triton-server",
@@ -18203,7 +18217,7 @@
       "id": "streamlit",
       "label": "Streamlit",
       "group": "infra",
-      "downloads": 27454854,
+      "downloads": 26916687,
       "version": "1.57.0",
       "maintainer": "Snowflake",
       "license": "Apache-2.0",
@@ -18311,13 +18325,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "dspy",
       "label": "DSPy",
       "group": "agent",
-      "downloads": 7113290,
+      "downloads": 7134269,
       "version": "3.2.1",
       "maintainer": "Stanford NLP",
       "license": "MIT",
@@ -18351,13 +18365,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "haystack",
       "label": "Haystack",
       "group": "agent",
-      "downloads": 4520,
+      "downloads": 4026,
       "version": "0.42",
       "maintainer": "deepset",
       "license": "Apache-2.0",
@@ -18375,13 +18389,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "semantic-kernel",
       "label": "Semantic Kernel",
       "group": "agent",
-      "downloads": 2703855,
+      "downloads": 2666588,
       "version": "1.41.3",
       "maintainer": "Microsoft",
       "license": "MIT",
@@ -18429,13 +18443,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "agno",
       "label": "Agno",
       "group": "agent",
-      "downloads": 1809200,
+      "downloads": 1810786,
       "version": "2.6.5",
       "maintainer": "Agno",
       "license": "MPL-2.0",
@@ -18484,7 +18498,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "mcp-sdk",
@@ -18589,7 +18603,7 @@
       "id": "mcp-server-postgres",
       "label": "MCP: Postgres",
       "group": "mcp",
-      "downloads": 1895,
+      "downloads": 1843,
       "version": "0.1.0",
       "maintainer": "Anthropic",
       "license": "MIT",
@@ -18613,7 +18627,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "mcp-server-brave",
@@ -18640,7 +18654,7 @@
       "id": "langchain-mcp-adapters",
       "label": "LC MCP Adapters",
       "group": "mcp",
-      "downloads": 6178658,
+      "downloads": 5953218,
       "version": "0.2.2",
       "maintainer": "LangChain Inc",
       "license": "MIT",
@@ -18655,7 +18669,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "openai-agents-sdk",
@@ -18684,7 +18698,7 @@
       "id": "httpx",
       "label": "HTTPX",
       "group": "util",
-      "downloads": 679887549,
+      "downloads": 679544322,
       "version": "0.28.1",
       "maintainer": "Encode",
       "license": "BSD-3",
@@ -18719,13 +18733,13 @@
         "total_affected": 46,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "urllib3",
       "label": "urllib3",
       "group": "util",
-      "downloads": 1548715464,
+      "downloads": 1539993962,
       "version": "2.7.0",
       "maintainer": "urllib3",
       "license": "MIT",
@@ -19019,13 +19033,13 @@
         "total_affected": 56,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "certifi",
       "label": "certifi",
       "group": "util",
-      "downloads": 1518474060,
+      "downloads": 1510028275,
       "version": "2026.4.22",
       "maintainer": "certifi",
       "license": "MPL-2.0",
@@ -19090,13 +19104,13 @@
         "total_affected": 72,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "protobuf",
       "label": "Protobuf",
       "group": "util",
-      "downloads": 812249978,
+      "downloads": 799323542,
       "version": "7.34.1",
       "maintainer": "Google",
       "license": "BSD-3",
@@ -19208,13 +19222,13 @@
         "total_affected": 26,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "packaging",
       "label": "packaging",
       "group": "util",
-      "downloads": 1745637231,
+      "downloads": 1740288794,
       "version": "26.2",
       "maintainer": "PyPA",
       "license": "BSD-2",
@@ -19226,13 +19240,13 @@
         "total_affected": 46,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tqdm",
       "label": "tqdm",
       "group": "util",
-      "downloads": 453874028,
+      "downloads": 448944506,
       "version": "4.67.3",
       "maintainer": "tqdm",
       "license": "MIT",
@@ -19276,13 +19290,13 @@
         "total_affected": 34,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "filelock",
       "label": "filelock",
       "group": "util",
-      "downloads": 555994712,
+      "downloads": 544709586,
       "version": "3.29.0",
       "maintainer": "tox-dev",
       "license": "Unlicense",
@@ -19325,13 +19339,13 @@
         "total_affected": 26,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "aiohttp",
       "label": "aiohttp",
       "group": "util",
-      "downloads": 548352555,
+      "downloads": 545824457,
       "version": "3.13.5",
       "maintainer": "aio-libs",
       "license": "Apache-2.0",
@@ -19827,15 +19841,15 @@
       "risk_score": 79,
       "blast_radius": {
         "total_affected": 32,
-        "cascade_depth": 4
+        "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tenacity",
       "label": "tenacity",
       "group": "util",
-      "downloads": 379016228,
+      "downloads": 376572514,
       "version": "9.1.4",
       "maintainer": "Julien Danjou",
       "license": "Apache-2.0",
@@ -19847,13 +19861,13 @@
         "total_affected": 14,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "cryptography",
       "label": "cryptography",
       "group": "util",
-      "downloads": 1140610311,
+      "downloads": 1131060501,
       "version": "48.0.0",
       "maintainer": "PyCA",
       "license": "Apache-2.0",
@@ -20174,13 +20188,13 @@
         "total_affected": 17,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "jinja2",
       "label": "Jinja2",
       "group": "util",
-      "downloads": 575722481,
+      "downloads": 563109917,
       "version": "3.1.6",
       "maintainer": "Pallets",
       "license": "BSD-3",
@@ -20356,13 +20370,13 @@
         "total_affected": 41,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "sqlalchemy",
       "label": "SQLAlchemy",
       "group": "util",
-      "downloads": 353322442,
+      "downloads": 344457393,
       "version": "2.0.49",
       "maintainer": "SQLAlchemy",
       "license": "MIT",
@@ -20423,13 +20437,13 @@
         "total_affected": 39,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "fsspec",
       "label": "fsspec",
       "group": "util",
-      "downloads": 717176829,
+      "downloads": 717253464,
       "version": "2026.4.0",
       "maintainer": "fsspec",
       "license": "BSD-3",
@@ -20441,14 +20455,14 @@
         "total_affected": 43,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "paramiko",
       "label": "paramiko",
       "group": "util",
-      "downloads": 143106230,
-      "version": "4.0.0",
+      "downloads": 140161243,
+      "version": "5.0.0",
       "maintainer": "paramiko",
       "license": "LGPL-2.1",
       "description": "",
@@ -20539,6 +20553,21 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2023-48795",
             "https://github.com/paramiko/paramiko/issues/2337"
           ]
+        },
+        {
+          "id": "CVE-2026-44405",
+          "aliases": [
+            "GHSA-r374-rxx8-8654"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Paramiko rsakey.py allows the SHA-1 algorithm",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-44405",
+            "https://github.com/paramiko/paramiko/commit/a4489456b6f65281e172380cc4826cee5e851dbb",
+            "https://github.com/paramiko/paramiko"
+          ]
         }
       ],
       "risk_score": 61,
@@ -20546,14 +20575,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "langsmith",
       "label": "LangSmith SDK",
       "group": "app",
-      "downloads": 79490676,
-      "version": "0.8.2",
+      "downloads": 77355697,
+      "version": "0.8.3",
       "maintainer": "LangChain Inc",
       "license": "MIT",
       "description": "",
@@ -20599,13 +20628,13 @@
         "total_affected": 10,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "bentoml",
       "label": "BentoML",
       "group": "app",
-      "downloads": 186546,
+      "downloads": 173846,
       "version": "1.4.39",
       "maintainer": "BentoML",
       "license": "Apache-2.0",
@@ -20844,13 +20873,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "modal",
       "label": "Modal",
       "group": "app",
-      "downloads": 52889555,
+      "downloads": 52537547,
       "version": "1.4.2",
       "maintainer": "Modal Labs",
       "license": "Apache-2.0",
@@ -20867,13 +20896,13 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "grpcio",
       "label": "gRPC",
       "group": "infra",
-      "downloads": 439951960,
+      "downloads": 431820366,
       "version": "1.80.0",
       "maintainer": "Google",
       "license": "Apache-2.0",
@@ -20984,15 +21013,15 @@
       "risk_score": 79,
       "blast_radius": {
         "total_affected": 25,
-        "cascade_depth": 4
+        "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "xgboost",
       "label": "XGBoost",
       "group": "framework",
-      "downloads": 42650895,
+      "downloads": 41859141,
       "version": "3.2.0",
       "maintainer": "DMLC",
       "license": "Apache-2.0",
@@ -21016,13 +21045,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "lightgbm",
       "label": "LightGBM",
       "group": "framework",
-      "downloads": 15230723,
+      "downloads": 14859198,
       "version": "4.6.0",
       "maintainer": "Microsoft",
       "license": "MIT",
@@ -21062,13 +21091,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "paddle",
       "label": "PaddlePaddle",
       "group": "framework",
-      "downloads": 91128,
+      "downloads": 80337,
       "version": "1.3.0",
       "maintainer": "Baidu",
       "license": "Apache-2.0",
@@ -21101,13 +21130,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "llama-cpp-python",
       "label": "llama.cpp Python",
       "group": "infra",
-      "downloads": 663510,
+      "downloads": 642038,
       "version": "0.3.22",
       "maintainer": "Andrei Betlen",
       "license": "MIT",
@@ -21166,13 +21195,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "deepspeed",
       "label": "DeepSpeed",
       "group": "framework",
-      "downloads": 1258529,
+      "downloads": 1169188,
       "version": "0.19.0",
       "maintainer": "Microsoft",
       "license": "Apache-2.0",
@@ -21219,14 +21248,14 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "ultralytics",
       "label": "Ultralytics (YOLO)",
       "group": "framework",
-      "downloads": 10506828,
-      "version": "8.4.47",
+      "downloads": 10233150,
+      "version": "8.4.48",
       "maintainer": "Ultralytics Inc",
       "license": "AGPL-3.0",
       "description": "YOLOv8/v11 computer vision framework. Supply chain compromised Dec 2024 via GitHub Actions CI/CD injection",
@@ -21259,13 +21288,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "sglang",
       "label": "SGLang",
       "group": "infra",
-      "downloads": 298042167,
+      "downloads": 296057003,
       "version": "0.5.11",
       "maintainer": "Berkeley Sky Computing Lab",
       "license": "Apache-2.0",
@@ -21345,6 +21374,21 @@
             "https://vuldb.com/?ctiid.323203",
             "https://vuldb.com/?id.323203"
           ]
+        },
+        {
+          "id": "CVE-2026-7669",
+          "aliases": [
+            "GHSA-6m5f-673f-5vh7"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "SGLang has an Improper Input Validation/Injection Issue",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-7669",
+            "https://github.com/gouldnicholas/CVE-2026-7669-PoC",
+            "https://github.com/sgl-project/sglang"
+          ]
         }
       ],
       "risk_score": 82,
@@ -21352,13 +21396,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tensorrt-llm",
       "label": "TensorRT-LLM",
       "group": "infra",
-      "downloads": 11937,
+      "downloads": 11530,
       "version": "1.2.1",
       "maintainer": "NVIDIA",
       "license": "Apache-2.0",
@@ -21384,13 +21428,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "dask",
       "label": "Dask",
       "group": "core",
-      "downloads": 26368798,
+      "downloads": 25246531,
       "version": "2026.3.0",
       "maintainer": "Dask team",
       "license": "BSD-3",
@@ -21449,13 +21493,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "faiss-cpu",
       "label": "FAISS",
       "group": "vector-db",
-      "downloads": 16510403,
+      "downloads": 16674700,
       "version": "1.13.2",
       "maintainer": "Meta AI",
       "license": "MIT",
@@ -21469,13 +21513,13 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "milvus",
       "label": "Milvus",
       "group": "vector-db",
-      "downloads": 19534,
+      "downloads": 19044,
       "version": "2.3.9",
       "maintainer": "Zilliz",
       "license": "Apache-2.0",
@@ -21516,13 +21560,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "cloudpickle",
       "label": "cloudpickle",
       "group": "util",
-      "downloads": 132753329,
+      "downloads": 128883866,
       "version": "3.1.2",
       "maintainer": "cloudpickle devs",
       "license": "BSD-3",
@@ -21534,13 +21578,13 @@
         "total_affected": 12,
         "cascade_depth": 5
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "opencv-python",
       "label": "OpenCV",
       "group": "core",
-      "downloads": 47922980,
+      "downloads": 47222242,
       "version": "4.13.0.92",
       "maintainer": "OpenCV team",
       "license": "Apache-2.0",
@@ -22032,13 +22076,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "setuptools",
       "label": "setuptools",
       "group": "util",
-      "downloads": 1334405962,
+      "downloads": 1298151379,
       "version": "82.0.1",
       "maintainer": "PyPA",
       "license": "MIT",
@@ -22118,13 +22162,13 @@
         "total_affected": 24,
         "cascade_depth": 3
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "h5py",
       "label": "h5py",
       "group": "core",
-      "downloads": 42415145,
+      "downloads": 42158968,
       "version": "3.16.0",
       "maintainer": "h5py devs",
       "license": "BSD-3",
@@ -22138,13 +22182,13 @@
         "total_affected": 14,
         "cascade_depth": 4
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "spacy",
       "label": "spaCy",
       "group": "framework",
-      "downloads": 21932812,
+      "downloads": 21365606,
       "version": "3.8.14",
       "maintainer": "Explosion AI",
       "license": "MIT",
@@ -22162,13 +22206,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "torchserve",
       "label": "TorchServe",
       "group": "infra",
-      "downloads": 57587,
+      "downloads": 54195,
       "version": "0.12.0",
       "maintainer": "PyTorch/Meta",
       "license": "Apache-2.0",
@@ -22273,13 +22317,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "langflow",
       "label": "Langflow",
       "group": "app",
-      "downloads": 106562,
+      "downloads": 107176,
       "version": "1.9.2",
       "maintainer": "DataStax",
       "license": "MIT",
@@ -22661,13 +22705,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "flowise",
       "label": "Flowise",
       "group": "app",
-      "downloads": 1593,
+      "downloads": 1589,
       "version": "1.0.4",
       "maintainer": "FlowiseAI",
       "license": "Apache-2.0",
@@ -22710,14 +22754,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "open-webui",
       "label": "Open WebUI",
       "group": "app",
-      "downloads": 1245432,
-      "version": "0.9.2",
+      "downloads": 1294136,
+      "version": "0.9.5",
       "maintainer": "Timothy Baek",
       "license": "MIT",
       "description": "Most popular self-hosted LLM UI (25+ huntr CVEs). DoS, auth bypass, and information disclosure vulnerabilities",
@@ -23242,6 +23286,287 @@
             "https://github.com/open-webui/open-webui",
             "https://github.com/open-webui/open-webui/blob/main/backend/apps/webui/routers/memories.py#L71"
           ]
+        },
+        {
+          "id": "CVE-2026-44551",
+          "aliases": [
+            "GHSA-2r4p-jpmg-48f4"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "Open WebUI has an LDAP Empty Password Authentication Bypass",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-2r4p-jpmg-48f4",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44552",
+          "aliases": [
+            "GHSA-3x8w-4f7p-xxc2"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Redis Cache Keys tool_servers and terminal_servers Missing Instance Prefix Enable Cross-Instance Cache Poisoning",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3x8w-4f7p-xxc2",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44553",
+          "aliases": [
+            "GHSA-45m8-cpm2-3v65"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Stale Admin Role in Socket.IO Session Pool Enables Post-Demotion Cross-User Note Access",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-45m8-cpm2-3v65",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44567",
+          "aliases": [
+            "GHSA-4vg5-rp28-gvjf"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI has Improper Authorization Control",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-4vg5-rp28-gvjf",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44557",
+          "aliases": [
+            "GHSA-6c2x-gcp3-gp73"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI vulnerable to Global Knowledge Base Enumeration via knowledge-bases Meta-Collection",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-6c2x-gcp3-gp73",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44554",
+          "aliases": [
+            "GHSA-7r82-qhg4-6wvj"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI has Knowledge Base Destruction and RAG Poisoning via Unauthorized Collection Overwrite",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-7r82-qhg4-6wvj",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44558",
+          "aliases": [
+            "GHSA-7rjh-px4v-5w55"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI's Channel Access Grants Bypass filter_allowed_access_grants",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-7rjh-px4v-5w55",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44566",
+          "aliases": [
+            "GHSA-9pgh-j74g-qj6m"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI Vulnerable to Arbitrary File Upload and Path Traversal",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-9pgh-j74g-qj6m",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44555",
+          "aliases": [
+            "GHSA-9vvh-qmjx-p4q8"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI's Base Model Routing Bypasses Access Control via Model Chaining",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-9vvh-qmjx-p4q8",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44559",
+          "aliases": [
+            "GHSA-c7wp-3qh5-55pv"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI Missing Access Check on Channel Members Endpoint for Standard Channels",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-c7wp-3qh5-55pv",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44568",
+          "aliases": [
+            "GHSA-fq3v-xjjx-95rc"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI has Stored XSS in Pending User Overlay via Incorrect DOMPurify Application Order",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-fq3v-xjjx-95rc",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44721",
+          "aliases": [
+            "GHSA-gf5m-wcrh-7928"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "open-webui Vulnerable to Stored XSS via Model Description",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-gf5m-wcrh-7928",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44560",
+          "aliases": [
+            "GHSA-h36f-rqpx-j5wx"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI has Unauthorized File and Knowledge Base Content Access via RAG Vector Search",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-h36f-rqpx-j5wx",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44561",
+          "aliases": [
+            "GHSA-hmgr-67hw-j2cq"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Deactivated Channel Members Retain Full Access to Group/DM Channels",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-hmgr-67hw-j2cq",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44556",
+          "aliases": [
+            "GHSA-hp5m-24vp-vq2q"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI's responses passthrough endpoint lacks access control authorization",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-hp5m-24vp-vq2q",
+            "https://github.com/open-webui/open-webui/pull/23481",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44550",
+          "aliases": [
+            "GHSA-hr43-rjmr-7wmm"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI's Mass Assignment via Pydantic extra='allow' Allows Creating Folders in Other Users' Accounts",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-hr43-rjmr-7wmm",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44549",
+          "aliases": [
+            "GHSA-jwf8-pv5p-vhmc"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI has stored XSS in Excel file preview",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-jwf8-pv5p-vhmc",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44562",
+          "aliases": [
+            "GHSA-mqq6-cqcx-38vg"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI's Model Import Overwrites Any Model Without Ownership Check",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-mqq6-cqcx-38vg",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44563",
+          "aliases": [
+            "GHSA-rcvp-6fgw-c7fh"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI's Ollama Model Access Control Bypass via /api/generate, /api/embed, /api/embeddings, and /api/show",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-rcvp-6fgw-c7fh",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-44564",
+          "aliases": [
+            "GHSA-vrfh-rj4q-rmhr"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Read-Only Open WebUI Users Can Modify Collaborative Documents via Socket.IO",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-vrfh-rj4q-rmhr",
+            "https://github.com/open-webui/open-webui"
+          ]
         }
       ],
       "risk_score": 80,
@@ -23249,7 +23574,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "librechat",
@@ -23303,7 +23628,7 @@
       "id": "guardrails-ai",
       "label": "Guardrails AI",
       "group": "agent",
-      "downloads": 248903,
+      "downloads": 246313,
       "version": "0.10.0",
       "maintainer": "Guardrails AI",
       "license": "Apache-2.0",
@@ -23352,13 +23677,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "groq",
       "label": "Groq SDK",
       "group": "provider",
-      "downloads": 17450832,
+      "downloads": 17207880,
       "version": "1.2.0",
       "maintainer": "Groq",
       "license": "Apache-2.0",
@@ -23376,13 +23701,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "jupyter",
       "label": "Jupyter",
       "group": "util",
-      "downloads": 18730721,
+      "downloads": 18388910,
       "version": "1.1.1",
       "maintainer": "Jupyter team",
       "license": "BSD-3",
@@ -23406,13 +23731,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "pgvector",
       "label": "pgvector",
       "group": "vector-db",
-      "downloads": 20962317,
+      "downloads": 20875578,
       "version": "0.4.2",
       "maintainer": "Andrew Kane",
       "license": "PostgreSQL",
@@ -23424,13 +23749,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "kubeflow",
       "label": "Kubeflow",
       "group": "infra",
-      "downloads": 205742,
+      "downloads": 202664,
       "version": "0.4.0",
       "maintainer": "Kubeflow community",
       "license": "Apache-2.0",
@@ -23456,13 +23781,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "tgi",
       "label": "TGI (Text Gen Inference)",
       "group": "infra",
-      "downloads": 186,
+      "downloads": 168,
       "version": "2.4.2",
       "maintainer": "HuggingFace",
       "license": "Apache-2.0",
@@ -23480,13 +23805,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "composio",
       "label": "Composio",
       "group": "agent",
-      "downloads": 1360181,
+      "downloads": 1613916,
       "version": "0.13.0",
       "maintainer": "Composio Inc",
       "license": "Apache-2.0",
@@ -23544,7 +23869,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-05-11"
     },
     {
       "id": "anythingllm",
