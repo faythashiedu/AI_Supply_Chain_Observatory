@@ -2,7 +2,7 @@
   "metadata": {
     "generated_at": "2026-04-25",
     "total_packages": 130,
-    "total_cves": 1443,
+    "total_cves": 1608,
     "description": "Merged AI/ML supply chain data: PyPI/OSV data + curated historical CVEs",
     "data_sources": [
       "PyPI",
@@ -11,8 +11,8 @@
       "Manual Curation",
       "NVD"
     ],
-    "last_refreshed": "2026-06-15",
-    "new_cves_this_run": 101
+    "last_refreshed": "2026-08-31",
+    "new_cves_this_run": 165
   },
   "layers": {
     "hardware": {
@@ -155,8 +155,8 @@
       "id": "openai",
       "label": "OpenAI SDK",
       "group": "provider",
-      "downloads": 318380794,
-      "version": "2.41.1",
+      "downloads": 417881229,
+      "version": "3.6.0",
       "maintainer": "Unknown",
       "license": "Apache-2.0",
       "description": "The official Python library for the openai API",
@@ -183,14 +183,14 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "anthropic",
       "label": "Anthropic SDK",
       "group": "provider",
-      "downloads": 132134929,
-      "version": "0.109.1",
+      "downloads": 192118153,
+      "version": "1.2.0",
       "maintainer": "Unknown",
       "license": "MIT",
       "description": "The official Python library for the anthropic API",
@@ -245,7 +245,7 @@
         "total_affected": 16,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "google-generativeai",
@@ -280,14 +280,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "cohere",
       "label": "Cohere SDK",
       "group": "provider",
-      "downloads": 42719808,
-      "version": "7.0.4",
+      "downloads": 28706786,
+      "version": "7.1.0",
       "maintainer": "Unknown",
       "license": "MIT",
       "description": null,
@@ -310,14 +310,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "langchain",
       "label": "LangChain",
       "group": "agent",
-      "downloads": 308839702,
-      "version": "1.3.9",
+      "downloads": 238987816,
+      "version": "1.3.18",
       "maintainer": "Unknown",
       "license": "MIT",
       "description": "Building applications with LLMs through composability",
@@ -889,6 +889,39 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2026-45134",
             "https://github.com/langchain-ai/langsmith-sdk"
           ]
+        },
+        {
+          "id": "CVE-2026-55443",
+          "aliases": [
+            "GHSA-gr75-jv2w-4656",
+            "PYSEC-2026-2192",
+            "PYSEC-2026-2556"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LangChain: Path traversal and sandbox escape in LangChain file-search middleware and loaders",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langchain-ai/langchain/security/advisories/GHSA-gr75-jv2w-4656",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55443",
+            "https://github.com/langchain-ai/langchain/commit/dcaf7795a3e6590af55c3ff7bda6add6355e9ea6"
+          ]
+        },
+        {
+          "id": "CVE-2024-5998",
+          "aliases": [
+            "GHSA-f2jm-rw3h-6phg",
+            "PYSEC-2024-323",
+            "PYSEC-2026-1514"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A vulnerability in the FAISS.deserialize_from_bytes function of langchain-ai/langchain allows for pickle deserialization of untrusted data. This can lead to the execution of arbitrary commands via the os.system function. The issue affects the latest version of the product.",
+          "year": 2024,
+          "refs": [
+            "https://github.com/langchain-ai/langchain/commit/604dfe2d99246b0c09f047c604f0c63eafba31e7",
+            "https://huntr.com/bounties/fa3a2753-57c3-4e08-a176-d7a3ffda28fe"
+          ]
         }
       ],
       "risk_score": 100,
@@ -896,14 +929,14 @@
         "total_affected": 6,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "langchain-core",
       "label": "LangChain Core",
       "group": "agent",
-      "downloads": 149933558,
-      "version": "1.4.7",
+      "downloads": 164763428,
+      "version": "1.6.1",
       "maintainer": "Unknown",
       "license": "MIT",
       "description": "Building applications with LLMs through composability",
@@ -1077,7 +1110,7 @@
         "total_affected": 9,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "langchain-community",
@@ -1242,14 +1275,14 @@
         "total_affected": 7,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "llama-index",
       "label": "LlamaIndex",
       "group": "agent",
       "downloads": 10278412,
-      "version": "0.14.22",
+      "version": "0.14.24",
       "maintainer": "Unknown",
       "license": null,
       "description": "Interface between LLMs and your data",
@@ -1462,6 +1495,148 @@
             "https://www.vulncheck.com/advisories/llamaindex-vannaqueryengine-sql-execution-allows-resource-exhaustion",
             "https://github.com/run-llama/llama_index"
           ]
+        },
+        {
+          "id": "CVE-2024-12704",
+          "aliases": [
+            "GHSA-j3wr-m6xh-64hg",
+            "PYSEC-2025-244",
+            "PYSEC-2026-1563"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A vulnerability in the LangChainLLM class of the run-llama/llama_index repository, version v0.12.5, allows for a Denial of Service (DoS) attack. The stream_complete method executes the llm using a thread and retrieves the result via the get_response_gen method of the StreamingGeneratorCallbackHandle",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/d1ecfb77578d089cbe66728f18f635c09aa32a05",
+            "https://huntr.com/bounties/a0b638fd-21c6-4ba7-b381-6ab98472a02a"
+          ]
+        },
+        {
+          "id": "CVE-2025-1750",
+          "aliases": [
+            "PYSEC-2025-245"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "An SQL injection vulnerability exists in the delete function of DuckDBVectorStore in run-llama/llama_index version v0.12.19. This vulnerability allows an attacker to manipulate the ref_doc_id parameter, enabling them to read and write arbitrary files on the server, potentially leading to remote code",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/369a2942df2efcf6b74461c45d20a0af1fbe4ae2",
+            "https://huntr.com/bounties/e1302233-9180-4269-9047-1526247d2cd8"
+          ]
+        },
+        {
+          "id": "CVE-2025-1753",
+          "aliases": [
+            "GHSA-g99h-56mw-8263",
+            "PYSEC-2025-246",
+            "PYSEC-2026-1557"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "LLama-Index CLI version v0.12.20 contains an OS command injection vulnerability. The vulnerability arises from the improper handling of the `--files` argument, which is directly passed into `os.system`. An attacker who controls the content of this argument can inject and execute arbitrary shell comm",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/b57e76738c53ca82d88658b82f2d82d1c7839c7d",
+            "https://huntr.com/bounties/19e1c67e-1d77-451d-b10b-acbe99900b22"
+          ]
+        },
+        {
+          "id": "CVE-2025-3044",
+          "aliases": [
+            "GHSA-p7j4-jwjf-5x9w",
+            "PYSEC-2025-247",
+            "PYSEC-2026-1569"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A vulnerability in the ArxivReader class of the run-llama/llama_index repository, versions up to v0.12.22.post1, allows for MD5 hash collisions when generating filenames for downloaded papers. This can lead to data loss as papers with identical titles but different contents may overwrite each other,",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/0008041e8dde8e519621388e5d6f558bde6ef42e",
+            "https://huntr.com/bounties/80182c3a-876f-422f-8bac-38267e0345d6"
+          ]
+        },
+        {
+          "id": "CVE-2025-3046",
+          "aliases": [
+            "GHSA-fmrf-6jv9-qjc7",
+            "PYSEC-2025-248",
+            "PYSEC-2026-1568"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A vulnerability in the `ObsidianReader` class of the run-llama/llama_index repository, versions 0.12.23 to 0.12.28, allows for arbitrary file read through symbolic links. The `ObsidianReader` fails to resolve symlinks to their real paths and does not validate whether the resolved paths lie within th",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/0008041e8dde8e519621388e5d6f558bde6ef42e",
+            "https://huntr.com/bounties/90a1f1b2-bb82-4d66-9fc1-856ed5f904da"
+          ]
+        },
+        {
+          "id": "CVE-2025-3108",
+          "aliases": [
+            "GHSA-m84c-4c34-28gf",
+            "PYSEC-2025-249",
+            "PYSEC-2026-1564"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A critical deserialization vulnerability exists in the run-llama/llama_index library's JsonPickleSerializer component, affecting versions v0.12.27 through v0.12.40. This vulnerability allows remote code execution due to an insecure fallback to Python's pickle module. JsonPickleSerializer prioritizes",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/702e4340623092fac4cf2fe95eb9465034856da3",
+            "https://huntr.com/bounties/9b55a5e8-74e6-4241-b323-e360dc8b110a"
+          ]
+        },
+        {
+          "id": "CVE-2025-3225",
+          "aliases": [
+            "GHSA-w42r-mrx7-c633",
+            "PYSEC-2025-250",
+            "PYSEC-2026-1570"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "An XML Entity Expansion vulnerability, also known as a 'billion laughs' attack, exists in the sitemap parser of the run-llama/llama_index repository, specifically affecting version v0.12.21. This vulnerability allows an attacker to supply a malicious Sitemap XML, leading to a Denial of Service (DoS)",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/4f6ee062b19212106a2632af9c9521fc7f0a3584",
+            "https://huntr.com/bounties/e33c0699-e9a2-49aa-837b-5363205637a2"
+          ]
+        },
+        {
+          "id": "CVE-2025-5472",
+          "aliases": [
+            "GHSA-3wxx-q3gv-pvvv",
+            "PYSEC-2025-251",
+            "PYSEC-2026-1559"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "The JSONReader in run-llama/llama_index versions 0.12.28 is vulnerable to a stack overflow due to uncontrolled recursive JSON parsing. This vulnerability allows attackers to trigger a Denial of Service (DoS) by submitting deeply nested JSON structures, leading to a RecursionError and crashing applic",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/c032843a02ce38fd8f284b2aa5a37fd1c17ae635",
+            "https://huntr.com/bounties/df187bda-7911-4823-a19a-e15b2c66b0d4"
+          ]
+        },
+        {
+          "id": "CVE-2025-6210",
+          "aliases": [
+            "GHSA-3j8r-jf9w-5cmh",
+            "PYSEC-2025-252",
+            "PYSEC-2026-1567"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A vulnerability in the ObsidianReader class of the run-llama/llama_index repository, specifically in version 0.12.27, allows for hardlink-based path traversal. This flaw permits attackers to bypass path restrictions and access sensitive system files, such as /etc/passwd, by exploiting hardlinks. The",
+          "year": 2025,
+          "refs": [
+            "https://github.com/run-llama/llama_index/commit/a86c96ae0e662492eeb471b658ae849a93f628ff",
+            "https://huntr.com/bounties/a654b322-a509-4448-a1f5-0f22850b4687"
+          ]
         }
       ],
       "risk_score": 100,
@@ -1469,14 +1644,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "llama-index-core",
       "label": "LlamaIndex Core",
       "group": "agent",
-      "downloads": 13778653,
-      "version": "0.14.22",
+      "downloads": 13145079,
+      "version": "0.14.24",
       "maintainer": "Unknown",
       "license": null,
       "description": "Interface between LLMs and your data",
@@ -1654,14 +1829,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "transformers",
       "label": "Transformers",
       "group": "ai-lib",
-      "downloads": 145076539,
-      "version": "5.12.0",
+      "downloads": 176616940,
+      "version": "5.16.1",
       "maintainer": "The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)",
       "license": "Apache 2.0 License",
       "description": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
@@ -2227,6 +2402,38 @@
           "refs": [
             "https://www.zerodayinitiative.com/advisories/ZDI-25-1145/"
           ]
+        },
+        {
+          "id": "CVE-2026-4372",
+          "aliases": [
+            "GHSA-29pf-2h5f-8g72",
+            "PYSEC-2026-2289"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "HuggingFace transformers vulnerable to remote code execution",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-4372",
+            "https://github.com/huggingface/transformers/commit/a7f8e7ff37d87d1a1a0c8cf607971c607741452f",
+            "https://github.com/huggingface/transformers"
+          ]
+        },
+        {
+          "id": "CVE-2026-5241",
+          "aliases": [
+            "GHSA-fgcw-684q-jj6r",
+            "PYSEC-2026-2290"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "huggingface/transformers: Arbitrary Code Execution During Model Initialization in the LightGlue Model Loading Path",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-5241",
+            "https://github.com/huggingface/transformers/commit/676559d5022b74aaa0cee1cee0842b7f27c5320e",
+            "https://access.redhat.com/errata/RHSA-2026:34456"
+          ]
         }
       ],
       "risk_score": 100,
@@ -2234,14 +2441,14 @@
         "total_affected": 9,
         "cascade_depth": 2
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "sentence-transformers",
       "label": "Sentence Transformers",
       "group": "ai-lib",
-      "downloads": 25561774,
-      "version": "5.5.1",
+      "downloads": 31324496,
+      "version": "6.0.1",
       "maintainer": "Unknown",
       "license": "Apache 2.0",
       "description": "Embeddings, Retrieval, and Reranking",
@@ -2272,14 +2479,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "crewai",
       "label": "CrewAI",
       "group": "agent",
-      "downloads": 14044628,
-      "version": "1.14.7",
+      "downloads": 28429908,
+      "version": "1.15.18",
       "maintainer": "Unknown",
       "license": null,
       "description": "Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
@@ -2342,13 +2549,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "autogen-agentchat",
       "label": "AutoGen",
       "group": "agent",
-      "downloads": 1319137,
+      "downloads": 933352,
       "version": "0.7.5",
       "maintainer": "Unknown",
       "license": "MIT License Copyright (c) Microsoft Corporation.",
@@ -2362,13 +2569,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "smolagents",
       "label": "smolagents",
       "group": "agent",
-      "downloads": 621316,
+      "downloads": 571400,
       "version": "1.26.0",
       "maintainer": "Unknown",
       "license": null,
@@ -2512,14 +2719,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "torch",
       "label": "PyTorch",
       "group": "framework",
-      "downloads": 83962051,
-      "version": "2.12.0",
+      "downloads": 84173539,
+      "version": "2.13.0",
       "maintainer": "Unknown",
       "license": "BSD-3-Clause",
       "description": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
@@ -3082,6 +3289,24 @@
             "https://vuldb.com/?id.352326",
             "https://vuldb.com/?submit.774681"
           ]
+        },
+        {
+          "id": "CVE-2026-24747",
+          "aliases": [
+            "BIT-pytorch-2026-24747",
+            "GHSA-63cw-57p8-fm3p",
+            "PYSEC-2026-1856",
+            "PYSEC-2026-2286"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "PyTorch is a Python package that provides tensor computation. Prior to version 2.10.0, a vulnerability in PyTorch's `weights_only` unpickler allows an attacker to craft a malicious checkpoint file (`.pth`) that, when loaded with `torch.load(..., weights_only=True)`, can corrupt memory and potentiall",
+          "year": 2026,
+          "refs": [
+            "https://access.redhat.com/security/cve/CVE-2026-24747",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-24747.json",
+            "https://access.redhat.com/errata/RHSA-2026:24977"
+          ]
         }
       ],
       "risk_score": 100,
@@ -3089,13 +3314,13 @@
         "total_affected": 20,
         "cascade_depth": 2
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tensorflow",
       "label": "TensorFlow",
       "group": "framework",
-      "downloads": 21881824,
+      "downloads": 16334145,
       "version": "2.21.0",
       "maintainer": "Google Inc.",
       "license": "Apache 2.0",
@@ -10894,14 +11119,14 @@
         "total_affected": 12,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "jax",
       "label": "JAX",
       "group": "framework",
-      "downloads": 19558778,
-      "version": "0.10.1",
+      "downloads": 18474643,
+      "version": "0.11.1",
       "maintainer": "JAX team",
       "license": "Apache-2.0",
       "description": "Differentiate, compile, and transform Numpy code.",
@@ -10925,14 +11150,14 @@
         "total_affected": 12,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "keras",
       "label": "Keras",
       "group": "framework",
-      "downloads": 20784748,
-      "version": "3.14.1",
+      "downloads": 16249828,
+      "version": "3.15.1",
       "maintainer": "Unknown",
       "license": "Apache License 2.0",
       "description": "Multi-backend Keras",
@@ -11216,6 +11441,118 @@
             "https://github.com/keras-team/keras/pull/20751",
             "https://github.com/keras-team/keras/commit/e67ac8ffd0c883bec68eb65bb52340c7f9d3a903"
           ]
+        },
+        {
+          "id": "CVE-2026-12480",
+          "aliases": [
+            "GHSA-26c4-7vv6-867j",
+            "PYSEC-2026-3629"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Keras: HDF5 virtual datasets can disclose local files",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12480",
+            "https://github.com/keras-team/keras/commit/8f987f11bf7512f0df4774a8f1557bba07dc2b49",
+            "https://github.com/keras-team/keras/commit/d5a88bdb137c0d3039b8f4bbbe8c7099925cc10c"
+          ]
+        },
+        {
+          "id": "CVE-2026-12482",
+          "aliases": [
+            "GHSA-58hv-7753-xmfq",
+            "PYSEC-2026-3630"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Keras: tar extraction permits symlink-based path traversal",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12482",
+            "https://github.com/keras-team/keras/pull/23015",
+            "https://github.com/keras-team/keras/pull/23165"
+          ]
+        },
+        {
+          "id": "CVE-2026-12481",
+          "aliases": [
+            "GHSA-5gwj-m78q-7pq3",
+            "PYSEC-2026-3631"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Keras: Lambda deserialization can bypass safe mode and execute code",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12481",
+            "https://github.com/keras-team/keras/pull/23048",
+            "https://github.com/keras-team/keras/pull/23165"
+          ]
+        },
+        {
+          "id": "CVE-2026-12479",
+          "aliases": [
+            "GHSA-gh82-f9x8-5frx",
+            "PYSEC-2026-3632"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Keras: DiskIOStore permits path traversal through crafted layer names",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12479",
+            "https://github.com/keras-team/keras/pull/23017",
+            "https://github.com/keras-team/keras/commit/d8caeb58cc9e61ea092445dc7a20908ca8d693e2"
+          ]
+        },
+        {
+          "id": "CVE-2026-11816",
+          "aliases": [
+            "GHSA-hqp4-2352-xf5r",
+            "PYSEC-2026-2324"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Keras archive extraction utilities allow path traversal and arbitrary file writes",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-11816",
+            "https://github.com/keras-team/keras/pull/22194",
+            "https://github.com/keras-team/keras/commit/2465b6657b02c8eed308759b7e800e295ae01888"
+          ]
+        },
+        {
+          "id": "CVE-2026-9335",
+          "aliases": [
+            "GHSA-m8wh-29wm-52mv",
+            "PYSEC-2026-3633"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Keras: HDF5 links can disclose local file contents",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-9335",
+            "https://github.com/keras-team/keras/pull/22899",
+            "https://github.com/keras-team/keras/pull/23165"
+          ]
+        },
+        {
+          "id": "CVE-2026-12484",
+          "aliases": [
+            "GHSA-v2w2-w228-c444",
+            "PYSEC-2026-3634"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Keras: TorchModuleWrapper can deserialize unsafe PyTorch pickle data",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12484",
+            "https://github.com/keras-team/keras/pull/23048",
+            "https://github.com/keras-team/keras/pull/23165"
+          ]
         }
       ],
       "risk_score": 100,
@@ -11223,13 +11560,13 @@
         "total_affected": 13,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "chromadb",
       "label": "ChromaDB",
       "group": "vector-db",
-      "downloads": 13247898,
+      "downloads": 11643986,
       "version": "1.5.9",
       "maintainer": "Unknown",
       "license": null,
@@ -11282,6 +11619,51 @@
             "https://github.com/chroma-core/chroma/issues/6717",
             "https://github.com/chroma-core/chroma"
           ]
+        },
+        {
+          "id": "CVE-2026-45830",
+          "aliases": [
+            "GHSA-2wm9-hf6c-p5cr"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "ChromaDB allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant's collection",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-45830",
+            "https://github.com/chroma-core/chroma/issues/7588",
+            "https://github.com/chroma-core/chroma/pull/7602"
+          ]
+        },
+        {
+          "id": "CVE-2026-45833",
+          "aliases": [
+            "GHSA-36p7-vc44-83pf"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "ChromaDB has a code injection vulnerability",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-45833",
+            "https://access.redhat.com/security/cve/CVE-2026-45833",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2488430"
+          ]
+        },
+        {
+          "id": "CVE-2026-45831",
+          "aliases": [
+            "GHSA-xph7-9rjv-w5fr"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "ChromaDB's SimpleRBACAuthorizationProvider doesn't check which tenant, database, or collection a permission applies to",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-45831",
+            "https://github.com/chroma-core/chroma/issues/7588",
+            "https://github.com/chroma-core/chroma/pull/7602"
+          ]
         }
       ],
       "risk_score": 30,
@@ -11289,13 +11671,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pinecone-client",
       "label": "Pinecone",
       "group": "vector-db",
-      "downloads": 1564172,
+      "downloads": 1049672,
       "version": "6.0.0",
       "maintainer": "Pinecone Systems, Inc.",
       "license": "Apache-2.0",
@@ -11319,14 +11701,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "weaviate-client",
       "label": "Weaviate",
       "group": "vector-db",
-      "downloads": 156474953,
-      "version": "4.21.3",
+      "downloads": 90068713,
+      "version": "4.23.0",
       "maintainer": "Weaviate",
       "license": "BSD 3-clause",
       "description": "A python native Weaviate client",
@@ -11345,14 +11727,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "qdrant-client",
       "label": "Qdrant",
       "group": "vector-db",
-      "downloads": 23841621,
-      "version": "1.18.0",
+      "downloads": 16839198,
+      "version": "1.19.0",
       "maintainer": "Andrey Vasnetsov",
       "license": "Apache-2.0",
       "description": "Client library for the Qdrant vector search engine",
@@ -11387,14 +11769,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "vllm",
       "label": "vLLM",
       "group": "infra",
-      "downloads": 5834416,
-      "version": "0.23.0",
+      "downloads": 4295779,
+      "version": "0.28.0",
       "maintainer": "vLLM Team",
       "license": null,
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
@@ -12302,6 +12684,260 @@
             "https://github.com/vllm-project/vllm/security/advisories/GHSA-3ww4-5jv9-j5gm",
             "https://github.com/vllm-project/vllm"
           ]
+        },
+        {
+          "id": "CVE-2026-55514",
+          "aliases": [
+            "GHSA-33cg-gxv8-3p8g",
+            "PYSEC-2026-2303"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM denial of service via prompt embeds on M-RoPE models",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-33cg-gxv8-3p8g",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55514",
+            "https://github.com/vllm-project/vllm/pull/45252"
+          ]
+        },
+        {
+          "id": "CVE-2026-53923",
+          "aliases": [
+            "GHSA-5jv2-g5wq-cmr4",
+            "PYSEC-2026-3403"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: GGUF dequantize kernel int truncation exposes uninitialized GPU memory in multi-tenant serving",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-5jv2-g5wq-cmr4",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-53923",
+            "https://github.com/vllm-project/vllm/pull/44971"
+          ]
+        },
+        {
+          "id": "CVE-2026-34760",
+          "aliases": [
+            "GHSA-6c4r-fmh3-7rh8",
+            "PYSEC-2026-2299"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: Processing differential in multi-channel audio downmixing enables hidden-input/moderation bypass for audio models",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-6c4r-fmh3-7rh8",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-34760",
+            "https://github.com/vllm-project/vllm/pull/37058"
+          ]
+        },
+        {
+          "id": "CVE-2026-54233",
+          "aliases": [
+            "GHSA-6pr9-rp53-2pmc",
+            "PYSEC-2026-3404"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: OOM Denial of Service via Audio Decompression Bomb",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-6pr9-rp53-2pmc",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54233",
+            "https://github.com/vllm-project/vllm/pull/44970"
+          ]
+        },
+        {
+          "id": "CVE-2026-54235",
+          "aliases": [
+            "GHSA-7h4p-rffg-7823",
+            "PYSEC-2026-3405"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: temperature=NaN and temperature=Infinity bypass validation and propagate to GPU kernels",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-7h4p-rffg-7823",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54235",
+            "https://github.com/vllm-project/vllm/pull/45116"
+          ]
+        },
+        {
+          "id": "CVE-2026-73559",
+          "aliases": [
+            "GHSA-87x5-vmc3-756j",
+            "PYSEC-2026-3704"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: Completion prompt lists fan out into unbounded engine requests",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-87x5-vmc3-756j",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-73559",
+            "https://github.com/vllm-project/vllm/pull/47845"
+          ]
+        },
+        {
+          "id": "CVE-2026-12491",
+          "aliases": [
+            "GHSA-8jr5-v98p-w75m",
+            "PYSEC-2026-3406"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: image EXIF Rotation & PNG tRNS Transparency Not Normalized, Causing Mismatch Between Model Input and Expectations",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-8jr5-v98p-w75m",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12491",
+            "https://github.com/vllm-project/vllm/pull/44974"
+          ]
+        },
+        {
+          "id": "CVE-2026-54234",
+          "aliases": [
+            "GHSA-8wr5-jm2h-8r4f",
+            "PYSEC-2026-3542"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM has Remote DoS via Invalid Recovered Token Reinjection",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-8wr5-jm2h-8r4f",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54234",
+            "https://github.com/vllm-project/vllm/pull/44744"
+          ]
+        },
+        {
+          "id": "CVE-2026-48746",
+          "aliases": [
+            "GHSA-94f4-hr76-p5j6",
+            "PYSEC-2026-226"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "vLLM: OpenAI auth bypass",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-94f4-hr76-p5j6",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-48746",
+            "https://github.com/vllm-project/vllm/pull/43426"
+          ]
+        },
+        {
+          "id": "CVE-2026-9540",
+          "aliases": [
+            "GHSA-98f3-hwg4-4rf7",
+            "PYSEC-2026-3407"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vllm has Improper Resource Shutdown or Release ",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-9540",
+            "https://github.com/vllm-project/vllm/issues/37343",
+            "https://github.com/vllm-project/vllm/pull/37594"
+          ]
+        },
+        {
+          "id": "CVE-2026-54236",
+          "aliases": [
+            "GHSA-hgg8-fqqc-vfmw",
+            "PYSEC-2026-3408"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: incomplete CVE-2026-22778 fix leaks PIL repr addresses via Anthropic router",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-hgg8-fqqc-vfmw",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54236",
+            "https://github.com/vllm-project/vllm/pull/45119"
+          ]
+        },
+        {
+          "id": "CVE-2026-41523",
+          "aliases": [
+            "GHSA-q8gq-377p-jq3r",
+            "PYSEC-2026-2300"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: Security Check Bypass via assert Statement in Activation Function Loading Allows Arbitrary Code Execution",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-q8gq-377p-jq3r",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-41523",
+            "https://github.com/vllm-project/vllm/commit/b3c7ffcab82c2439726f8cb213800f6f38c023d3"
+          ]
+        },
+        {
+          "id": "CVE-2026-55574",
+          "aliases": [
+            "GHSA-rwxx-mrjm-wc2m",
+            "PYSEC-2026-2304"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: ReDoS via structured_outputs.regex compiled without timeout in xgrammar and outlines backends",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-rwxx-mrjm-wc2m",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55574",
+            "https://github.com/vllm-project/vllm/pull/45118"
+          ]
+        },
+        {
+          "id": "CVE-2026-55646",
+          "aliases": [
+            "GHSA-v82g-2437-67m2",
+            "PYSEC-2026-2305"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM: Speech-to-text upload size limit is enforced after full UploadFile read",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-v82g-2437-67m2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55646",
+            "https://github.com/vllm-project/vllm/pull/45510"
+          ]
+        },
+        {
+          "id": "CVE-2026-5497",
+          "aliases": [
+            "GHSA-wcwg-c5fc-9vrc",
+            "PYSEC-2026-2302"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "vLLM is vulnerable to an Out-of-Memory (OOM) Denial of Service (DoS) attack due to unbounded frame count processing in the `VideoMediaIO.load_base64()` method",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-5497",
+            "https://github.com/vllm-project/vllm/commit/58ee61422169ce17e08248f8efa1e9df434fe395",
+            "https://access.redhat.com/errata/RHSA-2026:33524"
+          ]
+        },
+        {
+          "id": "CVE-2026-54232",
+          "aliases": [
+            "GHSA-jrf6-vqxq-pjv2",
+            "PYSEC-2026-227"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion attack through the flashinfer-jit-cache package. The package is installed from a custom index (flashinfer.ai/whl/) using --extra-index-url, but the p",
+          "year": 2026,
+          "refs": [
+            "https://github.com/vllm-project/vllm/security/advisories/GHSA-jrf6-vqxq-pjv2"
+          ]
         }
       ],
       "risk_score": 100,
@@ -12309,14 +12945,14 @@
         "total_affected": 9,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "litellm",
       "label": "LiteLLM",
       "group": "provider",
-      "downloads": 559721656,
-      "version": "1.89.0",
+      "downloads": 641452443,
+      "version": "1.98.0",
       "maintainer": "BerriAI",
       "license": null,
       "description": "Library to easily interface with LLM API providers",
@@ -12720,6 +13356,118 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2026-40217",
             "https://github.com/BerriAI/litellm"
           ]
+        },
+        {
+          "id": "CVE-2026-59819",
+          "aliases": [
+            "GHSA-4g5m-c9r5-49xf",
+            "PYSEC-2026-3476"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "LiteLLM: Local file read via request-supplied OIDC file references",
+          "year": 2026,
+          "refs": [
+            "https://github.com/BerriAI/litellm/security/advisories/GHSA-4g5m-c9r5-49xf",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59819",
+            "https://github.com/BerriAI/litellm/pull/25592"
+          ]
+        },
+        {
+          "id": "CVE-2026-49468",
+          "aliases": [
+            "GHSA-4xpc-pv4p-pm3w",
+            "PYSEC-2026-388"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "LiteLLM: Authentication Bypass via Host Header Injection",
+          "year": 2026,
+          "refs": [
+            "https://github.com/BerriAI/litellm/security/advisories/GHSA-4xpc-pv4p-pm3w",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-49468",
+            "https://access.redhat.com/security/cve/CVE-2026-49468"
+          ]
+        },
+        {
+          "id": "CVE-2026-59820",
+          "aliases": [
+            "GHSA-5jmr-gcrj-2c9q",
+            "PYSEC-2026-3477"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LiteLLM: Arbitrary file write via path traversal in Skills archive extraction",
+          "year": 2026,
+          "refs": [
+            "https://github.com/BerriAI/litellm/security/advisories/GHSA-5jmr-gcrj-2c9q",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59820",
+            "https://github.com/BerriAI/litellm/pull/25475"
+          ]
+        },
+        {
+          "id": "CVE-2026-59821",
+          "aliases": [
+            "GHSA-72m8-9m7m-h278",
+            "PYSEC-2026-3478"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "LiteLLM: Custom Code Guardrails production endpoints bypass code safety checks",
+          "year": 2026,
+          "refs": [
+            "https://github.com/BerriAI/litellm/security/advisories/GHSA-72m8-9m7m-h278",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59821",
+            "https://github.com/BerriAI/litellm/commit/e50b4486d0f7aa0497185a1ebcdd2c91f1769eba"
+          ]
+        },
+        {
+          "id": "CVE-2026-59822",
+          "aliases": [
+            "GHSA-7488-6r32-c95q",
+            "PYSEC-2026-3479"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LiteLLM: MCP Authentication Bypass via OAuth2 Passthrough Fallback",
+          "year": 2026,
+          "refs": [
+            "https://github.com/BerriAI/litellm/security/advisories/GHSA-7488-6r32-c95q",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59822",
+            "https://github.com/BerriAI/litellm/pull/26463"
+          ]
+        },
+        {
+          "id": "CVE-2026-47101",
+          "aliases": [
+            "GHSA-qrc4-49gv-mv9m",
+            "PYSEC-2026-2598"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LiteLLM allows an authenticated internal_user to create API keys with access to routes that their role does not permit",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-47101",
+            "https://github.com/BerriAI/litellm/commit/2220f3076ac89bd2a2e3439acf57dcfbec2434c9",
+            "https://github.com/BerriAI/litellm/commit/5190bd07eb23a037745d86328096f54378f1614a"
+          ]
+        },
+        {
+          "id": "CVE-2026-47102",
+          "aliases": [
+            "GHSA-wpfp-gwwc-vwq6",
+            "PYSEC-2026-2600"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LiteLLM allows a user to modify their own user_role via the /user/update endpoint",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-47102",
+            "https://github.com/BerriAI/litellm/pull/25541",
+            "https://github.com/BerriAI/litellm/commit/128d32d2494b759c5d15da3452452af4c6a34c01"
+          ]
         }
       ],
       "risk_score": 100,
@@ -12727,13 +13475,13 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "ollama",
       "label": "Ollama",
       "group": "infra",
-      "downloads": 16343761,
+      "downloads": 20209975,
       "version": "0.6.2",
       "maintainer": "Unknown",
       "license": null,
@@ -12773,14 +13521,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "ray",
       "label": "Ray",
       "group": "infra",
-      "downloads": 58743945,
-      "version": "2.55.1",
+      "downloads": 50480393,
+      "version": "2.58.0",
       "maintainer": "Ray Team",
       "license": "Apache 2.0",
       "description": "Ray provides a simple, universal API for building distributed applications.",
@@ -13026,6 +13774,22 @@
             "https://github.com/pypa/advisory-database/tree/main/vulns/ray/PYSEC-2026-130.yaml",
             "https://github.com/ray-project/ray"
           ]
+        },
+        {
+          "id": "CVE-2026-57516",
+          "aliases": [
+            "GHSA-hhrp-gw25-jr43",
+            "PYSEC-2026-2273"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Ray: Arbitrary code execution via ray.data.read_webdataset default decoder: pickle.loads(value) and torch.load(weights_only=False)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/ray-project/ray/security/advisories/GHSA-hhrp-gw25-jr43",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-57516",
+            "https://github.com/ray-project/ray/pull/63469"
+          ]
         }
       ],
       "risk_score": 100,
@@ -13033,14 +13797,14 @@
         "total_affected": 9,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "mlflow",
       "label": "MLflow",
       "group": "app",
-      "downloads": 36164322,
-      "version": "3.13.0",
+      "downloads": 38683152,
+      "version": "3.15.2",
       "maintainer": "Unknown",
       "license": "Copyright 2018 Databricks, Inc.  All rights reserved.",
       "description": "MLflow is an open source platform for the complete machine learning lifecycle",
@@ -14409,6 +15173,91 @@
             "https://vuldb.com/cve/CVE-2026-10803",
             "https://vuldb.com/submit/831462"
           ]
+        },
+        {
+          "id": "CVE-2026-8147",
+          "aliases": [
+            "BIT-mlflow-2026-8147",
+            "GHSA-2cm6-r77w-6g96",
+            "PYSEC-2026-3686"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "MLflow: trace API endpoints lack proper authorization validators",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-8147",
+            "https://github.com/mlflow/mlflow/pull/23014",
+            "https://github.com/mlflow/mlflow/commit/f9b1eb510478570609ef451984a255775aa4b937"
+          ]
+        },
+        {
+          "id": "CVE-2026-64849",
+          "aliases": [
+            "BIT-mlflow-2026-64849",
+            "GHSA-7gwp-5pfp-969j",
+            "PYSEC-2026-3687"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "MLflow: Unauthenticated full-read SSRF in webhook delivery: _validate_webhook_url bypassed via unvalidated HTTP redirects (and DNS rebinding)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/mlflow/mlflow/security/advisories/GHSA-7gwp-5pfp-969j",
+            "https://github.com/mlflow/mlflow/issues/24179",
+            "https://github.com/mlflow/mlflow/pull/24258"
+          ]
+        },
+        {
+          "id": "CVE-2026-2651",
+          "aliases": [
+            "BIT-mlflow-2026-2651",
+            "GHSA-8c7q-86fq-vvmh",
+            "PYSEC-2026-2220"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "MLflow allows unauthorized access to multipart upload endpoints when the `--serve-artifacts` mode is enabled",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-2651",
+            "https://github.com/mlflow/mlflow/commit/d7290811d8f3c95366d80109424edc1fb1ad966f",
+            "https://access.redhat.com/security/cve/CVE-2026-2651"
+          ]
+        },
+        {
+          "id": "CVE-2026-4035",
+          "aliases": [
+            "BIT-mlflow-2026-4035",
+            "GHSA-g35p-px32-whv6",
+            "PYSEC-2026-2222"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "MLflow: Environment variable injection in AI Gateway secrets enables server-side credential exfiltration",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-4035",
+            "https://github.com/mlflow/mlflow/commit/4a3f2f720cb4f058c9e0c5b883e0acc9ab64a7f3",
+            "https://access.redhat.com/security/cve/CVE-2026-4035"
+          ]
+        },
+        {
+          "id": "CVE-2026-3198",
+          "aliases": [
+            "BIT-mlflow-2026-3198",
+            "GHSA-r5m9-wm49-959f",
+            "PYSEC-2026-2659"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "MLflow: Any authenticated user can enumerate all gateway secrets, endpoints, and model definitions",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-3198",
+            "https://github.com/mlflow/mlflow/commit/6989066af33fdcb03588fd71a1a67f8fc5ef12c9",
+            "https://github.com/mlflow/mlflow"
+          ]
         }
       ],
       "risk_score": 100,
@@ -14416,14 +15265,14 @@
         "total_affected": 3,
         "cascade_depth": 2
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "wandb",
       "label": "Weights & Biases",
       "group": "app",
-      "downloads": 26282309,
-      "version": "0.27.2",
+      "downloads": 24145031,
+      "version": "0.29.0",
       "maintainer": "Unknown",
       "license": "MIT License Copyright (c) 2021 Weights and Biases, Inc.",
       "description": "A CLI and library for interacting with the Weights & Biases API.",
@@ -14498,14 +15347,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "gradio",
       "label": "Gradio",
       "group": "infra",
-      "downloads": 13395588,
-      "version": "6.18.0",
+      "downloads": 13683163,
+      "version": "6.26.0",
       "maintainer": "Unknown",
       "license": null,
       "description": "Python library for easily interacting with trained machine learning models",
@@ -15415,6 +16264,67 @@
             "https://github.com/gradio-app/gradio/issues/8853",
             "https://github.com/Aaron911/PoC/blob/main/Gradio.md"
           ]
+        },
+        {
+          "id": "CVE-2026-10783",
+          "aliases": [
+            "GHSA-6655-8ph2-63j3",
+            "PYSEC-2026-211"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Gradio: Audio cache key ignores metadata when saving numpy audio outputs",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-10783",
+            "https://github.com/gradio-app/gradio/issues/13395",
+            "https://github.com/gradio-app/gradio/pull/13394"
+          ]
+        },
+        {
+          "id": "CVE-2026-48545",
+          "aliases": [
+            "GHSA-7hp7-4p35-3cx2",
+            "PYSEC-2026-2178"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Gradio contains a cookie injection vulnerability",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-48545",
+            "https://github.com/gradio-app/gradio/issues/13369",
+            "https://github.com/gradio-app/gradio/pull/13384"
+          ]
+        },
+        {
+          "id": "CVE-2024-4253",
+          "aliases": [
+            "PYSEC-2024-321"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A command injection vulnerability exists in the gradio-app/gradio repository, specifically within the 'test-functional.yml' workflow. The vulnerability arises due to improper neutralization of special elements used in a command, allowing for unauthorized modification of the base repository or secret",
+          "year": 2024,
+          "refs": [
+            "https://github.com/gradio-app/gradio/commit/a0e70366a8a406fdd80abb21e8c88a3c8e682a2b",
+            "https://huntr.com/bounties/23cb3749-8ae9-4e1a-9023-4a20ca6b675e"
+          ]
+        },
+        {
+          "id": "CVE-2026-49119",
+          "aliases": [
+            "PYSEC-2026-2179"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "Gradio before 6.16.0 contain a path traversal vulnerability in the FileExplorer component's preprocess() method that allows unauthenticated attackers to escape the configured root directory by supplying path segments containing directory traversal sequences or absolute paths. Attackers can provide c",
+          "year": 2026,
+          "refs": [
+            "https://github.com/gradio-app/gradio/releases/tag/gradio%406.16.0",
+            "https://github.com/gradio-app/gradio/commit/97d541f3d5fd05b2587a69ecc94b68fe5d2d7004",
+            "https://github.com/gradio-app/gradio/pull/13437"
+          ]
         }
       ],
       "risk_score": 100,
@@ -15422,14 +16332,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "mcp",
       "label": "MCP SDK",
       "group": "mcp",
-      "downloads": 255075949,
-      "version": "1.27.2",
+      "downloads": 323315952,
+      "version": "2.1.1",
       "maintainer": "Anthropic, PBC.",
       "license": "MIT",
       "description": "Model Context Protocol SDK",
@@ -15496,6 +16406,54 @@
             "https://github.com/modelcontextprotocol/python-sdk",
             "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
           ]
+        },
+        {
+          "id": "CVE-2026-52870",
+          "aliases": [
+            "GHSA-hvrp-rf83-w775",
+            "PYSEC-2026-3481"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks",
+          "year": 2026,
+          "refs": [
+            "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-hvrp-rf83-w775",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-52870",
+            "https://github.com/modelcontextprotocol/python-sdk/pull/2720"
+          ]
+        },
+        {
+          "id": "CVE-2026-52869",
+          "aliases": [
+            "GHSA-jpw9-pfvf-9f58",
+            "PYSEC-2026-3482"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal",
+          "year": 2026,
+          "refs": [
+            "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-jpw9-pfvf-9f58",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-52869",
+            "https://github.com/modelcontextprotocol/python-sdk/pull/2690"
+          ]
+        },
+        {
+          "id": "CVE-2026-59950",
+          "aliases": [
+            "GHSA-vj7q-gjh5-988w",
+            "PYSEC-2026-3483"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "MCP Python SDK: WebSocket server transport does not support Host/Origin validation",
+          "year": 2026,
+          "refs": [
+            "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-vj7q-gjh5-988w",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59950",
+            "https://github.com/modelcontextprotocol/python-sdk/pull/2992"
+          ]
         }
       ],
       "risk_score": 100,
@@ -15503,14 +16461,14 @@
         "total_affected": 18,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "numpy",
       "label": "NumPy",
       "group": "core",
-      "downloads": 968053648,
-      "version": "2.4.6",
+      "downloads": 1086229694,
+      "version": "2.5.2",
       "maintainer": "Travis E. Oliphant et al.",
       "license": null,
       "description": "Fundamental package for array computing in Python",
@@ -15777,16 +16735,16 @@
       "risk_score": 100,
       "blast_radius": {
         "total_affected": 68,
-        "cascade_depth": 3
+        "cascade_depth": 2
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pandas",
       "label": "Pandas",
       "group": "core",
-      "downloads": 690132166,
-      "version": "3.0.3",
+      "downloads": 722829151,
+      "version": "3.0.5",
       "maintainer": "Unknown",
       "license": "BSD 3-Clause License Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team All rights reserved.Copyright (c) 2011-2026, Open source contributors.",
       "description": "Powerful data structures for data analysis, time series, and statistics",
@@ -15850,14 +16808,14 @@
         "total_affected": 30,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pydantic",
       "label": "Pydantic",
       "group": "util",
-      "downloads": 983540659,
-      "version": "2.13.4",
+      "downloads": 1089652584,
+      "version": "2.13.5",
       "maintainer": "Unknown",
       "license": null,
       "description": "Data validation using Python type hints",
@@ -15919,15 +16877,15 @@
       "risk_score": 32,
       "blast_radius": {
         "total_affected": 60,
-        "cascade_depth": 2
+        "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "requests",
       "label": "Requests",
       "group": "util",
-      "downloads": 1530358808,
+      "downloads": 1654328625,
       "version": "2.34.2",
       "maintainer": "Unknown",
       "license": "Apache-2.0",
@@ -16182,13 +17140,13 @@
         "total_affected": 51,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pyyaml",
       "label": "PyYAML",
       "group": "util",
-      "downloads": 1019468788,
+      "downloads": 1146730936,
       "version": "6.0.3",
       "maintainer": "Kirill Simonov",
       "license": "MIT",
@@ -16350,13 +17308,13 @@
         "total_affected": 39,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "joblib",
       "label": "joblib",
       "group": "core",
-      "downloads": 186855486,
+      "downloads": 209689226,
       "version": "1.5.3",
       "maintainer": "Unknown",
       "license": null,
@@ -16408,13 +17366,13 @@
         "total_affected": 14,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "celery",
       "label": "Celery",
       "group": "infra",
-      "downloads": 51075337,
+      "downloads": 52928380,
       "version": "5.6.3",
       "maintainer": "Ask Solem",
       "license": "BSD-3-Clause",
@@ -16532,13 +17490,13 @@
         "total_affected": 11,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "safetensors",
       "label": "safetensors",
       "group": "ai-tool",
-      "downloads": 75288970,
+      "downloads": 104484223,
       "version": "0.8.0",
       "maintainer": "Unknown",
       "license": null,
@@ -16576,14 +17534,14 @@
         "total_affected": 11,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "onnx",
       "label": "ONNX",
       "group": "ai-tool",
-      "downloads": 20323078,
-      "version": "1.21.0",
+      "downloads": 16549416,
+      "version": "1.22.0",
       "maintainer": "Unknown",
       "license": null,
       "description": "Open Neural Network Exchange",
@@ -16802,6 +17760,38 @@
           "refs": [
             "https://huntr.com/bounties/a7a46cf6-1fa0-454b-988c-62d222e83f63"
           ]
+        },
+        {
+          "id": "CVE-2026-44512",
+          "aliases": [
+            "GHSA-hwpq-hmq9-wj77",
+            "PYSEC-2026-2689"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "ONNX has Null Pointer Dereference in Upsample Version Converter Adapter (Zero Inputs)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/onnx/onnx/security/advisories/GHSA-hwpq-hmq9-wj77",
+            "https://github.com/onnx/onnx/pull/7916",
+            "https://github.com/onnx/onnx"
+          ]
+        },
+        {
+          "id": "CVE-2026-63632",
+          "aliases": [
+            "GHSA-p893-rvq9-2xf9",
+            "PYSEC-2026-3587"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+          "year": 2026,
+          "refs": [
+            "https://github.com/onnx/onnx/security/advisories/GHSA-p893-rvq9-2xf9",
+            "https://github.com/onnx/onnx/pull/7880",
+            "https://github.com/onnx/onnx/commit/e9c74f596eaa0250f89e52a54160a25bbcb25b66"
+          ]
         }
       ],
       "risk_score": 100,
@@ -16809,7 +17799,7 @@
         "total_affected": 2,
         "cascade_depth": 2
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "nvidia-cuda",
@@ -16858,7 +17848,7 @@
       "id": "pycuda",
       "label": "PyCUDA",
       "group": "hardware",
-      "downloads": 96172,
+      "downloads": 82691,
       "version": "2026.1",
       "maintainer": "Andreas Kl\u00f6ckner",
       "license": "MIT",
@@ -16873,13 +17863,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "nvidia-ml-py",
       "label": "nvidia-ml-py",
       "group": "hardware",
-      "downloads": 16650386,
+      "downloads": 18418205,
       "version": "13.610.43",
       "maintainer": "NVIDIA",
       "license": "BSD-3",
@@ -16891,14 +17881,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "triton",
       "label": "Triton (OpenAI)",
       "group": "hardware",
-      "downloads": 64379474,
-      "version": "3.7.0",
+      "downloads": 60959518,
+      "version": "3.8.0",
       "maintainer": "OpenAI",
       "license": "MIT",
       "description": "",
@@ -16911,14 +17901,14 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "scipy",
       "label": "SciPy",
       "group": "core",
-      "downloads": 375420679,
-      "version": "1.17.1",
+      "downloads": 394218131,
+      "version": "1.18.1",
       "maintainer": "SciPy Community",
       "license": "BSD-3",
       "description": "",
@@ -16993,15 +17983,15 @@
       "risk_score": 57,
       "blast_radius": {
         "total_affected": 38,
-        "cascade_depth": 3
+        "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "scikit-learn",
       "label": "scikit-learn",
       "group": "core",
-      "downloads": 198071053,
+      "downloads": 226413418,
       "version": "1.9.0",
       "maintainer": "scikit-learn",
       "license": "BSD-3",
@@ -17067,14 +18057,14 @@
         "total_affected": 13,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "matplotlib",
       "label": "Matplotlib",
       "group": "core",
-      "downloads": 209152726,
-      "version": "3.11.0",
+      "downloads": 221405844,
+      "version": "3.11.1",
       "maintainer": "Matplotlib",
       "license": "PSF",
       "description": "",
@@ -17089,14 +18079,14 @@
         "total_affected": 32,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pillow",
       "label": "Pillow",
       "group": "core",
-      "downloads": 431978644,
-      "version": "12.2.0",
+      "downloads": 521095552,
+      "version": "12.3.0",
       "maintainer": "Alex Clark",
       "license": "HPND",
       "description": "",
@@ -18163,6 +19153,227 @@
             "https://github.com/python-pillow/Pillow/pull/7244",
             "https://github.com/python-pillow/Pillow/commit/1fe1bb49c452b0318cad12ea9d97c3bef188e9a7"
           ]
+        },
+        {
+          "id": "CVE-2026-55379",
+          "aliases": [
+            "BIT-pillow-2026-55379",
+            "GHSA-45hq-cxwh-f6vc",
+            "PYSEC-2026-2255"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow `BdfFontFile`: `Image.new()` called without `_decompression_bomb_check()` \u2014 bomb protection bypass via font loading",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-45hq-cxwh-f6vc",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55379",
+            "https://github.com/python-pillow/Pillow/commit/0a263e6264aa5399988d9acd3bbfbca2ca3ec77d"
+          ]
+        },
+        {
+          "id": "CVE-2026-55798",
+          "aliases": [
+            "BIT-pillow-2026-55798",
+            "GHSA-4x4j-2g7c-83w6",
+            "PYSEC-2026-2257"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: WindowsViewer.get_command() OS command injection via unescaped shell path",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-4x4j-2g7c-83w6",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55798",
+            "https://github.com/python-pillow/Pillow/commit/8404ea5fe5df40fc34aa1e51403dd6fce0778b8a"
+          ]
+        },
+        {
+          "id": "CVE-2026-54060",
+          "aliases": [
+            "BIT-pillow-2026-54060",
+            "GHSA-5x94-69rx-g8h2",
+            "PYSEC-2026-2254"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: `FontFile.compile()`: `Image.new()` called without `_decompression_bomb_check()`",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-5x94-69rx-g8h2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54060",
+            "https://github.com/python-pillow/Pillow/commit/0a263e6264aa5399988d9acd3bbfbca2ca3ec77d"
+          ]
+        },
+        {
+          "id": "CVE-2026-54058",
+          "aliases": [
+            "BIT-pillow-2026-54058",
+            "GHSA-62p4-gmf7-7g93",
+            "PYSEC-2026-3493"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: Out-of-bounds read via attacker-controlled row stride on Pillow's mmap path (McIdas AREA files)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-62p4-gmf7-7g93",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54058",
+            "https://github.com/python-pillow/Pillow/pull/9719"
+          ]
+        },
+        {
+          "id": "CVE-2026-59199",
+          "aliases": [
+            "BIT-pillow-2026-59199",
+            "GHSA-6r8x-57c9-28j4",
+            "PYSEC-2026-3451"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: Heap out-of-bounds write `Image.paste()` / `Image.crop()` via signed coordinate overflow",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-6r8x-57c9-28j4",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59199",
+            "https://github.com/python-pillow/Pillow/pull/9703"
+          ]
+        },
+        {
+          "id": "CVE-2026-54059",
+          "aliases": [
+            "BIT-pillow-2026-54059",
+            "GHSA-8v84-f9pq-wr9x",
+            "PYSEC-2026-2253"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow `PcfFontFile._load_bitmaps()`: `Image.frombytes()` called without `_decompression_bomb_check()` \u2014 bomb protection bypass via PCF font loading",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-8v84-f9pq-wr9x",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54059",
+            "https://github.com/python-pillow/Pillow/commit/0a263e6264aa5399988d9acd3bbfbca2ca3ec77d"
+          ]
+        },
+        {
+          "id": "CVE-2026-59205",
+          "aliases": [
+            "BIT-pillow-2026-59205",
+            "GHSA-9hw9-ch79-4vh6",
+            "PYSEC-2026-3453"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: Controlled heap out-of-bounds write in Pillow `ImageCmsTransform.apply()` via output mode mismatch",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-9hw9-ch79-4vh6",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59205",
+            "https://github.com/python-pillow/Pillow/pull/9715"
+          ]
+        },
+        {
+          "id": "CVE-2026-59198",
+          "aliases": [
+            "BIT-pillow-2026-59198",
+            "GHSA-fj7v-r99m-22gq",
+            "PYSEC-2026-3494"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow TGA RLE encoder can serialize up to ~57 KB of adjacent heap data into generated images",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-fj7v-r99m-22gq",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59198",
+            "https://github.com/python-pillow/Pillow/pull/9709"
+          ]
+        },
+        {
+          "id": "CVE-2026-59200",
+          "aliases": [
+            "BIT-pillow-2026-59200",
+            "GHSA-jjj6-mw9f-p565",
+            "PYSEC-2026-3495"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: Decompression Bomb DoS via PdfParser.PdfStream.decode()",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-jjj6-mw9f-p565",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59200",
+            "https://github.com/python-pillow/Pillow/pull/9718"
+          ]
+        },
+        {
+          "id": "CVE-2026-59203",
+          "aliases": [
+            "BIT-pillow-2026-59203",
+            "GHSA-pg7v-jwj7-p798",
+            "PYSEC-2026-3452"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow EpsImagePlugin negative %%BeginBinary byte count causes infinite loop denial of service",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-pg7v-jwj7-p798",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59203",
+            "https://github.com/python-pillow/Pillow/pull/9708"
+          ]
+        },
+        {
+          "id": "CVE-2026-55380",
+          "aliases": [
+            "BIT-pillow-2026-55380",
+            "GHSA-phj9-mv4w-65pm",
+            "PYSEC-2026-2256"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow `GdImageFile._open()`: image dimensions accepted without `_decompression_bomb_check()`",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-phj9-mv4w-65pm",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55380",
+            "https://github.com/python-pillow/Pillow/commit/f39b0ae6624eb2d7c5c5d651d9bb5fdbd96a8675"
+          ]
+        },
+        {
+          "id": "CVE-2026-59204",
+          "aliases": [
+            "BIT-pillow-2026-59204",
+            "GHSA-vjc4-5qp5-m44j",
+            "PYSEC-2026-3496"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow JPEG2000 tiled decode retains a growing scratch buffer and can be used for denial of service",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-vjc4-5qp5-m44j",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59204",
+            "https://github.com/python-pillow/Pillow/pull/9704"
+          ]
+        },
+        {
+          "id": "CVE-2026-59197",
+          "aliases": [
+            "BIT-pillow-2026-59197",
+            "GHSA-xj96-63gp-2gmr",
+            "PYSEC-2026-3454"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Pillow: Heap out-of-bounds write in `ImageFilter.RankFilter` via integer overflow in `ImagingExpand`",
+          "year": 2026,
+          "refs": [
+            "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xj96-63gp-2gmr",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59197",
+            "https://github.com/python-pillow/Pillow/pull/9695"
+          ]
         }
       ],
       "risk_score": 94,
@@ -18170,13 +19381,13 @@
         "total_affected": 41,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "sympy",
       "label": "SymPy",
       "group": "core",
-      "downloads": 138011045,
+      "downloads": 160930598,
       "version": "1.14.0",
       "maintainer": "SymPy",
       "license": "BSD-3",
@@ -18188,14 +19399,14 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pyarrow",
       "label": "PyArrow",
       "group": "core",
-      "downloads": 383726667,
-      "version": "24.0.0",
+      "downloads": 425816599,
+      "version": "25.0.1",
       "maintainer": "Apache",
       "license": "Apache-2.0",
       "description": "",
@@ -18292,14 +19503,14 @@
         "total_affected": 31,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "diffusers",
       "label": "Diffusers",
       "group": "ai-lib",
-      "downloads": 7712771,
-      "version": "0.38.0",
+      "downloads": 7362968,
+      "version": "0.40.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
       "description": "",
@@ -18360,14 +19571,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "peft",
       "label": "PEFT",
       "group": "ai-lib",
-      "downloads": 9936933,
-      "version": "0.19.1",
+      "downloads": 11233200,
+      "version": "0.20.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
       "description": "",
@@ -18383,14 +19594,14 @@
         "total_affected": 2,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "trl",
       "label": "TRL",
       "group": "ai-lib",
       "downloads": 3186371,
-      "version": "1.6.0",
+      "version": "1.12.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
       "description": "",
@@ -18407,14 +19618,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "datasets",
       "label": "Datasets",
       "group": "ai-lib",
-      "downloads": 119673945,
-      "version": "5.0.0",
+      "downloads": 148981621,
+      "version": "5.0.1",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
       "description": "",
@@ -18428,19 +19639,35 @@
         "pyyaml",
         "pyarrow"
       ],
-      "cves": [],
+      "cves": [
+        {
+          "id": "CVE-2026-66007",
+          "aliases": [
+            "PYSEC-2026-3716"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "Datasets through 5.0.0, fixed in commit f989ef9, contains a path traversal vulnerability in folder-based dataset builders where the file_name metadata field is not properly validated before being joined to the dataset directory. Attackers can supply crafted file_name values with directory traversal ",
+          "year": 2026,
+          "refs": [
+            "https://github.com/huggingface/datasets/issues/8324",
+            "https://github.com/huggingface/datasets/commit/f989ef9b4cc6c0039a7a82458eebca49e2b58b4b",
+            "https://github.com/huggingface/datasets/pull/8325"
+          ]
+        }
+      ],
       "risk_score": 0,
       "blast_radius": {
         "total_affected": 11,
         "cascade_depth": 2
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "accelerate",
       "label": "Accelerate",
       "group": "ai-lib",
-      "downloads": 22679404,
+      "downloads": 23891840,
       "version": "1.14.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -18458,14 +19685,14 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "huggingface-hub",
       "label": "HuggingFace Hub",
       "group": "ai-lib",
-      "downloads": 296407013,
-      "version": "1.19.0",
+      "downloads": 463999230,
+      "version": "1.29.0",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
       "description": "",
@@ -18508,14 +19735,14 @@
         "total_affected": 16,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "timm",
       "label": "timm",
       "group": "ai-lib",
       "downloads": 12051576,
-      "version": "1.0.27",
+      "version": "1.0.29",
       "maintainer": "Ross Wightman",
       "license": "Apache-2.0",
       "description": "",
@@ -18532,14 +19759,14 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "torchvision",
       "label": "torchvision",
       "group": "ai-lib",
-      "downloads": 35380805,
-      "version": "0.27.0",
+      "downloads": 30701310,
+      "version": "0.28.0",
       "maintainer": "Meta AI",
       "license": "BSD-3",
       "description": "",
@@ -18564,13 +19791,13 @@
         "total_affected": 11,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "evaluate",
       "label": "Evaluate",
       "group": "ai-lib",
-      "downloads": 5317168,
+      "downloads": 4570782,
       "version": "0.4.6",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -18588,13 +19815,13 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tokenizers",
       "label": "Tokenizers",
       "group": "ai-tool",
-      "downloads": 181367059,
+      "downloads": 251533857,
       "version": "0.23.1",
       "maintainer": "Hugging Face",
       "license": "Apache-2.0",
@@ -18606,14 +19833,14 @@
         "total_affected": 14,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tiktoken",
       "label": "tiktoken",
       "group": "ai-tool",
-      "downloads": 182968640,
-      "version": "0.13.0",
+      "downloads": 258718301,
+      "version": "0.14.0",
       "maintainer": "OpenAI",
       "license": "MIT",
       "description": "",
@@ -18627,14 +19854,14 @@
         "total_affected": 15,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "sentencepiece",
       "label": "SentencePiece",
       "group": "ai-tool",
-      "downloads": 35587380,
-      "version": "0.2.1",
+      "downloads": 35523692,
+      "version": "0.2.2",
       "maintainer": "Google",
       "license": "Apache-2.0",
       "description": "",
@@ -18669,14 +19896,14 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "onnxruntime",
       "label": "ONNX Runtime",
       "group": "ai-tool",
-      "downloads": 72777812,
-      "version": "1.26.0",
+      "downloads": 80256802,
+      "version": "1.29.0",
       "maintainer": "Microsoft",
       "license": "MIT",
       "description": "",
@@ -18699,14 +19926,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "bitsandbytes",
       "label": "bitsandbytes",
       "group": "ai-tool",
-      "downloads": 6628034,
-      "version": "0.49.2",
+      "downloads": 5236398,
+      "version": "0.50.2",
       "maintainer": "Tim Dettmers",
       "license": "MIT",
       "description": "",
@@ -18721,13 +19948,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "einops",
       "label": "einops",
       "group": "ai-tool",
-      "downloads": 21781342,
+      "downloads": 25835666,
       "version": "0.8.2",
       "maintainer": "Alex Rogozhnikov",
       "license": "MIT",
@@ -18739,14 +19966,14 @@
         "total_affected": 10,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "ml-dtypes",
       "label": "ml-dtypes",
       "group": "ai-tool",
-      "downloads": 35226550,
-      "version": "0.5.4",
+      "downloads": 35174828,
+      "version": "0.6.0",
       "maintainer": "Google",
       "license": "Apache-2.0",
       "description": "",
@@ -18759,14 +19986,14 @@
         "total_affected": 14,
         "cascade_depth": 6
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "mistralai",
       "label": "Mistral SDK",
       "group": "provider",
-      "downloads": 33012384,
-      "version": "2.4.9",
+      "downloads": 37839654,
+      "version": "2.9.4",
       "maintainer": "Mistral AI",
       "license": "Apache-2.0",
       "description": "",
@@ -18808,14 +20035,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "boto3",
       "label": "boto3 (Bedrock)",
       "group": "provider",
-      "downloads": 3254838626,
-      "version": "1.43.29",
+      "downloads": 3141166426,
+      "version": "1.43.83",
       "maintainer": "Amazon",
       "license": "Apache-2.0",
       "description": "",
@@ -18830,14 +20057,14 @@
         "total_affected": 21,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "fastapi",
       "label": "FastAPI",
       "group": "infra",
-      "downloads": 470551259,
-      "version": "0.137.0",
+      "downloads": 547813038,
+      "version": "0.141.1",
       "maintainer": "Sebasti\u00e1n Ram\u00edrez",
       "license": "MIT",
       "description": "",
@@ -18905,14 +20132,14 @@
         "total_affected": 21,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "uvicorn",
       "label": "uvicorn",
       "group": "infra",
-      "downloads": 503441219,
-      "version": "0.49.0",
+      "downloads": 633708592,
+      "version": "0.52.4",
       "maintainer": "Encode",
       "license": "BSD-3",
       "description": "",
@@ -18961,7 +20188,7 @@
         "total_affected": 25,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "triton-server",
@@ -18998,8 +20225,8 @@
       "id": "streamlit",
       "label": "Streamlit",
       "group": "infra",
-      "downloads": 26674256,
-      "version": "1.58.0",
+      "downloads": 27846812,
+      "version": "1.62.0",
       "maintainer": "Snowflake",
       "license": "Apache-2.0",
       "description": "",
@@ -19099,6 +20326,22 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2024-42474",
             "https://github.com/streamlit/streamlit/commit/3a639859cfdfba2187c81897d44a3e33825eb0a3"
           ]
+        },
+        {
+          "id": "CVE-2026-10804",
+          "aliases": [
+            "GHSA-vqwp-45wm-r9r5",
+            "PYSEC-2026-212"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Streamlit @st.cache_data hash collision via fixed sampling seed and PIL P-mode palette omission",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-10804",
+            "https://github.com/streamlit/streamlit/issues/14622",
+            "https://github.com/streamlit/streamlit/pull/14635"
+          ]
         }
       ],
       "risk_score": 77,
@@ -19106,14 +20349,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "dspy",
       "label": "DSPy",
       "group": "agent",
-      "downloads": 6317106,
-      "version": "3.2.1",
+      "downloads": 6081550,
+      "version": "3.3.1",
       "maintainer": "Stanford NLP",
       "license": "MIT",
       "description": "",
@@ -19146,13 +20389,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "haystack",
       "label": "Haystack",
       "group": "agent",
-      "downloads": 2966,
+      "downloads": 3052,
       "version": "0.42",
       "maintainer": "deepset",
       "license": "Apache-2.0",
@@ -19170,14 +20413,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "semantic-kernel",
       "label": "Semantic Kernel",
       "group": "agent",
-      "downloads": 2553132,
-      "version": "1.43.0",
+      "downloads": 2291768,
+      "version": "1.44.1",
       "maintainer": "Microsoft",
       "license": "MIT",
       "description": "",
@@ -19224,14 +20467,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "agno",
       "label": "Agno",
       "group": "agent",
-      "downloads": 3824361,
-      "version": "2.6.14",
+      "downloads": 2076066,
+      "version": "3.0.4",
       "maintainer": "Agno",
       "license": "MPL-2.0",
       "description": "",
@@ -19272,6 +20515,22 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2025-64168",
             "https://github.com/agno-agi/agno"
           ]
+        },
+        {
+          "id": "CVE-2026-10105",
+          "aliases": [
+            "GHSA-82m5-3pcp-hccq",
+            "PYSEC-2026-2333"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "agno contains a SQL injection vulnerability",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-10105",
+            "https://github.com/agno-agi/agno/issues/7866",
+            "https://github.com/agno-agi/agno/pull/7883"
+          ]
         }
       ],
       "risk_score": 0,
@@ -19279,7 +20538,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "mcp-sdk",
@@ -19384,7 +20643,7 @@
       "id": "mcp-server-postgres",
       "label": "MCP: Postgres",
       "group": "mcp",
-      "downloads": 1765,
+      "downloads": 1205,
       "version": "0.1.0",
       "maintainer": "Anthropic",
       "license": "MIT",
@@ -19408,7 +20667,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "mcp-server-brave",
@@ -19435,8 +20694,8 @@
       "id": "langchain-mcp-adapters",
       "label": "LC MCP Adapters",
       "group": "mcp",
-      "downloads": 6375755,
-      "version": "0.3.0",
+      "downloads": 7104328,
+      "version": "0.3.2",
       "maintainer": "LangChain Inc",
       "license": "MIT",
       "description": "",
@@ -19450,7 +20709,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "openai-agents-sdk",
@@ -19479,7 +20738,7 @@
       "id": "httpx",
       "label": "HTTPX",
       "group": "util",
-      "downloads": 693001761,
+      "downloads": 802074690,
       "version": "0.28.1",
       "maintainer": "Encode",
       "license": "BSD-3",
@@ -19514,7 +20773,7 @@
         "total_affected": 46,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "urllib3",
@@ -19846,14 +21105,14 @@
         "total_affected": 56,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "certifi",
       "label": "certifi",
       "group": "util",
-      "downloads": 1559132260,
-      "version": "2026.5.20",
+      "downloads": 1773214699,
+      "version": "2026.7.22",
       "maintainer": "certifi",
       "license": "MPL-2.0",
       "description": "",
@@ -19917,14 +21176,14 @@
         "total_affected": 72,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "protobuf",
       "label": "Protobuf",
       "group": "util",
-      "downloads": 799515225,
-      "version": "7.35.1",
+      "downloads": 833499059,
+      "version": "7.36.0",
       "maintainer": "Google",
       "license": "BSD-3",
       "description": "",
@@ -20035,14 +21294,14 @@
         "total_affected": 26,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "packaging",
       "label": "packaging",
       "group": "util",
-      "downloads": 1878882963,
-      "version": "26.2",
+      "downloads": 2191710133,
+      "version": "26.3",
       "maintainer": "PyPA",
       "license": "BSD-2",
       "description": "",
@@ -20053,14 +21312,14 @@
         "total_affected": 46,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tqdm",
       "label": "tqdm",
       "group": "util",
-      "downloads": 505065104,
-      "version": "4.68.2",
+      "downloads": 609050279,
+      "version": "4.70.0",
       "maintainer": "tqdm",
       "license": "MIT",
       "description": "",
@@ -20101,16 +21360,16 @@
       "risk_score": 0,
       "blast_radius": {
         "total_affected": 34,
-        "cascade_depth": 2
+        "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "filelock",
       "label": "filelock",
       "group": "util",
-      "downloads": 578393768,
-      "version": "3.29.4",
+      "downloads": 678356128,
+      "version": "3.32.4",
       "maintainer": "tox-dev",
       "license": "Unlicense",
       "description": "",
@@ -20152,14 +21411,14 @@
         "total_affected": 26,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "aiohttp",
       "label": "aiohttp",
       "group": "util",
-      "downloads": 576877332,
-      "version": "3.14.1",
+      "downloads": 610944353,
+      "version": "3.14.3",
       "maintainer": "aio-libs",
       "license": "Apache-2.0",
       "description": "",
@@ -20679,6 +21938,194 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2026-34993",
             "https://github.com/aio-libs/aiohttp/commit/dcf40f30637e8752c76781cf6703b5a236749a00"
           ]
+        },
+        {
+          "id": "CVE-2026-54279",
+          "aliases": [
+            "GHSA-2fqr-mr3j-6wp8",
+            "PYSEC-2026-2112"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "aiohttp: Host-Only Cookies Become Domain Cookies After CookieJar Persistence",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-2fqr-mr3j-6wp8",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-54273",
+          "aliases": [
+            "GHSA-4fvr-rgm6-gqmc",
+            "PYSEC-2026-2107"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "aiohttp: HTTP/1 Pipelined Requests Queue Without Limit",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-4fvr-rgm6-gqmc",
+            "https://github.com/aio-libs/aiohttp/commit/dfdfa9d5aad5d21f91c79fb2ceeba0f8046cb6cf",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-54275",
+          "aliases": [
+            "GHSA-4m7w-qmgq-4wj5",
+            "PYSEC-2026-237"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "aiohttp: TLS Server Hostname Override Is Ignored When Reusing HTTPS Connections",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-4m7w-qmgq-4wj5",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-54277",
+          "aliases": [
+            "GHSA-63hw-fmq6-xxg2",
+            "PYSEC-2026-2110"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "aiohttp: C HTTP Parser Bypasses max_line_size for Fragmented Lines",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-63hw-fmq6-xxg2",
+            "https://github.com/aio-libs/aiohttp/commit/5ab61bb4cd88f19b712f12c7c9295fe262bf804d",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-54280",
+          "aliases": [
+            "GHSA-9x8q-7h8h-wcw9",
+            "PYSEC-2026-2113"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "aiohttp: Payload Response Resources Are Not Closed After Mid-Body Disconnect",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-9x8q-7h8h-wcw9",
+            "https://github.com/aio-libs/aiohttp/commit/a762eda5242f6490d6ba667533193f8b473ad587",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-69244",
+          "aliases": [
+            "GHSA-cq5v-8q36-5273",
+            "PYSEC-2026-3545"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "AIOHTTP: Out-of-bounds heap read in C HTTP response parser error path (malformed chunked response)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-cq5v-8q36-5273",
+            "https://github.com/aio-libs/aiohttp/pull/13223",
+            "https://github.com/aio-libs/aiohttp/commit/49f65d54150397892f7bcc4aae887767d51c322d"
+          ]
+        },
+        {
+          "id": "CVE-2026-54278",
+          "aliases": [
+            "GHSA-g3cq-j2xw-wf74",
+            "PYSEC-2026-2111"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "aiohttp: Unread Compressed Request Bodies Bypass client_max_size During Cleanup",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-g3cq-j2xw-wf74",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-54276",
+          "aliases": [
+            "GHSA-hpj7-wq8m-9hgp",
+            "PYSEC-2026-2109"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "aiohttp: DigestAuthMiddleware Applies Credentials to Cross-Origin Redirect Challenges",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-hpj7-wq8m-9hgp",
+            "https://github.com/aio-libs/aiohttp/commit/38d16060037e1bfcd6d677abababa3c2a4bb58fa",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-50269",
+          "aliases": [
+            "GHSA-m6qw-4cw2-hm4m",
+            "PYSEC-2026-2106"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "aiohttp: CRLF injection in multipart headers",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-m6qw-4cw2-hm4m",
+            "https://github.com/aio-libs/aiohttp/commit/bf88077ebb14f4c29924b8e8904cba20c55c28b8",
+            "https://github.com/aio-libs/aiohttp"
+          ]
+        },
+        {
+          "id": "CVE-2026-69243",
+          "aliases": [
+            "GHSA-mfx4-hv73-q22v",
+            "PYSEC-2026-3546"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "AIOHTTP: HTTP request smuggling via WebSocket upgrade",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-mfx4-hv73-q22v",
+            "https://github.com/aio-libs/aiohttp/pull/13017",
+            "https://github.com/aio-libs/aiohttp/commit/6ae358f0983c3f4d6f67692b2f8e65dc8e091c98"
+          ]
+        },
+        {
+          "id": "CVE-2026-59881",
+          "aliases": [
+            "GHSA-mq44-7p77-q5h7",
+            "PYSEC-2026-3547"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "AIOHTTP: WebSocket client accepts compressed frames without negotiated permessage-deflate",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-mq44-7p77-q5h7",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59881",
+            "https://github.com/aio-libs/aiohttp/pull/12978"
+          ]
+        },
+        {
+          "id": "CVE-2026-54274",
+          "aliases": [
+            "GHSA-xcgm-r5h9-7989",
+            "PYSEC-2026-2108"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "aiohttp: Incomplete websocket frame payloads bypass memory limits",
+          "year": 2026,
+          "refs": [
+            "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-xcgm-r5h9-7989",
+            "https://github.com/aio-libs/aiohttp"
+          ]
         }
       ],
       "risk_score": 79,
@@ -20686,13 +22133,13 @@
         "total_affected": 32,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tenacity",
       "label": "tenacity",
       "group": "util",
-      "downloads": 411884705,
+      "downloads": 436335834,
       "version": "9.1.4",
       "maintainer": "Julien Danjou",
       "license": "Apache-2.0",
@@ -20704,14 +22151,14 @@
         "total_affected": 14,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "cryptography",
       "label": "cryptography",
       "group": "util",
-      "downloads": 1195104111,
-      "version": "49.0.0",
+      "downloads": 1383409958,
+      "version": "50.0.1",
       "maintainer": "PyCA",
       "license": "Apache-2.0",
       "description": "",
@@ -21024,6 +22471,67 @@
             "https://github.com/pyca/cryptography/commit/f09c261ca10a31fe41b1262306db7f8f1da0e48a",
             "https://nvd.nist.gov/vuln/detail/CVE-2023-49083"
           ]
+        },
+        {
+          "id": "GHSA-537c-gmf6-5ccf",
+          "aliases": [],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Vulnerable OpenSSL included in cryptography wheels",
+          "year": 2026,
+          "refs": [
+            "https://github.com/pyca/cryptography/security/advisories/GHSA-537c-gmf6-5ccf",
+            "https://github.com/pyca/cryptography",
+            "https://openssl-library.org/news/secadv/20260609.txt"
+          ]
+        },
+        {
+          "id": "CVE-2026-69247",
+          "aliases": [
+            "GHSA-g6cj-pr64-35w5",
+            "PYSEC-2026-3552"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "cryptography: PKCS#7 EnvelopedData decryption exposes a Bleichenbacher oracle through distinguishable errors and timing",
+          "year": 2026,
+          "refs": [
+            "https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5",
+            "https://github.com/pyca/cryptography/pull/15369",
+            "https://github.com/pyca/cryptography/commit/53fccd93413a8d7f07d6d8999681f27b75cffa3f"
+          ]
+        },
+        {
+          "id": "CVE-2026-69249",
+          "aliases": [
+            "GHSA-jwv3-5hgf-82ww",
+            "PYSEC-2026-3553"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "python-cryptography: Duplicate self-signed intermediates can cause exponential path-building",
+          "year": 2026,
+          "refs": [
+            "https://github.com/pyca/cryptography/security/advisories/GHSA-jwv3-5hgf-82ww",
+            "https://github.com/pyca/cryptography/pull/14960",
+            "https://github.com/pyca/cryptography/commit/4a12cf49675a184e47f912b00b04f3a629283582"
+          ]
+        },
+        {
+          "id": "CVE-2026-69248",
+          "aliases": [
+            "GHSA-m2h6-j472-rp4c",
+            "PYSEC-2026-3554"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "python-cryptography verifier accepts wildcard DNS names allowing escape from permittedSubtrees",
+          "year": 2026,
+          "refs": [
+            "https://github.com/pyca/cryptography/security/advisories/GHSA-m2h6-j472-rp4c",
+            "https://github.com/pyca/cryptography/pull/14888",
+            "https://github.com/pyca/cryptography/commit/4d035a4225965edeffd312079a510ef25fcfdcb2"
+          ]
         }
       ],
       "risk_score": 79,
@@ -21031,13 +22539,13 @@
         "total_affected": 17,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "jinja2",
       "label": "Jinja2",
       "group": "util",
-      "downloads": 598233989,
+      "downloads": 703527590,
       "version": "3.1.6",
       "maintainer": "Pallets",
       "license": "BSD-3",
@@ -21213,14 +22721,14 @@
         "total_affected": 41,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "sqlalchemy",
       "label": "SQLAlchemy",
       "group": "util",
-      "downloads": 367953849,
-      "version": "2.0.50",
+      "downloads": 399408270,
+      "version": "2.0.52",
       "maintainer": "SQLAlchemy",
       "license": "MIT",
       "description": "",
@@ -21280,14 +22788,14 @@
         "total_affected": 39,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "fsspec",
       "label": "fsspec",
       "group": "util",
-      "downloads": 747312322,
-      "version": "2026.4.0",
+      "downloads": 826493484,
+      "version": "2026.7.0",
       "maintainer": "fsspec",
       "license": "BSD-3",
       "description": "",
@@ -21298,13 +22806,13 @@
         "total_affected": 43,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "paramiko",
       "label": "paramiko",
       "group": "util",
-      "downloads": 140849734,
+      "downloads": 143239161,
       "version": "5.0.0",
       "maintainer": "paramiko",
       "license": "LGPL-2.1",
@@ -21418,14 +22926,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "langsmith",
       "label": "LangSmith SDK",
       "group": "app",
-      "downloads": 85499202,
-      "version": "0.8.15",
+      "downloads": 112009970,
+      "version": "0.11.2",
       "maintainer": "LangChain Inc",
       "license": "MIT",
       "description": "",
@@ -21479,6 +22987,20 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2026-45134",
             "https://github.com/langchain-ai/langsmith-sdk"
           ]
+        },
+        {
+          "id": "CVE-2026-59152",
+          "aliases": [
+            "GHSA-f4xh-w4cj-qxq8"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "LangSmith SDK TracingMiddleware: Arbitrary server-side file read",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langchain-ai/langsmith-sdk/security/advisories/GHSA-f4xh-w4cj-qxq8",
+            "https://github.com/langchain-ai/langsmith-sdk"
+          ]
         }
       ],
       "risk_score": 0,
@@ -21486,13 +23008,13 @@
         "total_affected": 10,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "bentoml",
       "label": "BentoML",
       "group": "app",
-      "downloads": 183802,
+      "downloads": 228113,
       "version": "1.4.39",
       "maintainer": "BentoML",
       "license": "Apache-2.0",
@@ -21756,6 +23278,21 @@
             "https://github.com/bentoml/BentoML/security/advisories/GHSA-w2pm-x38x-jp44",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-44346"
           ]
+        },
+        {
+          "id": "CVE-2026-15035",
+          "aliases": [
+            "PYSEC-2026-2089"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "A vulnerability was found in bentoml OpenLLM 0.6.30. This affects the function async_run_command of the file src/openllm/common.py of the component Model Repository Directory Name Handler. Performing a manipulation of the argument cmd results in command injection. Attacking locally is a requirement.",
+          "year": 2026,
+          "refs": [
+            "https://github.com/bentoml/OpenLLM/",
+            "https://vuldb.com/cve/CVE-2026-15035",
+            "https://vuldb.com/vuln/376786"
+          ]
         }
       ],
       "risk_score": 83,
@@ -21763,14 +23300,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "modal",
       "label": "Modal",
       "group": "app",
-      "downloads": 57059829,
-      "version": "1.5.0",
+      "downloads": 76176131,
+      "version": "1.5.5",
       "maintainer": "Modal Labs",
       "license": "Apache-2.0",
       "description": "",
@@ -21786,14 +23323,14 @@
         "total_affected": 1,
         "cascade_depth": 1
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "grpcio",
       "label": "gRPC",
       "group": "infra",
-      "downloads": 412122727,
-      "version": "1.81.1",
+      "downloads": 413915889,
+      "version": "1.83.1",
       "maintainer": "Google",
       "license": "Apache-2.0",
       "description": "",
@@ -21905,14 +23442,14 @@
         "total_affected": 25,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "xgboost",
       "label": "XGBoost",
       "group": "framework",
-      "downloads": 42187372,
-      "version": "3.2.0",
+      "downloads": 45955518,
+      "version": "3.4.1",
       "maintainer": "DMLC",
       "license": "Apache-2.0",
       "description": "",
@@ -21935,14 +23472,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "lightgbm",
       "label": "LightGBM",
       "group": "framework",
-      "downloads": 17384770,
-      "version": "4.6.0",
+      "downloads": 23440156,
+      "version": "4.7.0",
       "maintainer": "Microsoft",
       "license": "MIT",
       "description": "",
@@ -21981,14 +23518,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "paddle",
       "label": "PaddlePaddle",
       "group": "framework",
-      "downloads": 65477,
-      "version": "1.3.7",
+      "downloads": 27849,
+      "version": "1.4.0",
       "maintainer": "Baidu",
       "license": "Apache-2.0",
       "description": "",
@@ -22020,14 +23557,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "llama-cpp-python",
       "label": "llama.cpp Python",
       "group": "infra",
-      "downloads": 605456,
-      "version": "0.3.29",
+      "downloads": 649440,
+      "version": "0.3.35",
       "maintainer": "Andrei Betlen",
       "license": "MIT",
       "description": "Python bindings for llama.cpp \u2014 local GGUF model inference backbone for Ollama, LM Studio, GPT4All",
@@ -22085,14 +23622,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "deepspeed",
       "label": "DeepSpeed",
       "group": "framework",
-      "downloads": 1357858,
-      "version": "0.19.1",
+      "downloads": 1033645,
+      "version": "0.19.6",
       "maintainer": "Microsoft",
       "license": "Apache-2.0",
       "description": "Microsoft distributed training framework for large language models",
@@ -22138,14 +23675,14 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "ultralytics",
       "label": "Ultralytics (YOLO)",
       "group": "framework",
-      "downloads": 8903946,
-      "version": "8.4.67",
+      "downloads": 7195008,
+      "version": "8.4.135",
       "maintainer": "Ultralytics Inc",
       "license": "AGPL-3.0",
       "description": "YOLOv8/v11 computer vision framework. Supply chain compromised Dec 2024 via GitHub Actions CI/CD injection",
@@ -22178,14 +23715,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "sglang",
       "label": "SGLang",
       "group": "infra",
-      "downloads": 407646196,
-      "version": "0.5.13.post1",
+      "downloads": 316651694,
+      "version": "0.5.18",
       "maintainer": "Berkeley Sky Computing Lab",
       "license": "Apache-2.0",
       "description": "Fast LLM inference server (vLLM alternative). ShadowMQ: inherited pickle/ZMQ vulnerability from vLLM via code copy-paste",
@@ -22324,6 +23861,38 @@
             "https://antiproof.ai/blog/three-rces-in-sglang",
             "https://github.com/sgl-project/sglang"
           ]
+        },
+        {
+          "id": "CVE-2026-10775",
+          "aliases": [
+            "GHSA-jrcc-j37m-v8fg",
+            "PYSEC-2026-3695"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "SGLang is Vulnerable to DoS via the data_hash Function",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-10775",
+            "https://github.com/sgl-project/sglang/issues/25462",
+            "https://github.com/sgl-project/sglang/pull/22033"
+          ]
+        },
+        {
+          "id": "CVE-2026-10300",
+          "aliases": [
+            "GHSA-m2jr-x4gq-5rmj",
+            "PYSEC-2026-3064"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "SGLang: Reachable Assertion via \u00a0lora_path\u00a0 in LoRAManager enables remote Denial of Dervice",
+          "year": 2026,
+          "refs": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-10300",
+            "https://github.com/sgl-project/sglang/issues/23141",
+            "https://github.com/sgl-project/sglang/pull/25078"
+          ]
         }
       ],
       "risk_score": 82,
@@ -22331,13 +23900,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tensorrt-llm",
       "label": "TensorRT-LLM",
       "group": "infra",
-      "downloads": 12893,
+      "downloads": 12626,
       "version": "1.2.1",
       "maintainer": "NVIDIA",
       "license": "Apache-2.0",
@@ -22363,14 +23932,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "dask",
       "label": "Dask",
       "group": "core",
       "downloads": 23985176,
-      "version": "2026.6.0",
+      "version": "2026.8.0",
       "maintainer": "Dask team",
       "license": "BSD-3",
       "description": "Distributed computing with parallel arrays and dataframes. Pickle deserialization RCE in distributed server",
@@ -22428,14 +23997,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "faiss-cpu",
       "label": "FAISS",
       "group": "vector-db",
-      "downloads": 17601584,
-      "version": "1.14.3",
+      "downloads": 14025366,
+      "version": "1.15.0",
       "maintainer": "Meta AI",
       "license": "MIT",
       "description": "Meta similarity search library. faiss.read_index() uses pickle \u2014 RCE via crafted .faiss index files",
@@ -22448,13 +24017,13 @@
         "total_affected": 10,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "milvus",
       "label": "Milvus",
       "group": "vector-db",
-      "downloads": 16250,
+      "downloads": 13265,
       "version": "2.3.9",
       "maintainer": "Zilliz",
       "license": "Apache-2.0",
@@ -22495,13 +24064,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "cloudpickle",
       "label": "cloudpickle",
       "group": "util",
-      "downloads": 125193669,
+      "downloads": 143340386,
       "version": "3.1.2",
       "maintainer": "cloudpickle devs",
       "license": "BSD-3",
@@ -22513,14 +24082,14 @@
         "total_affected": 12,
         "cascade_depth": 5
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "opencv-python",
       "label": "OpenCV",
       "group": "core",
-      "downloads": 46403629,
-      "version": "4.13.0.92",
+      "downloads": 47991278,
+      "version": "5.0.0.93",
       "maintainer": "OpenCV team",
       "license": "Apache-2.0",
       "description": "Computer vision C++ library. Crafted image \u2192 RCE on inference servers. All CV pipelines (YOLO, diffusers) depend on it",
@@ -23011,14 +24580,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "setuptools",
       "label": "setuptools",
       "group": "util",
-      "downloads": 1233949891,
-      "version": "82.0.1",
+      "downloads": 1439861221,
+      "version": "84.0.0",
       "maintainer": "PyPA",
       "license": "MIT",
       "description": "Python build system. setup.py install hooks = arbitrary code execution by design. Root vector for ALL pip install supply chain attacks",
@@ -23090,6 +24659,23 @@
             "https://github.com/pypa/setuptools/issues/3659",
             "https://github.com/pypa/setuptools/commit/43a9c9bfa6aa626ec2a22540bea28d2ca77964be"
           ]
+        },
+        {
+          "id": "CVE-2026-59890",
+          "aliases": [
+            "BIT-setuptools-2026-59890",
+            "GHSA-h35f-9h28-mq5c",
+            "PYSEC-2026-3447"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "setuptools: MANIFEST.in exclusion bypass in sdist via Unicode normalization collision (NFC/NFD) on macOS APFS/HFS+",
+          "year": 2026,
+          "refs": [
+            "https://github.com/pypa/setuptools/security/advisories/GHSA-h35f-9h28-mq5c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59890",
+            "https://github.com/pypa/setuptools/commit/dd9f436a36486b4cb8a4c70a2321548b0be09b8f"
+          ]
         }
       ],
       "risk_score": 85,
@@ -23097,13 +24683,13 @@
         "total_affected": 24,
         "cascade_depth": 3
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "h5py",
       "label": "h5py",
       "group": "core",
-      "downloads": 36886615,
+      "downloads": 38172795,
       "version": "3.16.0",
       "maintainer": "h5py devs",
       "license": "BSD-3",
@@ -23117,14 +24703,14 @@
         "total_affected": 14,
         "cascade_depth": 4
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "spacy",
       "label": "spaCy",
       "group": "framework",
-      "downloads": 20054351,
-      "version": "3.8.14",
+      "downloads": 25079007,
+      "version": "3.8.16",
       "maintainer": "Explosion AI",
       "license": "MIT",
       "description": "NLP pipeline with custom model loading and arbitrary Python component execution. Model packages run setup.py on install",
@@ -23141,13 +24727,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "torchserve",
       "label": "TorchServe",
       "group": "infra",
-      "downloads": 53219,
+      "downloads": 28870,
       "version": "0.12.0",
       "maintainer": "PyTorch/Meta",
       "license": "Apache-2.0",
@@ -23252,14 +24838,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "langflow",
       "label": "Langflow",
       "group": "app",
-      "downloads": 107176,
-      "version": "1.10.0",
+      "downloads": 57080,
+      "version": "1.11.5",
       "maintainer": "DataStax",
       "license": "MIT",
       "description": "Visual LLM builder (79K+ GitHub stars). CVE-2025-3248 added to CISA KEV. Flodrix botnet active exploitation for DDoS and data exfiltration",
@@ -23633,6 +25219,150 @@
             "https://github.com/langflow-ai/langflow/pull/6911",
             "https://github.com/langflow-ai/langflow/releases/tag/1.3.0"
           ]
+        },
+        {
+          "id": "CVE-2026-42867",
+          "aliases": [
+            "GHSA-79ph-745m-6wxq",
+            "PYSEC-2026-2566"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Langflow: Path Traversal in Knowledge Bases API via Creation Endpoint",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-79ph-745m-6wxq",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-42867",
+            "https://github.com/langflow-ai/langflow/pull/12337"
+          ]
+        },
+        {
+          "id": "CVE-2026-55423",
+          "aliases": [
+            "GHSA-7hw8-6q6r-4276",
+            "PYSEC-2026-222"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Langflow: Logout button does not clear session",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-7hw8-6q6r-4276",
+            "https://github.com/langflow-ai/langflow/pull/10527",
+            "https://github.com/langflow-ai/langflow/pull/10528"
+          ]
+        },
+        {
+          "id": "CVE-2026-33760",
+          "aliases": [
+            "GHSA-9c59-2mvc-vfr8",
+            "PYSEC-2026-242"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Langflow: IDOR/BOLA in Monitor API \u2014 Missing Ownership Enforcement on 7 Endpoints ",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-9c59-2mvc-vfr8",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-33760",
+            "https://github.com/langflow-ai/langflow"
+          ]
+        },
+        {
+          "id": "CVE-2026-55447",
+          "aliases": [
+            "GHSA-ccv6-r384-xp75",
+            "PYSEC-2026-378"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "Langflow: BaseFileComponent-based nodes arbitrary file read with RCE exploit",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-ccv6-r384-xp75",
+            "https://github.com/langflow-ai/langflow/pull/12945",
+            "https://github.com/langflow-ai/langflow"
+          ]
+        },
+        {
+          "id": "CVE-2026-55255",
+          "aliases": [
+            "GHSA-qrpv-q767-xqq2",
+            "PYSEC-2026-221"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Langflow: IDOR Vulnerability in `/api/v1/responses` Endpoint Allows Authenticated Attackers to Access Another User's Flow",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-qrpv-q767-xqq2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-55255",
+            "https://github.com/langflow-ai/langflow/pull/12832"
+          ]
+        },
+        {
+          "id": "CVE-2026-55446",
+          "aliases": [
+            "GHSA-qwqc-p3q8-wcg9",
+            "PYSEC-2026-223"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Langflow: Unauthenticated DoS through multipart form boundary file upload",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-qwqc-p3q8-wcg9",
+            "https://github.com/langflow-ai/langflow/pull/3923",
+            "https://github.com/langflow-ai/langflow"
+          ]
+        },
+        {
+          "id": "CVE-2026-48520",
+          "aliases": [
+            "GHSA-rcjh-r59h-gq37",
+            "PYSEC-2026-244"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Langflow: Unauthenticated Shareable Playground arbitrary local or S3 file read",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-rcjh-r59h-gq37",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-48520",
+            "https://github.com/langflow-ai/langflow"
+          ]
+        },
+        {
+          "id": "CVE-2026-48519",
+          "aliases": [
+            "GHSA-v5ff-9q35-q26f",
+            "PYSEC-2026-243"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "Langflow: Unauthenticated RCE in Shareable Playgrounds",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-v5ff-9q35-q26f",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-48519",
+            "https://github.com/langflow-ai/langflow"
+          ]
+        },
+        {
+          "id": "CVE-2026-55450",
+          "aliases": [
+            "GHSA-x223-p2gf-v735",
+            "PYSEC-2026-224"
+          ],
+          "severity": "CRITICAL",
+          "score": 9.5,
+          "desc": "Langflow: Unauthenticated file upload leads to DoS (space exhaustion) and information leak",
+          "year": 2026,
+          "refs": [
+            "https://github.com/langflow-ai/langflow/security/advisories/GHSA-x223-p2gf-v735",
+            "https://github.com/langflow-ai/langflow/pull/12831",
+            "https://github.com/langflow-ai/langflow"
+          ]
         }
       ],
       "risk_score": 88,
@@ -23640,13 +25370,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "flowise",
       "label": "Flowise",
       "group": "app",
-      "downloads": 1352,
+      "downloads": 544,
       "version": "1.0.4",
       "maintainer": "FlowiseAI",
       "license": "Apache-2.0",
@@ -23689,14 +25419,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "open-webui",
       "label": "Open WebUI",
       "group": "app",
-      "downloads": 1687824,
-      "version": "0.9.6",
+      "downloads": 777633,
+      "version": "0.11.2",
       "maintainer": "Timothy Baek",
       "license": "MIT",
       "description": "Most popular self-hosted LLM UI (25+ huntr CVEs). DoS, auth bypass, and information disclosure vulnerabilities",
@@ -25052,6 +26782,916 @@
             "https://nvd.nist.gov/vuln/detail/CVE-2026-45666",
             "https://github.com/open-webui/open-webui/commit/de3317e26bb67a2a7ea015a183bbd1d369880ebd"
           ]
+        },
+        {
+          "id": "CVE-2026-54008",
+          "aliases": [
+            "GHSA-226f-f24g-524w",
+            "PYSEC-2026-2690"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Redirect-Bypass SSRF in OAuth `_process_picture_url` (incomplete-fix sibling of CVE-2026-45401)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-226f-f24g-524w",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-70493",
+          "aliases": [
+            "GHSA-2f54-p244-32q6",
+            "PYSEC-2026-3637"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Any authenticated user can stall a worker via a knowledge-search pattern that backtracks catastrophically",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-2f54-p244-32q6",
+            "https://github.com/open-webui/open-webui/pull/27471",
+            "https://github.com/open-webui/open-webui/commit/3ab2026262ef6f09810e4d235c5f9a9cb903e595"
+          ]
+        },
+        {
+          "id": "CVE-2026-59212",
+          "aliases": [
+            "GHSA-2xwm-4h2q-ggfx",
+            "PYSEC-2026-3588"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Model meta.knowledge read-only file access can be upgraded to file write/delete",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-2xwm-4h2q-ggfx",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59212",
+            "https://github.com/open-webui/open-webui/pull/26032"
+          ]
+        },
+        {
+          "id": "CVE-2026-70494",
+          "aliases": [
+            "GHSA-3cg5-48j3-v4gv",
+            "PYSEC-2026-3638"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: A folder write-collaborator can permanently delete the owner's chats by deleting a shared subfolder",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3cg5-48j3-v4gv",
+            "https://github.com/open-webui/open-webui/pull/27003",
+            "https://github.com/open-webui/open-webui/commit/915ef7d0798d3175819cedbb2f62d7bf0db78c98"
+          ]
+        },
+        {
+          "id": "CVE-2026-70491",
+          "aliases": [
+            "GHSA-3r7g-q6cg-q2vx",
+            "PYSEC-2026-3639"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Tool source code disclosed to read-only users via the tool list and get endpoints",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3r7g-q6cg-q2vx",
+            "https://github.com/open-webui/open-webui/pull/27005",
+            "https://github.com/open-webui/open-webui/commit/c05de13b4fca1ac8a17153782b46b3d0aacf491c"
+          ]
+        },
+        {
+          "id": "CVE-2026-70483",
+          "aliases": [
+            "GHSA-3vf6-64vr-3g56",
+            "PYSEC-2026-3640"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Open WebUI: Any authenticated user can cancel another user's chat generation via the chat delete endpoint",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3vf6-64vr-3g56",
+            "https://github.com/open-webui/open-webui/pull/27006",
+            "https://github.com/open-webui/open-webui/commit/4f93c3e36c1734342a32c312bdb0516c66d8e93c"
+          ]
+        },
+        {
+          "id": "CVE-2026-54007",
+          "aliases": [
+            "GHSA-3vv5-8xxp-4f55",
+            "PYSEC-2026-2695"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Cross-origin postMessage confirmation bypass via action:submit",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3vv5-8xxp-4f55",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54007",
+            "https://github.com/advisories/GHSA-3vv5-8xxp-4f55"
+          ]
+        },
+        {
+          "id": "CVE-2026-59213",
+          "aliases": [
+            "GHSA-3wp3-xxj9-5jqq",
+            "PYSEC-2026-3589"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Open WebUI: Cross-user model-list exposure via static cache key in get_all_models (aiocache key= vs key_builder= misuse)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3wp3-xxj9-5jqq",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59213",
+            "https://github.com/open-webui/open-webui/pull/25783"
+          ]
+        },
+        {
+          "id": "CVE-2026-70486",
+          "aliases": [
+            "GHSA-3xpf-xq7r-v8c5",
+            "PYSEC-2026-3641"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Same-origin XSS to account takeover via terminal file-preview iframe hardcoding allow-same-origin",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-3xpf-xq7r-v8c5",
+            "https://github.com/open-webui/open-webui/pull/26907",
+            "https://github.com/open-webui/open-webui/commit/65a5fad7b97db99d490d81f4e0860282c3a4543c"
+          ]
+        },
+        {
+          "id": "CVE-2026-59214",
+          "aliases": [
+            "GHSA-4r2p-27mh-5m22",
+            "PYSEC-2026-3590"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Stored web worker XSS via Pyodide",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-4r2p-27mh-5m22",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59214",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-54015",
+          "aliases": [
+            "GHSA-4r4w-2wgp-w7cj",
+            "PYSEC-2026-2701"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI Prompt history IDOR: unbound history_id allows cross-prompt read and deletion",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-4r4w-2wgp-w7cj",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54015",
+            "https://github.com/advisories/GHSA-4r4w-2wgp-w7cj"
+          ]
+        },
+        {
+          "id": "CVE-2026-70490",
+          "aliases": [
+            "GHSA-5gpj-vj23-vhhv",
+            "PYSEC-2026-3642"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Unapproved accounts can open terminal sessions via a WebSocket auth path missing the role check",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-5gpj-vj23-vhhv",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-70487",
+          "aliases": [
+            "GHSA-6xhv-rxhv-pwm4",
+            "PYSEC-2026-3643"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Cross-user file content disclosure via request-scoped direct model knowledge metadata",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-6xhv-rxhv-pwm4",
+            "https://github.com/open-webui/open-webui/commit/305880f2e2aeb2dda2f4b2a18a20bdcd558f7134",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-70489",
+          "aliases": [
+            "GHSA-73cq-mcgh-379c",
+            "PYSEC-2026-3644"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Instance-wide stall via automation recurrence rules that force multi-second parsing",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-73cq-mcgh-379c",
+            "https://github.com/open-webui/open-webui/commit/c4ae8c86786fed521960466f6d8eef8af22c2946",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-59215",
+          "aliases": [
+            "GHSA-73x5-h92w-xc2j",
+            "PYSEC-2026-3591"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Open WebUI: Private channel messages can be disclosed through cross-channel thread parent_id binding",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-73x5-h92w-xc2j",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59215",
+            "https://github.com/open-webui/open-webui/pull/25766"
+          ]
+        },
+        {
+          "id": "CVE-2026-59216",
+          "aliases": [
+            "GHSA-74h3-cxq7-vc5q",
+            "PYSEC-2026-3592"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Cross-user code-interpreter and tool execution via unvalidated Socket.IO event-caller session_id",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-74h3-cxq7-vc5q",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59216",
+            "https://github.com/open-webui/open-webui/pull/25763"
+          ]
+        },
+        {
+          "id": "CVE-2026-59217",
+          "aliases": [
+            "GHSA-7r7x-gjvr-448g",
+            "PYSEC-2026-3593"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Upload `metadata.knowledge_id` bypasses the knowledge-base write-access check (read-only users can add files to KB)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-7r7x-gjvr-448g",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59217",
+            "https://github.com/open-webui/open-webui/pull/26001"
+          ]
+        },
+        {
+          "id": "CVE-2026-59218",
+          "aliases": [
+            "GHSA-7rw5-9f7q-xj36",
+            "PYSEC-2026-3594"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Account enumeration via observable login timing discrepancy",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-7rw5-9f7q-xj36",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59218",
+            "https://github.com/open-webui/open-webui/pull/26385"
+          ]
+        },
+        {
+          "id": "CVE-2026-59219",
+          "aliases": [
+            "GHSA-855v-hq7w-jmjw",
+            "PYSEC-2026-3595"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Realtime endpoints accept Redis-revoked JWTs after signout/backchannel logout",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-855v-hq7w-jmjw",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59219",
+            "https://github.com/open-webui/open-webui/commit/33b91bd8ae8a100a5a306c91441a7d0b422c4cde"
+          ]
+        },
+        {
+          "id": "CVE-2026-54022",
+          "aliases": [
+            "GHSA-8788-j68r-3cgh",
+            "PYSEC-2026-2712"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Any authenticated user can read other users' private notes via Socket.IO",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-8788-j68r-3cgh",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54022",
+            "https://github.com/advisories/GHSA-8788-j68r-3cgh"
+          ]
+        },
+        {
+          "id": "CVE-2025-46571",
+          "aliases": [
+            "GHSA-8gh5-qqh8-hq3x",
+            "PYSEC-2026-2713"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI  allows limited stored XSS vila uploaded html file",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-8gh5-qqh8-hq3x",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-46571",
+            "https://github.com/open-webui/open-webui/commit/ef2aeb7c0eb976bac759e59ac359c94a5b8dc7e0"
+          ]
+        },
+        {
+          "id": "CVE-2026-70485",
+          "aliases": [
+            "GHSA-8x5v-cpv7-8jjp",
+            "PYSEC-2026-3645"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Any authenticated user can reach internal services and cloud metadata via NAT64-encoded URLs",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-8x5v-cpv7-8jjp",
+            "https://github.com/open-webui/open-webui/commit/1717b493d83c86afa82aa8bc50139250852dd2f3",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2025-46719",
+          "aliases": [
+            "GHSA-9f4f-jv96-8766",
+            "PYSEC-2026-2716"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI vulnerable to stored XSS via unescaped markdown token in MarkdownTokens.svelte leading to full account takeover and RCE via functions",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-9f4f-jv96-8766",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-46719",
+            "https://github.com/open-webui/open-webui/commit/6fd082d55ffaf6eb226efdeebc7155e3693d2d01"
+          ]
+        },
+        {
+          "id": "CVE-2026-54021",
+          "aliases": [
+            "GHSA-9rpj-v7hf-vv2w",
+            "PYSEC-2026-2718"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Authenticated users can target arbitrary configured Ollama backends via unguarded url_idx path parameter",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-9rpj-v7hf-vv2w",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54021",
+            "https://github.com/advisories/GHSA-9rpj-v7hf-vv2w"
+          ]
+        },
+        {
+          "id": "CVE-2026-54016",
+          "aliases": [
+            "GHSA-cx9v-4qj2-jrw6",
+            "PYSEC-2026-2721"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI BOLA: `search_knowledge_files` Allows Unauthorized Knowledge Base File Enumeration",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-cx9v-4qj2-jrw6",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54016",
+            "https://github.com/advisories/GHSA-cx9v-4qj2-jrw6"
+          ]
+        },
+        {
+          "id": "CVE-2026-54006",
+          "aliases": [
+            "GHSA-f3g7-59qc-pqg6",
+            "PYSEC-2026-2722"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI IDOR: Calendar event re-parenting allows writing events into another user's calendar",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-f3g7-59qc-pqg6",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54006",
+            "https://github.com/advisories/GHSA-f3g7-59qc-pqg6"
+          ]
+        },
+        {
+          "id": "CVE-2026-59220",
+          "aliases": [
+            "GHSA-ffpj-xv5c-p3gw",
+            "PYSEC-2026-3596"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: ReDoS in skill-mention regexes causes whole-instance DoS on default config",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-ffpj-xv5c-p3gw",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59220",
+            "https://github.com/open-webui/open-webui/commit/61a26722155ec6ee1b629cf8dfcf975098c18331"
+          ]
+        },
+        {
+          "id": "CVE-2026-59221",
+          "aliases": [
+            "GHSA-frvj-c5qp-xj4w",
+            "PYSEC-2026-3597"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "open-webui terminal proxy path traversal guard bypass via 9x encoded traversal",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-frvj-c5qp-xj4w",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59221",
+            "https://github.com/open-webui/open-webui/pull/26050"
+          ]
+        },
+        {
+          "id": "CVE-2026-70484",
+          "aliases": [
+            "GHSA-g423-grf7-98rv",
+            "PYSEC-2026-3646"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Users denied the image-generation permission can still generate images via chat completions",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-g423-grf7-98rv",
+            "https://github.com/open-webui/open-webui/pull/26703",
+            "https://github.com/open-webui/open-webui/commit/897d69a35c65f8ab54583bb9ca8dc74eab7bcd29"
+          ]
+        },
+        {
+          "id": "CVE-2026-59222",
+          "aliases": [
+            "GHSA-gh7p-78x6-jw6m",
+            "PYSEC-2026-3598"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: /api/v1/channels/{id}/members exposes full user model including sensitive credentials",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-gh7p-78x6-jw6m",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59222",
+            "https://github.com/open-webui/open-webui/commit/fbcdcf146b99b5002705060a8243eee769108f9e"
+          ]
+        },
+        {
+          "id": "CVE-2026-59715",
+          "aliases": [
+            "GHSA-gmfw-g93r-vg53",
+            "PYSEC-2026-3599"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Open WebUI: Unauthenticated WebSocket Access to Collaborative Document Handlers (ydoc:awareness:update, ydoc:document:leave)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-gmfw-g93r-vg53",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59715",
+            "https://github.com/open-webui/open-webui/pull/25946"
+          ]
+        },
+        {
+          "id": "CVE-2026-54020",
+          "aliases": [
+            "GHSA-h6x2-583h-x99r",
+            "PYSEC-2026-3647"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: DNS Rebinding SSRF Bypass",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-h6x2-583h-x99r",
+            "https://github.com/open-webui/open-webui",
+            "https://github.com/open-webui/open-webui/releases/tag/v0.11.0"
+          ]
+        },
+        {
+          "id": "CVE-2026-54014",
+          "aliases": [
+            "GHSA-j2c8-v969-8r5c",
+            "PYSEC-2026-2736"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Sibling-Prefix Path Traversal via /cache/{path}",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-j2c8-v969-8r5c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54014",
+            "https://github.com/advisories/GHSA-j2c8-v969-8r5c"
+          ]
+        },
+        {
+          "id": "CVE-2026-59224",
+          "aliases": [
+            "GHSA-j657-m4c4-24jq",
+            "PYSEC-2026-3600"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Terminal proxy forwards a spoofable, integrity-unbound user identity to the upstream (X-User-Id header and ws_terminal session_id query injection)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-j657-m4c4-24jq",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59224",
+            "https://github.com/open-webui/open-webui/pull/26042"
+          ]
+        },
+        {
+          "id": "CVE-2026-34225",
+          "aliases": [
+            "GHSA-jgx9-jr5x-mvpv",
+            "PYSEC-2026-2740"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI has Blind Server Side Request Forgery in its Image Edit Functionality",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-jgx9-jr5x-mvpv",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-34225",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-54018",
+          "aliases": [
+            "GHSA-jrfp-m64g-pcwv",
+            "PYSEC-2026-2743"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: SSRF Protection Bypass in Playwright Web Loader via HTTP Redirects",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-jrfp-m64g-pcwv",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54018",
+            "https://github.com/advisories/GHSA-jrfp-m64g-pcwv"
+          ]
+        },
+        {
+          "id": "CVE-2026-70488",
+          "aliases": [
+            "GHSA-jxc9-xmc4-gr23",
+            "PYSEC-2026-3648"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Deletion of directories and file embeddings in other knowledge bases via sync cleanup",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-jxc9-xmc4-gr23",
+            "https://github.com/open-webui/open-webui/pull/26722",
+            "https://github.com/open-webui/open-webui/commit/707efeaed7992dd9896d5928559458f228b9a539"
+          ]
+        },
+        {
+          "id": "CVE-2026-59225",
+          "aliases": [
+            "GHSA-m3qf-58wf-w979",
+            "PYSEC-2026-3601"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Arena task endpoints can bypass underlying model access controls",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-m3qf-58wf-w979",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59225",
+            "https://github.com/open-webui/open-webui/pull/26046"
+          ]
+        },
+        {
+          "id": "CVE-2026-70481",
+          "aliases": [
+            "GHSA-mj5r-jf49-m3w7",
+            "PYSEC-2026-3649"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Any member with write access to a standard channel can edit or delete other members' messages",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-mj5r-jf49-m3w7",
+            "https://github.com/open-webui/open-webui/pull/27197",
+            "https://github.com/open-webui/open-webui/commit/c609ec41154fa092fa0af80d9d365de06b666286"
+          ]
+        },
+        {
+          "id": "CVE-2026-59226",
+          "aliases": [
+            "GHSA-mvx4-532p-xfm9",
+            "PYSEC-2026-3602"
+          ],
+          "severity": "LOW",
+          "score": 3.0,
+          "desc": "Open WebUI: Scheduled automations continue after pending-user deactivation and stored model ACL revocation",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-mvx4-532p-xfm9",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59226",
+            "https://github.com/open-webui/open-webui/pull/26047"
+          ]
+        },
+        {
+          "id": "CVE-2026-54019",
+          "aliases": [
+            "GHSA-p5cp-r7rg-qpxc",
+            "PYSEC-2026-2750"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: RAG ACL Bypass in Milvus Multitenancy Mode",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-p5cp-r7rg-qpxc",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54019",
+            "https://github.com/advisories/GHSA-p5cp-r7rg-qpxc"
+          ]
+        },
+        {
+          "id": "CVE-2026-70492",
+          "aliases": [
+            "GHSA-pwxh-7358-jq2x",
+            "PYSEC-2026-3650"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Stored XSS via unescaped KaTeX render-error fallback in rendered messages",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-pwxh-7358-jq2x",
+            "https://github.com/open-webui/open-webui/pull/26718",
+            "https://github.com/open-webui/open-webui/commit/bc600d3f085802c45aa8f38c30e6e8c986bde6cc"
+          ]
+        },
+        {
+          "id": "CVE-2026-59223",
+          "aliases": [
+            "GHSA-qg3f-8x3j-ggf2",
+            "PYSEC-2026-3603"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: `WEB_FETCH_FILTER_LIST` host allow/block filter bypassable via URL path and non-label-boundary matching",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-qg3f-8x3j-ggf2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59223",
+            "https://github.com/open-webui/open-webui/pull/25949"
+          ]
+        },
+        {
+          "id": "CVE-2026-54017",
+          "aliases": [
+            "GHSA-r2wg-2mcr-66rv",
+            "PYSEC-2026-2751"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Path traversal / SSRF in terminal server proxy via encoded path traversal",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-r2wg-2mcr-66rv",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54017",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-70480",
+          "aliases": [
+            "GHSA-rffm-9q57-q649",
+            "PYSEC-2026-3651"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Client-side SSRF via unrestricted external resource loading in Vega/Vega-Lite chart rendering",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-rffm-9q57-q649",
+            "https://github.com/open-webui/open-webui/pull/26806",
+            "https://github.com/open-webui/open-webui/commit/5278eb906ebecefc6538a19bc86df09d997e43e6"
+          ]
+        },
+        {
+          "id": "CVE-2026-70482",
+          "aliases": [
+            "GHSA-rq84-p6rr-vf89",
+            "PYSEC-2026-3652"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Account takeover via OAuth token exchange accepting tokens issued to any client",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-rq84-p6rr-vf89",
+            "https://github.com/open-webui/open-webui/commit/b190dcf3caa00dc8b7b9c7312828298d9143f60d",
+            "https://github.com/open-webui/open-webui/commit/c4332be71e6e9c314e8a13b9d2819a6932561630"
+          ]
+        },
+        {
+          "id": "CVE-2026-59227",
+          "aliases": [
+            "GHSA-rqj7-6wrp-6g2g",
+            "PYSEC-2026-3604"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: POST /api/v1/images/edit bypasses the global image-edit switch and the per-user image-generation permission",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-rqj7-6wrp-6g2g",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59227",
+            "https://github.com/open-webui/open-webui/pull/26009"
+          ]
+        },
+        {
+          "id": "CVE-2026-54013",
+          "aliases": [
+            "GHSA-v2qm-5wxj-qhj7",
+            "PYSEC-2026-2757"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Stored XSS to Account Takeover via Model Profile Images ",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-v2qm-5wxj-qhj7",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54013",
+            "https://github.com/advisories/GHSA-v2qm-5wxj-qhj7"
+          ]
+        },
+        {
+          "id": "CVE-2026-54011",
+          "aliases": [
+            "GHSA-v8qj-hxv7-mgvv",
+            "PYSEC-2026-2759"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Stored XSS in Mermaid Markdown Preview",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-v8qj-hxv7-mgvv",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54011",
+            "https://github.com/advisories/GHSA-v8qj-hxv7-mgvv"
+          ]
+        },
+        {
+          "id": "CVE-2026-26193",
+          "aliases": [
+            "GHSA-vjm7-m4xh-7wrc",
+            "PYSEC-2026-2760"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI vulnerable to Stored XSS via iFrame embeds in response messages",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-vjm7-m4xh-7wrc",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-26193",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-54012",
+          "aliases": [
+            "GHSA-vjqm-6gcc-62cr",
+            "PYSEC-2026-2761"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Forged model meta.knowledge allows cross-user file read and deletion",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-vjqm-6gcc-62cr",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54012",
+            "https://github.com/advisories/GHSA-vjqm-6gcc-62cr"
+          ]
+        },
+        {
+          "id": "CVE-2026-54010",
+          "aliases": [
+            "GHSA-vrhc-3fr6-pc3c",
+            "PYSEC-2026-2763"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Forged chat-file link allows cross-user file read and deletion",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-vrhc-3fr6-pc3c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54010",
+            "https://github.com/open-webui/open-webui/pull/24755"
+          ]
+        },
+        {
+          "id": "CVE-2026-70479",
+          "aliases": [
+            "GHSA-w2rx-84hp-gg95",
+            "PYSEC-2026-3653"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: SSRF into internal services via unvalidated sub-resource requests in the Playwright web loader",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-w2rx-84hp-gg95",
+            "https://github.com/open-webui/open-webui/pull/27526",
+            "https://github.com/open-webui/open-webui/commit/bef63a2ae915571d50d2722a635e8bfa753d7877"
+          ]
+        },
+        {
+          "id": "CVE-2026-54009",
+          "aliases": [
+            "GHSA-wch8-mhj5-9frg",
+            "PYSEC-2026-2766"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Cross-user file disclosure via /api/chat/completions image_url field",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-wch8-mhj5-9frg",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54009",
+            "https://github.com/advisories/GHSA-wch8-mhj5-9frg"
+          ]
+        },
+        {
+          "id": "CVE-2026-59714",
+          "aliases": [
+            "GHSA-x2ff-v5v8-m75m",
+            "PYSEC-2026-3605"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI: Cross-channel message overwrite via chat completion API (single-model and multimodel message_ids)",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-x2ff-v5v8-m75m",
+            "https://github.com/open-webui/open-webui/commit/33e4e0dcc43afcca80f9c635d762cdc76c768ba9",
+            "https://github.com/open-webui/open-webui/commit/ac3449cac91e62b08a7c28e54fcd044d14dea791"
+          ]
+        },
+        {
+          "id": "CVE-2026-26192",
+          "aliases": [
+            "GHSA-xc8p-9rr6-97r2",
+            "PYSEC-2026-2769"
+          ],
+          "severity": "HIGH",
+          "score": 7.5,
+          "desc": "Open WebUI vulnerable to Stored XSS via iFrame in citations model",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-xc8p-9rr6-97r2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-26192",
+            "https://github.com/open-webui/open-webui"
+          ]
+        },
+        {
+          "id": "CVE-2026-45339",
+          "aliases": [
+            "GHSA-57q6-fvp4-pqmm",
+            "PYSEC-2026-3543"
+          ],
+          "severity": "MEDIUM",
+          "score": 5.5,
+          "desc": "Open WebUI's API key endpoint restrictions bypassed via `x-api-key` header \u2014 full message processing on restricted endpoints",
+          "year": 2026,
+          "refs": [
+            "https://github.com/open-webui/open-webui/security/advisories/GHSA-57q6-fvp4-pqmm",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-45339",
+            "https://github.com/open-webui/open-webui"
+          ]
         }
       ],
       "risk_score": 80,
@@ -25059,7 +27699,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "librechat",
@@ -25113,8 +27753,8 @@
       "id": "guardrails-ai",
       "label": "Guardrails AI",
       "group": "agent",
-      "downloads": 54027,
-      "version": "0.10.2",
+      "downloads": 138908,
+      "version": "0.11.0",
       "maintainer": "Guardrails AI",
       "license": "Apache-2.0",
       "description": "LLM output validation and safety framework. If compromised, bypasses ALL safety filters between LLM output and downstream actions",
@@ -25206,14 +27846,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "groq",
       "label": "Groq SDK",
       "group": "provider",
-      "downloads": 19843062,
-      "version": "1.4.0",
+      "downloads": 24116196,
+      "version": "1.7.0",
       "maintainer": "Groq",
       "license": "Apache-2.0",
       "description": "Python SDK for Groq ultra-fast LPU inference",
@@ -25230,13 +27870,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "jupyter",
       "label": "Jupyter",
       "group": "util",
-      "downloads": 15017904,
+      "downloads": 15469161,
       "version": "1.1.1",
       "maintainer": "Jupyter team",
       "license": "BSD-3",
@@ -25260,14 +27900,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "pgvector",
       "label": "pgvector",
       "group": "vector-db",
-      "downloads": 26431135,
-      "version": "0.4.2",
+      "downloads": 35163584,
+      "version": "0.5.0",
       "maintainer": "Andrew Kane",
       "license": "PostgreSQL",
       "description": "PostgreSQL vector extension. Inherits entire PostgreSQL attack surface plus SQL injection in vector queries",
@@ -25278,14 +27918,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "kubeflow",
       "label": "Kubeflow",
       "group": "infra",
-      "downloads": 136708,
-      "version": "0.4.0",
+      "downloads": 84179,
+      "version": "0.5.0",
       "maintainer": "Kubeflow community",
       "license": "Apache-2.0",
       "description": "ML pipeline orchestration on Kubernetes. Manages training, serving, and experiment tracking at scale",
@@ -25310,13 +27950,13 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "tgi",
       "label": "TGI (Text Gen Inference)",
       "group": "infra",
-      "downloads": 279,
+      "downloads": 96,
       "version": "2.4.2",
       "maintainer": "HuggingFace",
       "license": "Apache-2.0",
@@ -25334,14 +27974,14 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "composio",
       "label": "Composio",
       "group": "agent",
-      "downloads": 2724699,
-      "version": "0.13.1",
+      "downloads": 1794421,
+      "version": "0.21.0",
       "maintainer": "Composio Inc",
       "license": "Apache-2.0",
       "description": "Agent tooling platform. Critical auth bypass (CVSS 9.1), unsafe eval, and SSRF vulnerabilities",
@@ -25398,7 +28038,7 @@
         "total_affected": 0,
         "cascade_depth": 0
       },
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-08-31"
     },
     {
       "id": "anythingllm",
